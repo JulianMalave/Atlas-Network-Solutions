@@ -1,37 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Meta Pixel Code -->
+  <!-- Meta Pixel Code (Fixed) -->
   <script>
-  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
-  (window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    !function(f,b,e,v,n,t,s){
+      if(f.fbq)return;
+      n=f.fbq=function(){ n.callMethod ? n.callMethod.apply(n,arguments) : n.queue.push(arguments) };
+      if(!f._fbq) f._fbq=n;
+      n.push=n; n.loaded=!0; n.version='2.0'; n.queue=[];
+      t=b.createElement(e); t.async=!0;
+      t.src=v; s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)
+    }(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
 
-  fbq('init', '743912548284525');
-  fbq('track', 'PageView');
-  fbq('trackCustom', 'FunnelEntry');
+    fbq('init', '743912548284525');
+    fbq('track', 'PageView');
+    fbq('trackCustom', 'FunnelEntry');
 
-  // Count when they click to open your Tally form
-  document.addEventListener('DOMContentLoaded', function () {
-    var links = document.querySelectorAll('a[href*="tally.so/r/wL2zej"]');
-    links.forEach(function (a) {
-      a.addEventListener('click', function () {
-        fbq('trackCustom', 'FormStart');
+    document.addEventListener('DOMContentLoaded', function () {
+      var links = document.querySelectorAll('a[href*="tally.so/r/wL2zej"]');
+      links.forEach(function (a) {
+        a.addEventListener('click', function () {
+          fbq('trackCustom', 'FormStart');
+        });
       });
     });
-  });
   </script>
   <noscript>
     <img height="1" width="1" style="display:none"
-      src="https://www.facebook.com/tr?id=743912548284525&ev=PageView&noscript=1"/>
+         src="https://www.facebook.com/tr?id=743912548284525&ev=PageView&noscript=1"/>
   </noscript>
-  <!-- End Meta Pixel Code -->
+  <!-- End Meta Pixel -->
 
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Atlas Network Solutions - Future-Proof Your Business Connectivity</title>
+
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;700;900&display=swap" rel="stylesheet">
 
@@ -42,143 +46,129 @@
     .gradient-bg {
       background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 25%, #16213e 50%, #0f3460 75%, #533483 100%);
       animation: gradientShift 8s ease-in-out infinite;
-    }
-    @keyframes gradientShift {
-      0%, 100% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
+      background-size: 300% 300%;
     }
 
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Medium Glass Nav */
+    .glass-nav {
+      background: rgba(10, 10, 25, 0.55);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    /* Mobile links */
+    .mobile-link {
+      color: #d1d5db;
+      font-size: 1.2rem;
+      padding: 0.5rem 0;
+      display: block;
+    }
+    .mobile-link:hover { color: #22d3ee; }
+
+    /* Underline animation */
+    .underline-anim {
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      height: 2px;
+      width: 0%;
+      background-color: #22d3ee;
+      transition: width .3s ease;
+    }
+    .group:hover .underline-anim { width: 100%; }
+    .nav-link.active { color: #22d3ee !important; }
+    .nav-link.active .underline-anim { width: 100%; }
+
+    /* Buttons */
     .glow-button {
       background: linear-gradient(45deg, #00d4ff, #0099cc);
-      box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
-      transition: all 0.3s ease;
+      transition: 0.3s ease;
+      box-shadow: 0 0 16px rgba(0,212,255,0.35);
     }
-    .glow-button:hover { box-shadow: 0 0 30px rgba(0,212,255,0.6); transform: translateY(-2px); }
+    .glow-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 26px rgba(0,212,255,0.6);
+    }
 
-    .service-card {
+    /* Enhanced cards */
+    .enhanced-card {
       background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
       backdrop-filter: blur(10px);
-      border: 1px solid rgba(255,255,255,0.1);
-      transition: all 0.3s ease;
+      transition: .3s ease;
     }
-    .service-card:hover { background: rgba(255,255,255,0.1); box-shadow: 0 10px 40px rgba(0,212,255,0.2); transform: translateY(-5px); }
-
-    .floating { animation: float 6s ease-in-out infinite; }
-    @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-20px)} }
-
-    .pulse-glow { animation: pulseGlow 2s ease-in-out infinite; }
-    @keyframes pulseGlow { 0%,100%{box-shadow:0 0 20px rgba(0,212,255,.3)} 50%{box-shadow:0 0 40px rgba(0,212,255,.8)} }
-
-    .grid-bg{
-      background-image:linear-gradient(rgba(0,212,255,.1) 1px,transparent 1px),
-                       linear-gradient(90deg,rgba(0,212,255,.1) 1px,transparent 1px);
-      background-size:50px 50px; animation:gridMove 20s linear infinite;
-    }
-    @keyframes gridMove { 0%{background-position:0 0} 100%{background-position:50px 50px} }
-
-    .particle{position:absolute;background:radial-gradient(circle,rgba(0,212,255,.8)0%,transparent70%);border-radius:50%;animation:particleFloat 8s ease-in-out infinite;}
-    @keyframes particleFloat{
-      0%,100%{transform:translate(0,0);opacity:.3}
-      25%{transform:translate(20px,-30px);opacity:.8}
-      50%{transform:translate(-10px,-60px);opacity:.5}
-      75%{transform:translate(-30px,-30px);opacity:.8}
+    .enhanced-card:hover {
+      transform: translateY(-6px);
+      background: rgba(255,255,255,0.1);
+      box-shadow: 0 10px 40px rgba(0,212,255,0.2);
     }
 
-    .sticky-nav{backdrop-filter:blur(20px);background:rgba(15,15,35,.9);}
-
-    .process-step{background:linear-gradient(135deg,rgba(0,212,255,.1),rgba(83,52,131,.1));border:1px solid rgba(0,212,255,.3);}
-
-    .chat-pulse{animation:chatPulse 2s ease-in-out infinite;}
-    @keyframes chatPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}
-
-    .service-detail{display:none;opacity:0;transform:translateY(50px);transition:all .8s ease;}
-    .service-detail.active{display:block;opacity:1;transform:translateY(0);}
-
-    .floating-particle{position:absolute;background:radial-gradient(circle,rgba(0,212,255,.8)0%,rgba(0,212,255,.3)50%,transparent 100%);border-radius:50%;pointer-events:none;animation:floatParticle 12s ease-in-out infinite;}
-    @keyframes floatParticle{
-      0%,100%{transform:translate(0,0) scale(1);opacity:.3}
-      25%{transform:translate(50px,-100px) scale(1.2);opacity:.8}
-      50%{transform:translate(-30px,-200px) scale(.8);opacity:.6}
-      75%{transform:translate(-80px,-150px) scale(1.1);opacity:.9}
-    }
-
-    .data-stream{position:absolute;width:2px;background:linear-gradient(to bottom,transparent 0%,#00d4ff 20%,#fff 50%,#00d4ff 80%,transparent 100%);animation:dataTransmission 3s linear infinite;opacity:.7;}
-    @keyframes dataTransmission{
-      0%{height:0;top:100%;opacity:0}
-      10%{opacity:1}
-      50%{height:300px;top:50%;opacity:1}
-      90%{opacity:1}
-      100%{height:0;top:0;opacity:0}
-    }
-
-    .fiber-glow{position:relative;overflow:hidden;}
-    .fiber-glow::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(0,212,255,.4),transparent);animation:fiberSweep 4s ease-in-out infinite;}
-    @keyframes fiberSweep{0%{left:-100%}50%{left:100%}100%{left:-100%}}
-
-    .enhanced-card{position:relative;background:rgba(255,255,255,.05);backdrop-filter:blur(15px);border:1px solid rgba(0,212,255,.2);transition:all .4s ease;overflow:hidden;}
-    .enhanced-card:hover{background:rgba(255,255,255,.1);border-color:rgba(0,212,255,.6);box-shadow:0 20px 60px rgba(0,212,255,.3);transform:translateY(-10px) scale(1.02);}
-    .enhanced-card::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at var(--mouse-x,50%) var(--mouse-y,50%), rgba(0,212,255,.1) 0%, transparent 50%);opacity:0;transition:opacity .3s ease;pointer-events:none;}
-    .enhanced-card:hover::after{opacity:1;}
-
-    /* Scroll Animations */
-    .scroll-animate{opacity:0;transition:all .8s cubic-bezier(.25,.46,.45,.94);}
-    .scroll-animate.animate-in{opacity:1;}
-    .slide-up{transform:translateY(60px)} .slide-up.animate-in{transform:translateY(0)}
-    .slide-down{transform:translateY(-60px)} .slide-down.animate-in{transform:translateY(0)}
-    .slide-left{transform:translateX(-60px)} .slide-left.animate-in{transform:translateX(0)}
-    .slide-right{transform:translateX(60px)} .slide-right.animate-in{transform:translateX(0)}
-    .scale-in{transform:scale(.8)} .scale-in.animate-in{transform:scale(1)}
+    /* Slightly improved hero layout */
+    .hero-title { line-height: 1.15; }
+    .hero-subtitle { max-width: 900px; margin: 0 auto; }
 
     /* Sticky Quote Button */
-    .sticky-quote{position:fixed;top:20px;right:20px;z-index:100;opacity:0;transform:translateY(-20px);transition:all .5s ease;}
-    .sticky-quote.show{opacity:1;transform:translateY(0)}
-    .sticky-quote-pulse{animation:stickyPulse 3s ease-in-out infinite;}
-    @keyframes stickyPulse{0%,100%{box-shadow:0 0 20px rgba(0,212,255,.4);transform:scale(1)}50%{box-shadow:0 0 30px rgba(0,212,255,.8);transform:scale(1.05)}}
+    .sticky-quote {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 100;
+      opacity: 0;
+      transform: translateY(-20px);
+      transition: all .4s ease;
+    }
+    .sticky-quote.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
-    /* Stagger */
-    .service-card-1{animation-delay:.1s}.service-card-2{animation-delay:.2s}.service-card-3{animation-delay:.3s}
-    .service-card-4{animation-delay:.4s}.service-card-5{animation-delay:.5s}.service-card-6{animation-delay:.6s}
-    .process-1{animation-delay:.1s}.process-2{animation-delay:.2s}.process-3{animation-delay:.3s}.process-4{animation-delay:.4s}
+    /* Service Details */
+    .service-detail {
+      display: none;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: .8s ease;
+    }
+    .service-detail.active {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+    }
   </style>
 </head>
+
 <body class="bg-gray-900 text-white overflow-x-hidden">
-<!-- Sticky Navigation -->
-<nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 py-4 bg-black/60 backdrop-blur-xl">
-  <div class="container mx-auto px-6 flex justify-between items-center">
+
+<!-- NAVBAR -->
+<nav id="navbar" class="fixed top-0 w-full z-50 glass-nav py-4 transition-all duration-300">
+  <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
 
     <!-- Logo -->
     <div class="flex items-center space-x-3">
-      <img src="https://i.ibb.co/m5kw20mR/new-logo.png" alt="Atlas Network Solutions" class="h-20 w-auto">
+      <img src="https://i.ibb.co/m5kw20mR/new-logo.png" class="h-16 w-auto" alt="">
       <span class="orbitron text-xl font-bold">Atlas Network Solutions</span>
     </div>
 
     <!-- Desktop Menu -->
-    <div class="hidden md:flex space-x-8">
-      <a href="#about" class="nav-link relative group">About
-        <span class="underline-anim"></span>
-      </a>
-
-      <a href="#services" class="nav-link relative group">Services
-        <span class="underline-anim"></span>
-      </a>
-
-      <a href="#howitworks" class="nav-link relative group">Our Approach
-        <span class="underline-anim"></span>
-      </a>
-
-      <a href="#reviews" class="nav-link relative group">Reviews
-        <span class="underline-anim"></span>
-      </a>
+    <div class="hidden md:flex space-x-10">
+      <a href="#about" class="nav-link group relative">About <span class="underline-anim"></span></a>
+      <a href="#services" class="nav-link group relative">Services <span class="underline-anim"></span></a>
+      <a href="#howitworks" class="nav-link group relative">Our Approach <span class="underline-anim"></span></a>
+      <a href="#reviews" class="nav-link group relative">Reviews <span class="underline-anim"></span></a>
     </div>
 
-    <!-- Mobile Hamburger -->
-    <button id="menu-btn" class="md:hidden text-cyan-400 focus:outline-none text-3xl">
-      ☰
-    </button>
+    <!-- Mobile -->
+    <button id="menu-btn" class="md:hidden text-cyan-400 text-3xl">☰</button>
   </div>
 
-  <!-- Mobile Menu Dropdown -->
-  <div id="mobile-menu" class="hidden flex-col space-y-4 bg-black/80 backdrop-blur-lg px-6 pb-6 pt-4 md:hidden">
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden flex-col space-y-4 px-6 pb-6 pt-4 bg-black/80 backdrop-blur-lg md:hidden">
     <a href="#about" class="mobile-link">About</a>
     <a href="#services" class="mobile-link">Services</a>
     <a href="#howitworks" class="mobile-link">Our Approach</a>
@@ -186,629 +176,845 @@
   </div>
 </nav>
 
-<!-- underline animation style -->
-<style>
-  .underline-anim {
-    position: absolute;
-    bottom: -3px;
-    left: 0;
-    height: 2px;
-    width: 0%;
-    background-color: #22d3ee;
-    transition: width 0.3s ease;
-  }
-  .group:hover .underline-anim {
-    width: 100%;
-  }
-  .nav-link.active {
-    color: #22d3ee !important;
-  }
-  .nav-link.active .underline-anim {
-    width: 100%;
-  }
-</style>
+<!-- Sticky Quote Button -->
+<div id="sticky-quote" class="sticky-quote">
+  <button onclick="document.getElementById('quote').scrollIntoView({behavior:'smooth'})"
+          class="glow-button px-6 py-3 rounded-full text-white font-semibold">Get Quote</button>
+</div>
 
-<script>
-  // Mobile Menu Toggle
-  const menuBtn = document.getElementById("menu-btn");
-  const mobileMenu = document.getElementById("mobile-menu");
+<!-- HERO -->
+<section class="min-h-screen gradient-bg flex items-center justify-center text-center px-6 pt-24">
+  <div class="max-w-4xl mx-auto">
+    <img src="https://i.ibb.co/m5kw20mR/new-logo.png" class="h-32 w-auto mx-auto mb-8 rounded-full" />
 
-  menuBtn.addEventListener("click", () => {
-    mobileMenu.classList.toggle("hidden");
-  });
+    <h1 class="orbitron text-5xl md:text-7xl font-extrabold mb-6 hero-title bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">
+      Future-Proof Your Business Connectivity
+    </h1>
 
-  // Close mobile menu when a link is clicked (your missing fix)
-  document.querySelectorAll("#mobile-menu a").forEach(link => {
-    link.addEventListener("click", () => {
-      mobileMenu.classList.add("hidden");
-    });
-  });
+    <p class="text-xl md:text-2xl text-gray-300 hero-subtitle mb-10">
+      Fiber Internet. 5G Internet. VoIP. Business Wireless. Security. Entertainment.
+    </p>
 
-  // Active Linking on Scroll
-  const sections = document.querySelectorAll("section");
-  const navLinks = document.querySelectorAll(".nav-link");
-
-  window.addEventListener("scroll", () => {
-    let current;
-
-    sections.forEach((section) => {
-      const sectionTop = section.offsetTop - 150;
-      if (pageYOffset >= sectionTop) current = section.getAttribute("id");
-    });
-
-    navLinks.forEach((link) => {
-      link.classList.remove("active");
-      if (link.getAttribute("href") === `#${current}`) {
-        link.classList.add("active");
-      }
-    });
-  });
-</script>
-
-<style>
-  .mobile-link {
-    color: #ccc;
-    font-size: 1.1rem;
-  }
-  .mobile-link:hover {
-    color: #22d3ee;
-  }
-</style>
-
-
-
-  <!-- Sticky Quote Button -->
-  <div id="sticky-quote" class="sticky-quote">
-    <button onclick="scrollToQuote()" class="glow-button sticky-quote-pulse px-6 py-3 rounded-full text-white font-semibold text-sm md:text-base whitespace-nowrap">
-      Get Quote
-    </button>
+    <a href="https://tally.so/r/wL2zej" target="_blank"
+       class="glow-button px-10 py-4 text-lg font-semibold rounded-full inline-block">
+       Request a Custom Quote
+    </a>
   </div>
-
-  <!-- Hero -->
-  <section class="min-h-screen gradient-bg grid-bg relative flex items-center justify-center overflow-hidden">
-    <!-- particles/streams omitted for brevity (they’re cosmetic) -->
-    <div class="text-center z-10 px-6">
-      <div class="floating mb-8 hero-logo">
-        <img src="https://i.ibb.co/m5kw20mR/new-logo.png" alt="Atlas Network Solutions" class="h-32 w-auto mx-auto pulse-glow rounded-full">
-      </div>
-      <h1 class="orbitron text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent hero-title">
-        Future-Proof Your Business Connectivity
-      </h1>
-      <p class="text-xl md:text-2xl mb-8 text-gray-300 hero-subtitle">Fiber Internet. 5G Internet. VoIP. Business Wireless. Security. Entertainment.</p>
-      <button onclick="scrollToQuote()" class="glow-button px-8 py-4 rounded-full text-lg font-semibold hover:scale-105 transition-transform hero-button">
-        Request a Custom Quote
-      </button>
-    </div>
-  </section>
-
- <!-- About Section -->
-<section id="about" class="py-20 bg-gray-900">
-    <div class="container mx-auto px-6">
-        <h2 class="orbitron text-4xl font-bold text-center mb-12 text-cyan-400 scroll-animate slide-up">
-            Who We Are
-        </h2>
-
-        <div class="max-w-4xl mx-auto text-center scroll-animate slide-up">
-
-            <p class="text-lg text-gray-300 leading-relaxed">
-                Atlas Network Solutions is a local business built around one mission: giving business owners a trusted, honest advisor in an industry full of fine print and sales pressure. Unlike corporate reps who can only push their own company’s products, we work with multiple major providers in the area—so we’re not biased toward any specific service, only toward what’s best for your business. And because we prioritize community relationships over corporate goals and quotas, your satisfaction matters more to us than sales targets.
-            </p>
-
-            <p class="text-lg text-gray-300 leading-relaxed mt-6">
-                If you don’t need the highest speeds, we’ll tell you. If another provider has a better deal, we’ll show you. If your current setup is the best fit, we’ll recommend you stay where you are. We use our flexibility and independence to cut through confusing terms, bait-and-switch tactics, and long contracts—making sure you get the right solution, at the right price, with zero pressure.
-            </p>
-
-            <p class="text-lg text-gray-300 leading-relaxed mt-6">
-                We’re not here to sell you something. We’re here to be your trusted advisor — the one who protects your bottom line, gives you clear options, and helps you choose only what your business truly needs.
-            </p>
-
-        </div>
-    </div>
 </section>
 
-<!-- Customer Reviews Section -->
+
+<!-- ABOUT SECTION -->
+<section id="about" class="py-20 bg-gray-900">
+  <div class="max-w-6xl mx-auto px-6">
+
+    <h2 class="orbitron text-4xl font-bold text-center mb-12 text-cyan-400">
+      Who We Are
+    </h2>
+
+    <div class="max-w-4xl mx-auto text-center space-y-8">
+
+      <p class="text-lg text-gray-300 leading-relaxed">
+        Atlas Network Solutions is a local business built around one mission:
+        giving business owners a trusted, honest advisor in an industry full
+        of fine print and sales pressure.
+      </p>
+
+      <p class="text-lg text-gray-300 leading-relaxed">
+        Unlike corporate reps who can only push their own company’s products, we
+        work with multiple major providers — meaning we’re not biased toward any
+        specific service, only toward what’s best for your business.
+      </p>
+
+      <p class="text-lg text-gray-300 leading-relaxed">
+        If another provider has a better deal, we’ll show you. If your current
+        setup is the best fit, we’ll recommend you stay where you are.
+      </p>
+
+      <p class="text-lg text-gray-300 leading-relaxed">
+        We’re not here to sell you something. We’re here to be your trusted 
+        advisor — the one who protects your bottom line, gives you clear 
+        options, and helps you choose only what your business truly needs.
+      </p>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- REVIEWS WRAPPER (content will continue in next part) -->
 <section id="reviews" class="py-20 bg-gray-900">
-    <div class="container mx-auto px-6">
+  <div class="max-w-7xl mx-auto px-6">
 
-        <h2 class="orbitron text-4xl font-bold text-center mb-12 text-cyan-400 scroll-animate slide-up">
-            Customer Reviews
-        </h2>
+    <h2 class="orbitron text-4xl font-bold text-center mb-12 text-cyan-400">
+      Customer Reviews
+    </h2>
 
-        <!-- Carousel Wrapper -->
-        <div class="relative max-w-5xl mx-auto scroll-animate slide-up">
+    <!-- 
+      The carousel wrapper will be added in PART 3.
+      This block intentionally ends here.
+    -->
 
-            <!-- Carousel Inner -->
-            <div id="review-carousel" class="flex space-x-6 ov
+  </div>
+</section>
 
 
 
-  <!-- Services -->
-  <section id="services" class="py-24 bg-gray-900 w-full">
-    <div class="px-8 max-w-[1600px] mx-auto">
-      <h2 class="orbitron text-6xl font-bold text-center mb-20 text-cyan-400 scroll-animate slide-up">Our Services</h2>
+<!-- SERVICES -->
+<section id="services" class="py-24 bg-gray-900 w-full">
+  <div class="max-w-[1600px] mx-auto px-8">
 
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-14">
+    <h2 class="orbitron text-6xl font-bold text-center mb-20 text-cyan-400">
+      Our Services
+    </h2>
 
-        <!-- Fiber Internet -->
-        <div class="enhanced-card p-10 rounded-2xl cursor-pointer fiber-glow transform transition duration-500 hover:scale-105 bg-gray-800 shadow-lg min-h-[420px] flex flex-col justify-between"
-             onclick="showServiceDetail('fiber')" role="button" tabindex="0"
-             onkeypress="if(event.key==='Enter'){showServiceDetail('fiber')}">
-          <div>
-            <div class="mb-8">
-              <img src="assets/fiber-internet-card.png" alt="Fiber Internet" class="w-48 h-48 rounded-lg object-cover mx-auto">
-            </div>
-            <h3 class="orbitron text-3xl font-bold mb-4 text-cyan-400">Fiber Internet</h3>
-            <p class="text-gray-300 text-xl">Blazing fast uploads & downloads with unmatched reliability.</p>
-          </div>
-          <a href="https://tally.so/r/wL2zej" target="_blank" class="glow-button pulse mt-6 px-6 py-3 rounded-full text-lg font-semibold text-center block">Request a Quote</a>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-14">
+
+      <!-- Fiber Internet -->
+      <div class="enhanced-card p-10 rounded-2xl flex flex-col justify-between cursor-pointer"
+           onclick="showServiceDetail('fiber')" role="button" tabindex="0">
+
+        <div>
+          <img src="assets/fiber-internet-card.png"
+               alt="Fiber Internet"
+               class="w-48 h-48 rounded-lg object-cover mx-auto mb-8">
+
+          <h3 class="orbitron text-3xl font-bold mb-4 text-cyan-400">
+            Fiber Internet
+          </h3>
+
+          <p class="text-gray-300 text-xl">
+            Blazing fast uploads & downloads with unmatched reliability.
+          </p>
         </div>
 
-        <!-- VoIP -->
-        <div class="enhanced-card p-10 rounded-2xl cursor-pointer fiber-glow transform transition duration-500 hover:scale-105 bg-gray-800 shadow-lg min-h-[420px] flex flex-col justify-between"
-             onclick="showServiceDetail('voip')" role="button" tabindex="0"
-             onkeypress="if(event.key==='Enter'){showServiceDetail('voip')}">
-          <div>
-            <div class="mb-8">
-              <img src="assets/VoIP.png" alt="VoIP" class="w-48 h-48 rounded-lg object-cover mx-auto">
-            </div>
-            <h3 class="orbitron text-3xl font-bold mb-4 text-cyan-400">VoIP</h3>
-            <p class="text-gray-300 text-xl">Crystal-clear voice service with modern communication features.</p>
-          </div>
-          <a href="https://tally.so/r/wL2zej" target="_blank" class="glow-button pulse mt-6 px-6 py-3 rounded-full text-lg font-semibold text-center block">Request a Quote</a>
+        <a href="https://tally.so/r/wL2zej" target="_blank"
+           class="glow-button mt-8 px-6 py-3 rounded-full text-lg font-semibold text-center block">
+          Request a Quote
+        </a>
+      </div>
+
+
+      <!-- VoIP -->
+      <div class="enhanced-card p-10 rounded-2xl flex flex-col justify-between cursor-pointer"
+           onclick="showServiceDetail('voip')" role="button" tabindex="0">
+
+        <div>
+          <img src="assets/VoIP.png"
+               alt="VoIP"
+               class="w-48 h-48 rounded-lg object-cover mx-auto mb-8">
+
+          <h3 class="orbitron text-3xl font-bold mb-4 text-cyan-400">
+            VoIP
+          </h3>
+
+          <p class="text-gray-300 text-xl">
+            Crystal-clear voice service with modern communication features.
+          </p>
         </div>
 
-        <!-- Business Wireless -->
-        <div class="enhanced-card p-10 rounded-2xl cursor-pointer fiber-glow transform transition duration-500 hover:scale-105 bg-gray-800 shadow-lg min-h-[420px] flex flex-col justify-between"
-            onclick="showServiceDetail('wireless')" role="button" tabindex="0" onkeypress="if(event.key==='Enter'){showServiceDetail('wireless')}"">
-          <div>
-            <div class="mb-8">
-              <img src="assets/business_mobile_card.png" alt="Business Mobile" class="w-48 h-48 rounded-lg object-cover mx-auto">
-            </div>
-            <h3 class="orbitron text-3xl font-bold mb-4 text-cyan-400">Business Mobile</h3>
-            <p class="text-gray-300 text-xl">Affordable, reliable mobile plans designed for business needs.</p>
-          </div>
-          <a href="https://tally.so/r/wL2zej" target="_blank" class="glow-button pulse mt-6 px-6 py-3 rounded-full text-lg font-semibold text-center block">Request a Quote</a>
+        <a href="https://tally.so/r/wL2zej" target="_blank"
+           class="glow-button mt-8 px-6 py-3 rounded-full text-lg font-semibold text-center block">
+          Request a Quote
+        </a>
+      </div>
+
+
+      <!-- Business Mobile -->
+      <div class="enhanced-card p-10 rounded-2xl flex flex-col justify-between cursor-pointer"
+           onclick="showServiceDetail('wireless')" role="button" tabindex="0">
+
+        <div>
+          <img src="assets/business_mobile_card.png"
+               alt="Business Mobile"
+               class="w-48 h-48 rounded-lg object-cover mx-auto mb-8">
+
+          <h3 class="orbitron text-3xl font-bold mb-4 text-cyan-400">
+            Business Mobile
+          </h3>
+
+          <p class="text-gray-300 text-xl">
+            Affordable, reliable mobile plans designed for business needs.
+          </p>
         </div>
 
-        <!-- Smart Business Security -->
-        <div class="enhanced-card p-10 rounded-2xl cursor-pointer fiber-glow transform transition duration-500 hover:scale-105 bg-gray-800 shadow-lg min-h-[420px] flex flex-col justify-between"
-             onclick="showServiceDetail('security')" role="button" tabindex="0"
-             onkeypress="if(event.key==='Enter'){showServiceDetail('security')}">
-          <div>
-            <div class="mb-8">
-              <img src="assets/smart-business-security.png" alt="Smart Business Security" class="w-48 h-48 rounded-lg object-cover mx-auto">
-            </div>
-            <h3 class="orbitron text-3xl font-bold mb-4 text-cyan-400">Smart Business Security</h3>
-            <p class="text-gray-300 text-xl">Cutting-edge security systems to protect your business assets.</p>
-          </div>
-          <a href="https://tally.so/r/wL2zej" target="_blank" class="glow-button pulse mt-6 px-6 py-3 rounded-full text-lg font-semibold text-center block">Request a Quote</a>
+        <a href="https://tally.so/r/wL2zej" target="_blank"
+           class="glow-button mt-8 px-6 py-3 rounded-full text-lg font-semibold text-center block">
+          Request a Quote
+        </a>
+      </div>
+
+
+      <!-- Smart Business Security -->
+      <div class="enhanced-card p-10 rounded-2xl flex flex-col justify-between cursor-pointer"
+           onclick="showServiceDetail('security')" role="button" tabindex="0">
+
+        <div>
+          <img src="assets/smart-business-security.png"
+               alt="Smart Business Security"
+               class="w-48 h-48 rounded-lg object-cover mx-auto mb-8">
+
+          <h3 class="orbitron text-3xl font-bold mb-4 text-cyan-400">
+            Smart Business Security
+          </h3>
+
+          <p class="text-gray-300 text-xl">
+            Modern, fully managed alarm and surveillance systems.
+          </p>
         </div>
 
-        <!-- TV & Entertainment -->
-        <div class="enhanced-card p-10 rounded-2xl cursor-pointer fiber-glow transform transition duration-500 hover:scale-105 bg-gray-800 shadow-lg min-h-[420px] flex flex-col justify-between"
-             onclick="showServiceDetail('tv')" role="button" tabindex="0"
-             onkeypress="if(event.key==='Enter'){showServiceDetail('tv')}">
-          <div>
-            <div class="mb-8">
-              <img src="assets/TV-packages.png" alt="TV & Entertainment Packages" class="w-48 h-48 rounded-lg object-cover mx-auto">
-            </div>
-            <h3 class="orbitron text-3xl font-bold mb-4 text-cyan-400">TV & Entertainment</h3>
-            <p class="text-gray-300 text-xl">Custom TV packages with premium channels & streaming options.</p>
-          </div>
-          <a href="https://tally.so/r/wL2zej" target="_blank" class="glow-button pulse mt-6 px-6 py-3 rounded-full text-lg font-semibold text-center block">Request a Quote</a>
+        <a href="https://tally.so/r/wL2zej" target="_blank"
+           class="glow-button mt-8 px-6 py-3 rounded-full text-lg font-semibold text-center block">
+          Request a Quote
+        </a>
+      </div>
+
+
+      <!-- TV & Entertainment -->
+      <div class="enhanced-card p-10 rounded-2xl flex flex-col justify-between cursor-pointer"
+           onclick="showServiceDetail('tv')" role="button" tabindex="0">
+
+        <div>
+          <img src="assets/TV-packages.png"
+               alt="TV & Entertainment"
+               class="w-48 h-48 rounded-lg object-cover mx-auto mb-8">
+
+          <h3 class="orbitron text-3xl font-bold mb-4 text-cyan-400">
+            TV & Entertainment
+          </h3>
+
+          <p class="text-gray-300 text-xl">
+            Custom TV packages with premium channels & streaming options.
+          </p>
         </div>
 
-        <!-- Consulting -->
-        <div class="enhanced-card p-10 rounded-2xl cursor-pointer fiber-glow transform transition duration-500 hover:scale-105 bg-gray-800 shadow-lg min-h-[420px] flex flex-col justify-between"
-             onclick="showServiceDetail('consultation')" role="button" tabindex="0"
-             onkeypress="if(event.key==='Enter'){showServiceDetail('consultation')}">
-          <div>
-            <div class="mb-8">
-              <img src="assets/Consulting.webp" alt="Consulting" class="w-48 h-48 rounded-lg object-cover mx-auto">
-            </div>
-            <h3 class="orbitron text-3xl font-bold mb-4 text-cyan-400">Consulting</h3>
-            <p class="text-gray-300 text-xl">Expert guidance to optimize your connectivity and tech solutions.</p>
-          </div>
-          <a href="https://tally.so/r/wL2zej" target="_blank" class="glow-button pulse mt-6 px-6 py-3 rounded-full text-lg font-semibold text-center block">Request a Quote</a>
+        <a href="https://tally.so/r/wL2zej" target="_blank"
+           class="glow-button mt-8 px-6 py-3 rounded-full text-lg font-semibold text-center block">
+          Request a Quote
+        </a>
+      </div>
+
+
+      <!-- Consulting -->
+      <div class="enhanced-card p-10 rounded-2xl flex flex-col justify-between cursor-pointer"
+           onclick="showServiceDetail('consultation')" role="button" tabindex="0">
+
+        <div>
+          <img src="assets/Consulting.webp"
+               alt="Consulting"
+               class="w-48 h-48 rounded-lg object-cover mx-auto mb-8">
+
+          <h3 class="orbitron text-3xl font-bold mb-4 text-cyan-400">
+            Consulting
+          </h3>
+
+          <p class="text-gray-300 text-xl">
+            Expert guidance to optimize your connectivity and tech solutions.
+          </p>
+        </div>
+
+        <a href="https://tally.so/r/wL2zej" target="_blank"
+           class="glow-button mt-8 px-6 py-3 rounded-full text-lg font-semibold text-center block">
+          Request a Quote
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+  <!-- REVIEWS SECTION FULL -->
+<section id="reviews" class="py-20 bg-gray-900">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <h2 class="orbitron text-4xl font-bold text-center mb-12 text-cyan-400">
+      Customer Reviews
+    </h2>
+
+    <div class="overflow-hidden relative max-w-4xl mx-auto">
+
+      <div id="review-carousel" class="flex transition-transform duration-700 space-x-6">
+
+        <!-- Review 1 -->
+        <div class="bg-gray-800 p-8 rounded-2xl w-full shrink-0">
+          <p class="text-gray-300 text-lg leading-relaxed">
+            "Julian made switching to fiber incredibly easy. The price was better than what
+            we were paying with Comcast and the installation was smooth."
+          </p>
+          <p class="mt-6 text-cyan-400 font-semibold">— Local Retail Owner</p>
+        </div>
+
+        <!-- Review 2 -->
+        <div class="bg-gray-800 p-8 rounded-2xl w-full shrink-0">
+          <p class="text-gray-300 text-lg leading-relaxed">
+            "He explained everything without pushing anything on us. We didn't feel sold to —
+            we felt advised. Highly recommend Atlas Network Solutions."
+          </p>
+          <p class="mt-6 text-cyan-400 font-semibold">— Dental Practice Manager</p>
+        </div>
+
+        <!-- Review 3 -->
+        <div class="bg-gray-800 p-8 rounded-2xl w-full shrink-0">
+          <p class="text-gray-300 text-lg leading-relaxed">
+            "The speed difference switching to fiber is unreal. Payments process faster,
+            video calls don't lag, and our VoIP phones sound clearer than ever."
+          </p>
+          <p class="mt-6 text-cyan-400 font-semibold">— Medical Clinic</p>
         </div>
 
       </div>
-    </div>
-  </section>
 
-  <!-- Industries We Serve -->
-  <section id="industries" class="py-20 bg-gray-950 text-white">
-    <div class="container mx-auto px-6">
-      <div class="text-center mb-12 scroll-animate slide-up">
-        <h2 class="orbitron text-4xl font-bold text-cyan-400">Industries We Serve</h2>
-        <p class="mt-4 text-lg text-gray-400 max-w-2xl mx-auto">
-          Our custom network solutions are tailored for every business environment — from high-traffic clinics to fast-paced retail.
+      <!-- Carousel Controls -->
+      <div class="flex justify-center space-x-4 mt-6">
+        <button id="prev-review" class="text-cyan-400 hover:text-white text-2xl">‹</button>
+        <button id="next-review" class="text-cyan-400 hover:text-white text-2xl">›</button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+<!-- INDUSTRIES WE SERVE -->
+<section id="industries" class="py-20 bg-gray-950 text-white">
+  <div class="max-w-6xl mx-auto px-6">
+
+    <h2 class="orbitron text-4xl font-bold text-center mb-12 text-cyan-400">
+      Industries We Serve
+    </h2>
+
+    <p class="text-lg text-gray-400 text-center max-w-3xl mx-auto mb-16">
+      Our custom network solutions are tailored for every business environment —
+      from high-traffic clinics to fast-paced retail.
+    </p>
+
+    <div class="grid md:grid-cols-3 gap-10">
+
+      <img src="assets/retail-POS.jpg"
+           class="rounded-xl w-full h-[300px] object-cover shadow-lg">
+
+      <img src="assets/dentist.jpg"
+           class="rounded-xl w-full h-[300px] object-cover shadow-lg">
+
+      <img src="assets/gym-image.png"
+           class="rounded-xl w-full h-[300px] object-cover shadow-lg">
+
+    </div>
+
+  </div>
+</section>
+
+
+
+<!-- OUR APPROACH -->
+<section id="howitworks" class="py-20 bg-gray-900">
+  <div class="max-w-6xl mx-auto px-6">
+
+    <h2 class="orbitron text-4xl font-bold text-center mb-16 text-cyan-400">
+      Our Approach
+    </h2>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+      <div class="process-step p-6 rounded-xl text-center">
+        <i class="lucide lucide-file-text text-5xl text-cyan-400 mb-4"></i>
+        <h3 class="text-xl font-bold mb-3">1. Request a Quote</h3>
+        <p class="text-gray-300">Tell us your business needs.</p>
+      </div>
+
+      <div class="process-step p-6 rounded-xl text-center">
+        <i class="lucide lucide-rocket text-5xl text-cyan-400 mb-4"></i>
+        <h3 class="text-xl font-bold mb-3">2. We Match You</h3>
+        <p class="text-gray-300">Find the perfect local provider.</p>
+      </div>
+
+      <div class="process-step p-6 rounded-xl text-center">
+        <i class="lucide lucide-calendar-check text-5xl text-cyan-400 mb-4"></i>
+        <h3 class="text-xl font-bold mb-3">3. Schedule Install</h3>
+        <p class="text-gray-300">Professional setup at your convenience.</p>
+      </div>
+
+      <div class="process-step p-6 rounded-xl text-center">
+        <i class="lucide lucide-check-circle text-5xl text-cyan-400 mb-4"></i>
+        <h3 class="text-xl font-bold mb-3">4. Activate & Enjoy</h3>
+        <p class="text-gray-300">Your new network goes live.</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+
+<!-- QUOTE CTA -->
+<section id="quote" class="py-20 bg-gray-900">
+  <div class="max-w-2xl mx-auto px-6 text-center">
+
+    <h2 class="orbitron text-4xl font-bold mb-12 text-cyan-400">
+      Get Your Custom Quote
+    </h2>
+
+    <a href="https://tally.so/r/wL2zej"
+       target="_blank"
+       class="glow-button py-4 rounded-lg text-lg font-semibold block w-full">
+      Let's Build Your Network
+    </a>
+
+  </div>
+</section>
+
+
+
+<!-- FOOTER -->
+<footer class="py-12 bg-black">
+  <div class="max-w-6xl mx-auto px-6 text-center">
+
+    <div class="flex items-center justify-center space-x-3 mb-6">
+      <img src="assets/logo.png" class="h-12 w-auto">
+      <span class="orbitron text-lg font-bold">Atlas Network Solutions</span>
+    </div>
+
+    <p class="text-gray-400 mb-6">
+      Connecting businesses to the future, one network at a time.
+    </p>
+
+    <div class="flex justify-center space-x-6">
+      <a href="#" class="text-gray-400 hover:text-cyan-400 transition-colors">LinkedIn</a>
+      <a href="#" class="text-gray-400 hover:text-cyan-400 transition-colors">Twitter</a>
+      <a href="#" class="text-gray-400 hover:text-cyan-400 transition-colors">Facebook</a>
+    </div>
+
+  </div>
+</footer>
+
+
+
+<!-- DETAIL SECTIONS -->
+<!-- Fiber Detail -->
+<div id="fiber-detail" class="service-detail py-20 bg-gray-800">
+  <div class="max-w-6xl mx-auto px-6">
+
+    <button onclick="hideServiceDetail()"
+            class="mb-8 text-cyan-400 hover:text-white">
+      ← Back to Services
+    </button>
+
+    <h1 class="orbitron text-5xl font-bold mb-8 text-cyan-400">
+      Fiber Internet Solutions
+    </h1>
+
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+
+      <div>
+        <h2 class="text-3xl font-bold mb-6">Symmetrical Fiber Internet</h2>
+
+        <p class="text-lg text-gray-300 leading-relaxed mb-6">
+          Most businesses are still using coax—shared bandwidth, throttled speeds,
+          and slow uploads. Fiber gives you a dedicated line with equal upload &
+          download speeds, zero throttling, and consistent performance.
+        </p>
+
+        <ul class="space-y-3 text-lg text-gray-300 mb-8">
+          <li>Dedicated bandwidth</li>
+          <li>Fast, reliable uploads</li>
+          <li>Low latency for real-time apps</li>
+          <li>No data caps, no throttling</li>
+          <li>Future-proof infrastructure</li>
+          <li>VoIP-ready performance</li>
+        </ul>
+
+        <p class="text-lg text-cyan-400 font-semibold">
+          We build the fiber package around your business.
         </p>
       </div>
 
-      <div class="flex flex-col md:flex-row items-center justify-between gap-10 scroll-animate slide-up">
-        <div class="w-full md:w-1/4 space-y-6">
-          <img src="https://raw.githubusercontent.com/JulianMalave/Atlas-Network-Solutions/main/assets/retail-POS.jpg" alt="Retail Point of Sale" class="rounded-xl w-full h-auto object-cover shadow-lg">
-          <img src="https://julianmalave.github.io/Atlas-Network-Solutions/assets/dentist.jpg" alt="Medical Professionals Reviewing X-Ray" class="rounded-xl w-full h-auto object-cover shadow-lg">
-        </div>
-
-        <div class="w-full md:w-1/2 text-center">
-          <ul class="space-y-6 text-xl font-medium">
-            <li>Medical & Dental Offices</li>
-            <li>Gyms & Fitness Centers</li>
-            <li>Retail & Restaurants</li>
-            <li>Corporate Offices</li>
-            <li>Clinics & Medical Labs</li>
-            <li>Auto Shops and More!</li>
-          </ul>
-        </div>
-
-        <div class="w-full md:w-1/4">
-          <img src="https://raw.githubusercontent.com/JulianMalave/Atlas-Network-Solutions/main/assets/gym-image.png" alt="Gym Industry" class="rounded-xl w-full h-auto object-cover shadow-lg">
-        </div>
-      </div>
+      <img src="assets/fiber-internet-card.png"
+           class="w-[500px] max-w-full mx-auto rounded-lg">
     </div>
-  </section>
 
-  <!-- Process -->
-  <section id="process" class="py-20 bg-gray-900">
-    <div class="container mx-auto px-6">
-      <h2 class="orbitron text-4xl font-bold text-center mb-16 text-cyan-400 scroll-animate slide-up">How It Works</h2>
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-        <div class="process-step p-6 rounded-xl text-center scroll-animate slide-up process-1">
-          <div class="mb-4 flex justify-center"><i class="lucide lucide-file-text text-5xl text-cyan-400"></i></div>
-          <h3 class="text-xl font-bold mb-3">1. Request a Quote</h3>
-          <p class="text-gray-300">Tell us your business needs</p>
-        </div>
-        <div class="process-step p-6 rounded-xl text-center scroll-animate slide-down process-2">
-          <div class="mb-4 flex justify-center"><i class="lucide lucide-rocket text-5xl text-cyan-400"></i></div>
-          <h3 class="text-xl font-bold mb-3">2. We Match You</h3>
-          <p class="text-gray-300">Find the perfect local providers</p>
-        </div>
-        <div class="process-step p-6 rounded-xl text-center scroll-animate slide-up process-3">
-          <div class="mb-4 flex justify-center"><i class="lucide lucide-calendar-check text-5xl text-cyan-400"></i></div>
-          <h3 class="text-xl font-bold mb-3">3. Schedule Install</h3>
-          <p class="text-gray-300">Professional setup at your convenience</p>
-        </div>
-        <div class="process-step p-6 rounded-xl text-center scroll-animate slide-down process-4">
-          <div class="mb-4 flex justify-center"><i class="lucide lucide-check-circle text-5xl text-cyan-400"></i></div>
-          <h3 class="text-xl font-bold mb-3">4. Activate & Enjoy</h3>
-          <p class="text-gray-300">Go live with your new network</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Quote CTA -->
-  <section id="quote" class="py-20 bg-gray-900">
-    <div class="container mx-auto px-6">
-      <div class="max-w-2xl mx-auto scroll-animate slide-up">
-        <h2 class="orbitron text-4xl font-bold text-center mb-12 text-cyan-400">Get Your Custom Quote</h2>
-        <div class="text-center">
-          <a href="https://tally.so/r/wL2zej" target="_blank" class="w-full glow-button py-4 rounded-lg text-lg font-semibold block text-center">
-            Let's Build Your Network
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="py-12 bg-black">
-    <div class="container mx-auto px-6 text-center scroll-animate fade-in">
-      <div class="flex items-center justify-center space-x-3 mb-6">
-        <img src="https://i.ibb.co/m5kw20mR/new-logo.png" alt="Atlas Network Solutions" class="h-12 w-auto">
-        <span class="orbitron text-lg font-bold">Atlas Network Solutions</span>
-      </div>
-      <p class="text-gray-400 mb-6">Connecting businesses to the future, one network at a time.</p>
-      <div class="flex justify-center space-x-6">
-        <a href="#" class="text-gray-400 hover:text-cyan-400 transition-colors">LinkedIn</a>
-        <a href="#" class="text-gray-400 hover:text-cyan-400 transition-colors">Twitter</a>
-        <a href="#" class="text-gray-400 hover:text-cyan-400 transition-colors">Facebook</a>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Floating Chat Button (placeholder) -->
-  <div class="fixed bottom-6 right-6 z-50">
-    <div class="relative">
-      <button class="chat-pulse bg-gradient-to-r from-cyan-500 to-purple-500 p-4 rounded-full shadow-lg hover:shadow-xl transition-all">
-        <svg class="w-6 h-6" fill="white" viewBox="0 0 24 24">
-          <path d="M20 2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h4l4 4 4-4h4c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/>
-        </svg>
+    <div class="text-center mt-12">
+      <button onclick="scrollToQuote(); hideServiceDetail()"
+              class="glow-button px-8 py-4 rounded-full text-lg font-semibold">
+        Get Fiber Quote
       </button>
-      <div class="absolute bottom-16 right-0 bg-gray-800 text-white p-3 rounded-lg shadow-lg whitespace-nowrap opacity-0 hover:opacity-100 transition-opacity">
-        Chat feature coming soon! Please use the form above.
-      </div>
     </div>
+
   </div>
+</div>
 
-  <!-- DETAIL SECTIONS -->
-  <!-- Fiber Detail -->
-  <div id="fiber-detail" class="service-detail py-20 bg-gray-800 relative overflow-hidden">
-    <div class="container mx-auto px-6 relative z-10">
-      <button onclick="hideServiceDetail()" class="mb-8 text-cyan-400 hover:text-white transition-colors">← Back to Services</button>
-      <h1 class="orbitron text-5xl font-bold mb-8 text-cyan-400">Fiber Internet Solutions</h1>
-      <div class="grid md:grid-cols-2 gap-12 items-center">
-        <div>
-          <h2 class="text-3xl font-bold mb-6">Symmetrical Fiber Internet</h2>
-          <p class="text-lg text-gray-300 mb-6 leading-relaxed">
-            Most businesses are still using coax—shared bandwidth, throttled speeds, and slow uploads. Fiber gives you a dedicated line with equal upload and download speeds, zero throttling, and consistent performance.
-          </p>
-          <div class="mb-6">
-            <h3 class="text-xl font-bold mb-4 text-cyan-400">Fiber gives you:</h3>
-            <ul class="space-y-3 text-lg">
-           <ul class="space-y-3 text-lg">
-  <li class="flex items-start space-x-3">
-    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-green-400 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-      <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75" />
-      <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-    </svg>
-    <span class="text-gray-300">Dedicated bandwidth (not shared with neighbors)</span>
-  </li>
 
-  <li class="flex items-start space-x-3">
-    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-green-400 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-      <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75" />
-      <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-    </svg>
-    <span class="text-gray-300">Fast, reliable upload speeds for video calls, backups, and cloud tools</span>
-  </li>
 
-  <li class="flex items-start space-x-3">
-    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-green-400 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-      <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75" />
-      <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-    </svg>
-    <span class="text-gray-300">Low latency for real-time apps and performance</span>
-  </li>
+<!-- VoIP Detail -->
+<div id="voip-detail" class="service-detail py-20 bg-gray-800">
+  <div class="max-w-6xl mx-auto px-6">
 
-  <li class="flex items-start space-x-3">
-    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-green-400 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-      <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75" />
-      <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-    </svg>
-    <span class="text-gray-300">No data caps, no throttling, and no outdated copper lines</span>
-  </li>
+    <button onclick="hideServiceDetail()"
+            class="mb-8 text-cyan-400 hover:text-white">
+      ← Back to Services
+    </button>
 
-  <li class="flex items-start space-x-3">
-    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-green-400 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-      <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75" />
-      <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-    </svg>
-    <span class="text-gray-300">Free installation and no contracts—you're never locked in</span>
-  </li>
+    <h1 class="orbitron text-5xl font-bold mb-8 text-cyan-400">
+      VoIP Phone Systems
+    </h1>
 
-  <li class="flex items-start space-x-3">
-    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-green-400 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-      <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75" />
-      <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-    </svg>
-    <span class="text-gray-300">Payment Processing & POS reliability</span>
-  </li>
+    <div class="grid md:grid-cols-2 gap-12 items-center">
 
-  <li class="flex items-start space-x-3">
-    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-green-400 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-      <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75" />
-      <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-    </svg>
-    <span class="text-gray-300">Business continuity & stable uptime</span>
-  </li>
+      <div>
+        <h2 class="text-3xl font-bold mb-6">Cloud-Based Business Phones</h2>
 
-  <li class="flex items-start space-x-3">
-    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-green-400 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-      <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75" />
-      <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-    </svg>
-    <span class="text-gray-300">Future-proof infrastructure</span>
-  </li>
+        <p class="text-lg text-gray-300 leading-relaxed mb-6">
+          Upgrade to modern VoIP with call routing, auto-attendants, voicemail-to-email,
+          and mobile app features.
+        </p>
 
-  <li class="flex items-start space-x-3">
-    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-green-400 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-      <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75" />
-      <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-    </svg>
-    <span class="text-gray-300">VoIP-ready performance</span>
-  </li>
-</ul>
-
-          </div>
-          <p class="text-lg text-gray-300 mb-6 leading-relaxed">We match your business with the best provider available and handle the entire setup from start to finish.</p>
-          <p class="text-lg text-cyan-400 font-semibold mb-8">We build the fiber package around your business—saving you the headache, while saving you money.</p>
-        </div>
-        <div class="text-center">
-          <img src="https://raw.githubusercontent.com/JulianMalave/Atlas-Network-Solutions/main/assets/fiber-internet-card.png" alt="Fiber Internet" class="w-[500px] max-w-full mx-auto rounded-lg object-contain mb-6">
-          <p class="text-xl text-gray-300">Experience the future of business connectivity</p>
-        </div>
+        <p class="text-lg text-cyan-400 font-semibold">
+          We build the phone package around your business.
+        </p>
       </div>
-      <div class="text-center mt-12">
-        <button onclick="scrollToQuote(); hideServiceDetail();" class="glow-button px-8 py-4 rounded-full text-lg font-semibold">Get Fiber Quote</button>
-      </div>
+
+      <img src="assets/VoIP.png"
+           class="w-[500px] max-w-full mx-auto rounded-lg">
+
     </div>
-  </div>
 
-  <!-- VoIP Detail -->
-  <div id="voip-detail" class="service-detail py-20 bg-gray-800 relative overflow-hidden">
-    <div class="container mx-auto px-6 relative z-10">
-      <button onclick="hideServiceDetail()" class="mb-8 text-cyan-400 hover:text-white transition-colors">← Back to Services</button>
-      <h1 class="orbitron text-5xl font-bold mb-8 text-cyan-400">VoIP Phone Systems</h1>
-      <div class="grid md:grid-cols-2 gap-12 items-center">
-        <div>
-          <h2 class="text-3xl font-bold mb-6">Cloud-Based Business Phones</h2>
-          <p class="text-lg text-gray-300 mb-6 leading-relaxed">
-            Upgrade to a modern VoIP system with call routing, auto-attendants, voicemail to email, and mobile app integration. Keep your team connected wherever they work.
-          </p>
-          <p class="text-lg text-gray-300 mb-6 leading-relaxed">We manage the setup, configuration, and provider matching so you don't have to.</p>
-          <p class="text-lg text-cyan-400 font-semibold mb-8">We build the package around your business—saving you the headache, while saving you money.</p>
-        </div>
-        <div class="text-center">
-          <img src="https://raw.githubusercontent.com/JulianMalave/Atlas-Network-Solutions/main/assets/VoIP.png" alt="VoIP Services" class="w-[500px] max-w-full mx-auto rounded-lg object-contain mb-6">
-          <p class="text-xl text-gray-300">Professional communication made simple</p>
-        </div>
-      </div>
-      <div class="text-center mt-12">
-        <button onclick="scrollToQuote(); hideServiceDetail();" class="glow-button px-8 py-4 rounded-full text-lg font-semibold">Get VoIP Quote</button>
-      </div>
+    <div class="text-center mt-12">
+      <button onclick="scrollToQuote(); hideServiceDetail()"
+              class="glow-button px-8 py-4 rounded-full text-lg font-semibold">
+        Get VoIP Quote
+      </button>
     </div>
+
   </div>
+</div>
 
-  <!-- Wireless Detail -->
-  <div id="wireless-detail" class="service-detail py-20 bg-gray-800 relative overflow-hidden">
-    <div class="container mx-auto px-6 relative z-10">
-      <button onclick="hideServiceDetail()" class="mb-8 text-cyan-400 hover:text-white transition-colors">← Back to Services</button>
-      <h1 class="orbitron text-5xl font-bold mb-8 text-cyan-400">Business Wireless Solutions</h1>
-      <div class="grid md:grid-cols-2 gap-12 items-center">
-        <div>
-          <h2 class="text-3xl font-bold mb-6">Business Wireless Solutions</h2>
 
-<p class="text-lg text-gray-300 mb-6 leading-relaxed">
-  Stay connected with reliable, flexible wireless plans built for your team’s needs. Choose from unlimited or shared data options, BYOD or new devices, and plans from top national carriers.
-</p>
 
-<ul class="text-lg text-gray-300 space-y-3 mb-6 list-disc list-inside">
-  <li>Unlimited & shared data plans</li>
-  <li>Bring-Your-Own-Device or new device options</li>
-  <li>Access to major carriers</li>
-  <li>Priority network access</li>
-  <li>Hotspot & high-speed data features</li>
-  <li>Business support & account management</li>
-</ul>
+<!-- Wireless Detail -->
+<div id="wireless-detail" class="service-detail py-20 bg-gray-800">
+  <div class="max-w-6xl mx-auto px-6">
 
-<p class="text-lg text-gray-300 font-semibold">
-  Your business, your devices, your network — optimized.
-</p>
-          </p>
-        </div>
-        <div class="text-center">
-          <img src="https://raw.githubusercontent.com/JulianMalave/Atlas-Network-Solutions/main/assets/business_mobile_card.png" alt="Business Mobile" class="w-[500px] max-w-full mx-auto rounded-lg object-contain mb-6">
-          <p class="text-xl text-gray-300">Keep your team connected anywhere</p>
-        </div>
+    <button onclick="hideServiceDetail()"
+            class="mb-8 text-cyan-400 hover:text-white">
+      ← Back to Services
+    </button>
+
+    <h1 class="orbitron text-5xl font-bold mb-8 text-cyan-400">
+      Business Wireless Solutions
+    </h1>
+
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+
+      <div>
+        <h2 class="text-3xl font-bold mb-6">Mobile Plans for Business</h2>
+
+        <p class="text-lg text-gray-300 leading-relaxed mb-6">
+          Unlimited or shared data, BYOD or new devices, and access to major carriers.
+        </p>
+
+        <ul class="text-gray-300 text-lg space-y-3 mb-8">
+          <li>Unlimited & shared data</li>
+          <li>Bring-Your-Own-Device</li>
+          <li>Priority network access</li>
+          <li>Hotspot features</li>
+        </ul>
+
       </div>
-      <div class="text-center mt-12">
-        <button onclick="scrollToQuote(); hideServiceDetail();" class="glow-button px-8 py-4 rounded-full text-lg font-semibold">Get Mobile Quote</button>
-      </div>
+
+      <img src="assets/business_mobile_card.png"
+           class="w-[500px] max-w-full mx-auto rounded-lg">
+
     </div>
-  </div>
 
-  <!-- TV Detail -->
-  <div id="tv-detail" class="service-detail py-20 bg-gray-800 relative overflow-hidden">
-    <div class="container mx-auto px-6 relative z-10">
-      <button onclick="hideServiceDetail()" class="mb-8 text-cyan-400 hover:text-white transition-colors">← Back to Services</button>
-      <h1 class="orbitron text-5xl font-bold mb-8 text-cyan-400">Commercial TV & Streaming</h1>
-      <div class="grid md:grid-cols-2 gap-12 items-center">
-        <div>
-          <h2 class="text-3xl font-bold mb-6">Business Entertainment & TV Licensing</h2>
-          <p class="text-lg text-gray-300 mb-6 leading-relaxed">
-            From sports bars to waiting rooms, we provide commercial TV and streaming bundles tailored to your environment. Licensed, high-quality content your business can legally stream, all set up and managed for you.
-          </p>
-          <p class="text-lg text-cyan-400 font-semibold mb-8">We build the bundle around your business—saving you the headache, while saving you money.</p>
-        </div>
-        <div class="text-center">
-          <img src="https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=600&h=400&fit=crop&crop=center" alt="Commercial TV Display Setup" class="w-full max-w-md mx-auto rounded-xl shadow-2xl mb-6">
-          <p class="text-xl text-gray-300">Engage customers with premium content</p>
-        </div>
-      </div>
-      <div class="text-center mt-12">
-        <button onclick="scrollToQuote(); hideServiceDetail();" class="glow-button px-8 py-4 rounded-full text-lg font-semibold">Get TV Quote</button>
-      </div>
+    <div class="text-center mt-12">
+      <button onclick="scrollToQuote(); hideServiceDetail()"
+              class="glow-button px-8 py-4 rounded-full text-lg font-semibold">
+        Get Mobile Quote
+      </button>
     </div>
-  </div>
 
-  <!-- Security Detail -->
-  <div id="security-detail" class="service-detail py-20 bg-gray-800 relative overflow-hidden">
-    <div class="container mx-auto px-6 relative z-10">
-      <button onclick="hideServiceDetail()" class="mb-8 text-cyan-400 hover:text-white transition-colors">← Back to Services</button>
-      <h1 class="orbitron text-5xl font-bold mb-8 text-cyan-400">Enterprise Security Systems</h1>
-      <div class="grid md:grid-cols-2 gap-12 items-center">
-        <div>
-          <h2 class="text-3xl font-bold mb-6">Smart Security & Surveillance for Business</h2>
-          <p class="text-lg text-gray-300 mb-6 leading-relaxed">
-            Partnering with Vivint, we offer professional-grade alarm systems, cameras, access control, and monitoring—integrated with your network and accessible via app.
-          </p>
-          <p class="text-lg text-cyan-400 font-semibold mb-8">Let us handle the entire security buildout for your location—saving you the headache, while saving you money.</p>
-        </div>
-        <div class="text-center">
-          <img src="https://raw.githubusercontent.com/JulianMalave/Atlas-Network-Solutions/main/assets/smart-business-security.png" alt="Smart Business Security" class="w-full max-w-md mx-auto rounded-xl object-cover shadow-lg">
-          <p class="text-xl text-gray-300 mt-4">Protect what matters most</p>
-        </div>
+  </div>
+</div>
+
+
+
+<!-- TV Detail -->
+<div id="tv-detail" class="service-detail py-20 bg-gray-800">
+  <div class="max-w-6xl mx-auto px-6">
+
+    <button onclick="hideServiceDetail()"
+            class="mb-8 text-cyan-400 hover:text-white">
+      ← Back to Services
+    </button>
+
+    <h1 class="orbitron text-5xl font-bold mb-8 text-cyan-400">
+      Commercial TV & Streaming
+    </h1>
+
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+
+      <div>
+        <h2 class="text-3xl font-bold mb-6">Business Entertainment</h2>
+
+        <p class="text-lg text-gray-300 leading-relaxed mb-6">
+          From sports bars to waiting rooms, we provide commercial TV licensing
+          and streaming bundles tailored to your environment.
+        </p>
+
+        <p class="text-lg text-cyan-400 font-semibold">
+          Build the perfect entertainment setup.
+        </p>
       </div>
-      <div class="text-center mt-12">
-        <button onclick="scrollToQuote(); hideServiceDetail();" class="glow-button px-8 py-4 rounded-full text-lg font-semibold">Get Security Quote</button>
-      </div>
+
+      <img src="assets/TV-packages.png"
+           class="w-[500px] max-w-full mx-auto rounded-lg">
+
     </div>
-  </div>
 
-  <!-- Consultation Detail -->
-  <div id="consultation-detail" class="service-detail py-20 bg-gray-800 relative overflow-hidden">
-    <div class="container mx-auto px-6 relative z-10">
-      <button onclick="hideServiceDetail()" class="mb-8 text-cyan-400 hover:text-white transition-colors">← Back to Services</button>
-      <h1 class="orbitron text-5xl font-bold mb-8 text-cyan-400">Technology Consultation</h1>
-      <div class="grid md:grid-cols-2 gap-12 items-center">
-        <div>
-          <h2 class="text-3xl font-bold mb-6">Custom Technology Planning</h2>
-          <p class="text-lg text-gray-300 mb-6 leading-relaxed">
-            We assess your current setup and create a personalized roadmap for internet, voice, mobile, security, and streaming. No sales pressure—just honest guidance from a telecom expert.
-          </p>
-          <p class="text-lg text-cyan-400 font-semibold mb-8">We build your tech plan around your business—saving you the headache, while saving you money.</p>
-        </div>
-        <div class="text-center">
-          <img src="https://raw.githubusercontent.com/JulianMalave/Atlas-Network-Solutions/refs/heads/main/assets/Consulting.webp" alt="Consulting" class="w-[500px] max-w-full mx-auto rounded-lg object-contain mb-6">
-          <p class="text-xl text-gray-300">Expert guidance for your tech journey</p>
-        </div>
-      </div>
-      <div class="text-center mt-12">
-        <button onclick="scrollToQuote(); hideServiceDetail();" class="glow-button px-8 py-4 rounded-full text-lg font-semibold">Schedule Consultation</button>
-      </div>
+    <div class="text-center mt-12">
+      <button onclick="scrollToQuote(); hideServiceDetail()"
+              class="glow-button px-8 py-4 rounded-full text-lg font-semibold">
+        Get TV Quote
+      </button>
     </div>
+
   </div>
+</div>
 
-  <!-- Scripts -->
-  <script>
-    // Scroll animations
-    const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('animate-in'); });
-    }, observerOptions);
-    document.querySelectorAll('.scroll-animate').forEach(el => observer.observe(el));
 
-    // Sticky nav + sticky quote
-    window.addEventListener('scroll', function() {
-      const navbar = document.getElementById('navbar');
-      const stickyQuote = document.getElementById('sticky-quote');
-      if (window.scrollY > 100) { navbar.classList.add('sticky-nav'); stickyQuote.classList.add('show'); }
-      else { navbar.classList.remove('sticky-nav'); stickyQuote.classList.remove('show'); }
-    });
 
-    // Smooth scroll for top CTA
-    function scrollToQuote(){ document.getElementById('quote').scrollIntoView({ behavior: 'smooth' }); }
+<!-- Security Detail -->
+<div id="security-detail" class="service-detail py-20 bg-gray-800">
+  <div class="max-w-6xl mx-auto px-6">
 
-    // Card glow mouse tracking
-    document.querySelectorAll('.enhanced-card').forEach(card => {
-      card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = ((e.clientX - rect.left) / rect.width) * 100;
-        const y = ((e.clientY - rect.top) / rect.height) * 100;
-        card.style.setProperty('--mouse-x', x + '%');
-        card.style.setProperty('--mouse-y', y + '%');
-      });
-    });
+    <button onclick="hideServiceDetail()"
+            class="mb-8 text-cyan-400 hover:text-white">
+      ← Back to Services
+    </button>
 
-    // Show/hide service detail sections
-    function showServiceDetail(service) {
-      document.querySelectorAll('.service-detail').forEach(d => d.classList.remove('active'));
-      const target = document.getElementById(service + '-detail');
-      if (target) {
-        target.classList.add('active');
-        setTimeout(() => target.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
-      }
+    <h1 class="orbitron text-5xl font-bold mb-8 text-cyan-400">
+      Smart Security Systems
+    </h1>
+
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+
+      <div>
+        <h2 class="text-3xl font-bold mb-6">Modern Surveillance & Alarm</h2>
+
+        <p class="text-lg text-gray-300 leading-relaxed mb-6">
+          Partnering with Vivint, we provide professional security buildouts with
+          cameras, alarms, monitoring, and access control.
+        </p>
+
+        <p class="text-lg text-cyan-400 font-semibold">
+          Full installation included.
+        </p>
+      </div>
+
+      <img src="assets/smart-business-security.png"
+           class="w-[500px] max-w-full mx-auto rounded-lg">
+
+    </div>
+
+    <div class="text-center mt-12">
+      <button onclick="scrollToQuote(); hideServiceDetail()"
+              class="glow-button px-8 py-4 rounded-full text-lg font-semibold">
+        Get Security Quote
+      </button>
+    </div>
+
+  </div>
+</div>
+
+
+
+<!-- Consulting Detail -->
+<div id="consultation-detail" class="service-detail py-20 bg-gray-800">
+  <div class="max-w-6xl mx-auto px-6">
+
+    <button onclick="hideServiceDetail()"
+            class="mb-8 text-cyan-400 hover:text-white">
+      ← Back to Services
+    </button>
+
+    <h1 class="orbitron text-5xl font-bold mb-8 text-cyan-400">
+      Technology Consultation
+    </h1>
+
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+
+      <div>
+        <h2 class="text-3xl font-bold mb-6">Custom Technology Planning</h2>
+
+        <p class="text-lg text-gray-300 leading-relaxed mb-6">
+          We assess your current setup and create a personalized roadmap for
+          internet, voice, mobile, security, and streaming.
+        </p>
+
+        <p class="text-lg text-cyan-400 font-semibold">
+          Honest guidance. No sales pressure.
+        </p>
+      </div>
+
+      <img src="assets/Consulting.webp"
+           class="w-[500px] max-w-full mx-auto rounded-lg">
+
+    </div>
+
+    <div class="text-center mt-12">
+      <button onclick="scrollToQuote(); hideServiceDetail()"
+              class="glow-button px-8 py-4 rounded-full text-lg font-semibold">
+        Schedule Consultation
+      </button>
+    </div>
+
+  </div>
+</div>
+<!-- SCRIPTS -->
+<script>
+/* -----------------------------
+   MOBILE MENU TOGGLE
+----------------------------- */
+const menuBtn = document.getElementById("menu-btn");
+const mobileMenu = document.getElementById("mobile-menu");
+
+menuBtn.addEventListener("click", () => {
+  mobileMenu.classList.toggle("hidden");
+});
+
+/* Close menu when clicking a link */
+document.querySelectorAll("#mobile-menu a").forEach(link => {
+  link.addEventListener("click", () => {
+    mobileMenu.classList.add("hidden");
+  });
+});
+
+
+/* -----------------------------
+   SCROLL TO QUOTE
+----------------------------- */
+function scrollToQuote() {
+  document.getElementById("quote").scrollIntoView({
+    behavior: "smooth"
+  });
+}
+
+
+/* -----------------------------
+   SERVICE DETAIL SYSTEM
+----------------------------- */
+function showServiceDetail(service) {
+  document.querySelectorAll(".service-detail").forEach(el => el.classList.remove("active"));
+  const target = document.getElementById(service + "-detail");
+  if (target) {
+    target.classList.add("active");
+    setTimeout(() => {
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 100);
+  }
+}
+
+function hideServiceDetail() {
+  document.querySelectorAll(".service-detail").forEach(el => el.classList.remove("active"));
+  document.getElementById("services").scrollIntoView({
+    behavior: "smooth",
+    block: "start"
+  });
+}
+
+
+/* -----------------------------
+   SCROLL ANIMATIONS
+----------------------------- */
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add("animate-in");
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll(".scroll-animate").forEach(el => observer.observe(el));
+
+
+/* -----------------------------
+   STICKY NAV + STICKY QUOTE
+----------------------------- */
+window.addEventListener("scroll", () => {
+  const navbar = document.getElementById("navbar");
+  const stickyQuote = document.getElementById("sticky-quote");
+
+  if (window.scrollY > 100) {
+    navbar.classList.add("sticky-nav");
+    stickyQuote.classList.add("show");
+  } else {
+    navbar.classList.remove("sticky-nav");
+    stickyQuote.classList.remove("show");
+  }
+});
+
+
+/* -----------------------------
+   GLOW CARD MOUSE TRACKING
+----------------------------- */
+document.querySelectorAll(".enhanced-card").forEach(card => {
+  card.addEventListener("mousemove", e => {
+    const rect = card.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+
+    card.style.setProperty("--mouse-x", x + "%");
+    card.style.setProperty("--mouse-y", y + "%");
+  });
+});
+
+
+/* -----------------------------
+   REVIEWS CAROUSEL
+----------------------------- */
+let reviewIndex = 0;
+
+const carousel = document.getElementById("review-carousel");
+const totalReviews = carousel.children.length;
+
+document.getElementById("next-review").addEventListener("click", () => {
+  reviewIndex = (reviewIndex + 1) % totalReviews;
+  updateCarousel();
+});
+
+document.getElementById("prev-review").addEventListener("click", () => {
+  reviewIndex = (reviewIndex - 1 + totalReviews) % totalReviews;
+  updateCarousel();
+});
+
+function updateCarousel() {
+  const width = carousel.children[0].offsetWidth + 24; // includes spacing
+  carousel.style.transform = `translateX(-${reviewIndex * width}px)`;
+}
+
+
+/* -----------------------------
+   ACTIVE NAV LINK ON SCROLL
+----------------------------- */
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll(".nav-link");
+
+window.addEventListener("scroll", () => {
+  let current = "";
+
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop - 200;
+    if (pageYOffset >= sectionTop) {
+      current = section.getAttribute("id");
     }
-    function hideServiceDetail() {
-      document.querySelectorAll('.service-detail').forEach(d => d.classList.remove('active'));
-      document.getElementById('services').scrollIntoView({ behavior: 'smooth' });
-    }
-  </script>
+  });
 
-  <!-- (Optional) Cloudflare stub script left intact from your original; safe to remove if unused -->
-  <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'969b92ddf09fc97b',t:'MTc1NDI4NDQ5Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+  navLinks.forEach(link => {
+    link.classList.remove("active");
+    if (link.getAttribute("href") === `#${current}`) {
+      link.classList.add("active");
+    }
+  });
+});
+</script>
+
 </body>
 </html>
+
