@@ -652,27 +652,56 @@ We customize internet, VoIP, wireless, and security solutions so your business r
 
 
 <!-- FOOTER -->
-<footer class="py-12 bg-black">
-  <div class="max-w-6xl mx-auto px-6 text-center">
+<footer class="bg-black pt-16 pb-10 border-t border-white/10">
+  <div class="max-w-7xl mx-auto px-6">
 
-    <div class="flex items-center justify-center space-x-3 mb-6">
-      <img src="assets/logo.png" class="h-12 w-auto">
-      <span class="orbitron text-lg font-bold">Atlas Network Solutions</span>
+    <!-- Brand -->
+    <div class="flex flex-col items-center mb-10">
+      <img src="assets/logo.png" class="h-14 w-auto mb-3" alt="Atlas Network Solutions Logo">
+      <h3 class="orbitron text-xl font-bold text-white tracking-wide">Atlas Network Solutions</h3>
+      <p class="text-gray-400 text-center mt-3 max-w-xl">
+        Future-proofing Pennsylvania businesses with modern connectivity, VoIP, wireless, and security solutions.
+      </p>
     </div>
 
-    <p class="text-gray-400 mb-6">
-      Connecting businesses to the future, one network at a time.
-    </p>
+    <!-- Social Icons -->
+    <div class="flex justify-center space-x-8 mb-12">
 
-    <div class="flex justify-center space-x-6">
-      <a href="#" class="text-gray-400 hover:text-cyan-400 transition-colors">LinkedIn</a>
-      <a href="#" class="text-gray-400 hover:text-cyan-400 transition-colors">Twitter</a>
-      <a href="#" class="text-gray-400 hover:text-cyan-400 transition-colors">Facebook</a>
+      <!-- Facebook -->
+      <a href="https://www.facebook.com/share/17d7csu4L2/?mibextid=wwXIfr"
+         target="_blank"
+         class="group">
+        <svg class="h-7 w-7 text-gray-400 group-hover:text-cyan-400 transition-all"
+             fill="currentColor"
+             viewBox="0 0 24 24">
+          <path d="M22 12c0-5.522-4.477-10-10-10S2 6.478 2 12c0 5.004 3.657 9.128 8.438 9.878v-6.987H7.898v-2.89h2.54V9.797c0-2.506 1.493-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.261c-1.243 0-1.63.771-1.63 1.562v1.873h2.773l-.443 2.89h-2.33v6.987C18.343 21.128 22 17.004 22 12z"/>
+        </svg>
+      </a>
+
+      <!-- Instagram -->
+      <a href="https://www.instagram.com/atlasnetworksolutions?igsh=MTc5cWR4MXBpaG40dg%3D%3D&utm_source=qr"
+         target="_blank"
+         class="group">
+        <svg class="h-7 w-7 text-gray-400 group-hover:text-cyan-400 transition-all"
+             fill="currentColor"
+             viewBox="0 0 24 24">
+          <path d="M7 2C4.243 2 2 4.243 2 7v10c0 2.757 2.243 5 5 5h10c2.757 0 5-2.243 5-5V7c0-2.757-2.243-5-5-5H7zm10 2a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3h10zm-5 3a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6zm4.5-.25a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5z"/>
+        </svg>
+      </a>
+
+    </div>
+
+    <!-- Bottom Notice -->
+    <div class="text-center text-gray-500 text-sm">
+      © <span id="year"></span> Atlas Network Solutions — All Rights Reserved.
     </div>
 
   </div>
-</footer>
 
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</footer>
 
 
 <!-- DETAIL SECTIONS -->
