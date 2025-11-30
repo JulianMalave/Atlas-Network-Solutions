@@ -1100,6 +1100,77 @@ window.addEventListener("scroll", () => {
   });
 });
 </script>
+<!-- CRISP LIVE CHAT -->
+<script type="text/javascript">
+  window.$crisp = [];
+  window.CRISP_WEBSITE_ID = "4540a535-caa6-43c6-8188-b68afa3f3729";
+
+  (function () {
+    var d = document;
+    var s = d.createElement("script");
+    s.src = "https://client.crisp.chat/l.js";
+    s.async = 1;
+    d.getElementsByTagName("head")[0].appendChild(s);
+  })();
+</script>
+
+<!-- ATLAS CUSTOM CRISP BUBBLE ENHANCEMENTS -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const bubbleCheck = setInterval(function () {
+    const crispButton = document.querySelector("[data-chatbox-toggle]");
+
+    if (crispButton) {
+      clearInterval(bubbleCheck);
+
+      // ⭐ Position offset
+      $crisp.push(["config", "position:offset", [22, 40]]);
+
+      // ⭐ Glow + hover animation
+      crispButton.style.transition = "all .35s ease";
+      crispButton.style.filter = "drop-shadow(0 0 14px rgba(0, 212, 255, .35))";
+
+      crispButton.addEventListener("mouseover", () => {
+        crispButton.style.transform = "scale(1.12)";
+        crispButton.style.filter = "drop-shadow(0 0 22px rgba(0, 212, 255, .8))";
+      });
+
+      crispButton.addEventListener("mouseout", () => {
+        crispButton.style.transform = "scale(1)";
+        crispButton.style.filter = "drop-shadow(0 0 14px rgba(0, 212, 255, .35))";
+      });
+
+      // ⭐ Floating animation
+      const style = document.createElement("style");
+      style.innerHTML = `
+        @keyframes crispFloat {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-7px); }
+        }
+        .crisp-animated {
+          animation: crispFloat 5.5s ease-in-out infinite;
+        }
+      `;
+      document.head.appendChild(style);
+
+      crispButton.classList.add("crisp-animated");
+
+      // ⭐ Auto-open when user scrolls to Services (one time only)
+      let opened = false;
+      window.addEventListener("scroll", () => {
+        const services = document.querySelector("#services");
+        if (!services) return;
+
+        const rect = services.getBoundingClientRect();
+        if (!opened && rect.top < window.innerHeight * 0.55) {
+          opened = true;
+          $crisp.push(["do", "chat:open"]);
+        }
+      });
+    }
+  }, 350);
+});
+</script>
 
 </body>
 </html>
