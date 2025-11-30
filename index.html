@@ -142,7 +142,7 @@
   </style>
 </head>
 <body class="bg-gray-900 text-white overflow-x-hidden">
-  <!-- Sticky Navigation -->
+<!-- Sticky Navigation -->
 <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 py-4 bg-black/60 backdrop-blur-xl">
   <div class="container mx-auto px-6 flex justify-between items-center">
 
@@ -162,7 +162,7 @@
         <span class="underline-anim"></span>
       </a>
 
-      <a href="#howitworks" class="nav-link relative group">How It Works
+      <a href="#howitworks" class="nav-link relative group">Our Approach
         <span class="underline-anim"></span>
       </a>
 
@@ -181,7 +181,7 @@
   <div id="mobile-menu" class="hidden flex-col space-y-4 bg-black/80 backdrop-blur-lg px-6 pb-6 pt-4 md:hidden">
     <a href="#about" class="mobile-link">About</a>
     <a href="#services" class="mobile-link">Services</a>
-    <a href="#howitworks" class="mobile-link">How It Works</a>
+    <a href="#howitworks" class="mobile-link">Our Approach</a>
     <a href="#reviews" class="mobile-link">Reviews</a>
   </div>
 </nav>
@@ -194,7 +194,7 @@
     left: 0;
     height: 2px;
     width: 0%;
-    background-color: #22d3ee; /* cyan */
+    background-color: #22d3ee;
     transition: width 0.3s ease;
   }
   .group:hover .underline-anim {
@@ -215,6 +215,13 @@
 
   menuBtn.addEventListener("click", () => {
     mobileMenu.classList.toggle("hidden");
+  });
+
+  // Close mobile menu when a link is clicked (your missing fix)
+  document.querySelectorAll("#mobile-menu a").forEach(link => {
+    link.addEventListener("click", () => {
+      mobileMenu.classList.add("hidden");
+    });
   });
 
   // Active Linking on Scroll
@@ -247,6 +254,7 @@
     color: #22d3ee;
   }
 </style>
+
 
 
   <!-- Sticky Quote Button -->
