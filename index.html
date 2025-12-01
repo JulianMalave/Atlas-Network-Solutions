@@ -557,10 +557,10 @@
 
 <!-- ⭐⭐⭐ FULL JAVASCRIPT SYSTEM ⭐⭐⭐ -->
 <script>
-// Load reviews from Google Sheets
+// Load reviews from Google Sheets (CSV)
 async function loadReviews() {
   const sheetURL =
-    "https://docs.google.com/spreadsheets/d/e/2PACX-1vQjovAbc-uBoZ2kiv5sknfZgfNXeeAUzs3c8cLXD6-I4UWW-4LUCsPjPTYBHylMPt-f-3HmQeHCcn8I/pub?output=csv";
+    "https://docs.google.com/spreadsheets/d/e/2PACX-1vQjovAbc-uBoZ2kiv5sknfZgfNXeeAUzs3c8cLXD6-I4UWW-4LUCsPjPTYBHylMPt-f-3HmQeHCcn8I/pub?output=csv&t=" + Date.now();
 
   const response = await fetch(sheetURL);
   const data = await response.text();
@@ -660,7 +660,6 @@ async function loadReviews() {
 
 loadReviews();
 
-
 // ⭐ Infinite scroll
 const carousel = document.getElementById("review-carousel");
 let scrollAmount = 0;
@@ -702,7 +701,6 @@ document.querySelector(".group").addEventListener("mouseleave", () => {
   scrolling = true;
 });
 
-
 // ⭐⭐⭐ MODAL SYSTEM ⭐⭐⭐
 const modal = document.getElementById("review-modal");
 const modalContent = modal.querySelector("div");
@@ -736,22 +734,6 @@ function closeModal() {
 }
 </script>
 
-<style>
-/* Custom scrollbar for scrollable long reviews */
-.custom-scroll::-webkit-scrollbar {
-  width: 6px;
-}
-.custom-scroll::-webkit-scrollbar-track {
-  background: #1f2937;
-}
-.custom-scroll::-webkit-scrollbar-thumb {
-  background: #06b6d4;
-  border-radius: 10px;
-}
-.custom-scroll::-webkit-scrollbar-thumb:hover {
-  background: #22d3ee;
-}
-</style>
 
 
 <!-- INDUSTRIES WE SERVE -->
