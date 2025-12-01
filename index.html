@@ -508,7 +508,7 @@
   </div>
 </section>
   
- <!-- ⭐⭐⭐ LIVE CUSTOMER REVIEWS SECTION ⭐⭐⭐ -->
+<!-- ⭐⭐⭐ FULL LIVE REVIEWS SECTION WITH MODAL + STAR RATINGS ⭐⭐⭐ -->
 <section id="reviews" class="py-20 bg-gray-900">
   <div class="max-w-7xl mx-auto px-6">
 
@@ -516,205 +516,198 @@
       Customer Reviews
     </h2>
 
-    <!-- AVERAGE RATING SUMMARY -->
+    <!-- LIVE AVERAGE RATING SUMMARY -->
     <div id="rating-summary" class="text-center mb-10 text-gray-300 text-lg">
       Loading reviews...
     </div>
 
     <div class="overflow-hidden relative max-w-5xl mx-auto group">
+
+      <!-- Dynamic Reviews Carousel -->
       <div id="review-carousel" class="flex space-x-6 items-stretch"></div>
 
+      <!-- Arrow Controls -->
       <div class="flex justify-center space-x-6 mt-6">
         <button id="prev-review" class="text-cyan-400 hover:text-white text-3xl font-bold transition">‹</button>
         <button id="next-review" class="text-cyan-400 hover:text-white text-3xl font-bold transition">›</button>
       </div>
+
     </div>
   </div>
 </section>
 
-<!-- ⭐⭐⭐ POPUP MODAL ⭐⭐⭐ -->
+<!-- ⭐⭐⭐ POPUP MODAL FOR FULL REVIEW ⭐⭐⭐ -->
 <div id="review-modal" class="fixed inset-0 bg-black bg-opacity-70 hidden items-center justify-center z-50">
   <div class="bg-gray-900 p-8 rounded-2xl max-w-xl w-full relative border border-cyan-400/20 shadow-xl scale-95 opacity-0 transition">
 
+    <!-- Close button -->
     <button id="close-modal" class="absolute top-3 right-3 text-gray-400 hover:text-white text-2xl">
       &times;
     </button>
 
-    <div class="flex items-center space-x-4 mb-4">
-      <img id="modal-photo" class="w-16 h-16 rounded-full border border-cyan-400 object-cover" />
-      <div>
-        <div id="modal-stars" class="text-cyan-400 text-xl"></div>
-        <div id="modal-category" class="text-gray-400 text-sm"></div>
-      </div>
-    </div>
-
+    <!-- Modal Fields -->
+    <div id="modal-stars" class="text-cyan-400 text-xl mb-3"></div>
+    <div id="modal-category" class="text-gray-400 text-sm mb-2"></div>
     <p id="modal-review" class="text-gray-300 text-lg leading-relaxed mb-6"></p>
     <p id="modal-name" class="text-cyan-400 font-semibold"></p>
 
   </div>
 </div>
 
-<!-- ⭐⭐⭐ JAVASCRIPT LOGIC ⭐⭐⭐ -->
+<!-- ⭐⭐⭐ FULL JAVASCRIPT SYSTEM (TSV PARSER VERSION) ⭐⭐⭐ -->
 <script>
-// AUTO-DETECT REVIEW LOADER
 async function loadReviews() {
-  const sheetURL =
-    "https://docs.google.com/spreadsheets/d/e/2PACX-1vQjovAbc-uBoZ2kiv5sknfZgfNXeeAUzs3c8cLXD6-I4UWW-4LUCsPjPTYBHylMPt-f-3HmQeHCcn8I/pub?output=csv";
+  const sheetURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQjovAbc-uBoZ2kiv5sknfZgfNXeeAUzs3c8cLXD6-I4UWW-4LUCsPjPTYBHylMPt-f-3HmQeHCcn8I/pub?output=tsv";
 
   const response = await fetch(sheetURL);
-  const csv = await response.text();
-  const rows = csv.split("\n").map(r => r.split(","));
+  const text = await response.text();
+
+  // TSV → rows/columns
+  const rows = text.split("\n").map(r => r.split("\t"));
 
   if (rows.length < 2) return;
 
+  // Extract header row
   const header = rows[0].map(h => h.trim().toLowerCase());
 
-  // AUTO-DETECT COLUMNS
-  const colName = header.findIndex(h => h.includes("name"));
-  const colReview = header.findIndex(h => h.includes("testimonial"));
-  const colRating = header.findIndex(h => h.includes("rating"));
-  const colBusiness = header.findIndex(h => h.includes("business"));
-  const colLocation = header.findIndex(h => h.includes("location"));
-  const colPhoto = header.findIndex(h => h.includes("upload")); // Tally upload column
+  // Detect column indexes by matching actual header text
+  const nameCol = header.indexOf("name");
+  const reviewCol = header.indexOf("review");
+  const categoryCol = header.indexOf("category");
+  const ratingCol = header.indexOf("customer service rating");
+
+  if (nameCol === -1 || reviewCol === -1 || ratingCol === -1) {
+    console.error("Missing required headers in sheet.");
+    return;
+  }
 
   const carousel = document.getElementById("review-carousel");
   const ratingSummary = document.getElementById("rating-summary");
 
-  const defaultPhoto = "https://i.ibb.co/Zm0dK7Y/default-avatar.png";
-
+  let cards = [];
   let totalRating = 0;
   let reviewCount = 0;
-  let cards = [];
 
-  const dataRows = rows.slice(1);
-  dataRows.sort(() => Math.random() - 0.5);
-
-  dataRows.forEach(cols => {
-    const name = cols[colName]?.trim();
-    const review = cols[colReview]?.trim();
-    const rating = parseInt(cols[colRating]);
-    const business = cols[colBusiness]?.trim() || "";
-    const location = cols[colLocation]?.trim() || "";
-    const photo = cols[colPhoto]?.trim() || defaultPhoto;
+  // Shuffle display order
+  rows.slice(1).sort(() => Math.random() - 0.5).forEach(cols => {
+    const name = (cols[nameCol] || "").trim();
+    const review = (cols[reviewCol] || "").trim();
+    const category = (cols[categoryCol] || "General").trim();
+    const rating = parseInt(cols[ratingCol]);
 
     if (!name || !review || isNaN(rating)) return;
 
     reviewCount++;
     totalRating += rating;
 
-    let category =
-      business.toLowerCase().includes("fiber") ||
-      location.toLowerCase().includes("fiber")
-        ? "Fiber Internet"
-        : business.toLowerCase().includes("voip")
-        ? "VoIP"
-        : "General";
+    // Build star visuals
+    let stars = "★★★★★☆☆☆☆☆".slice(5 - rating, 10 - rating);
 
-    let stars = "";
-    for (let i = 0; i < rating; i++) stars += "★";
-    for (let i = rating; i < 5; i++) stars += "☆";
-
+    // Card element
     const card = document.createElement("div");
     card.className = `
-      bg-gray-800 p-6 rounded-2xl w-80 shrink-0 opacity-0 transition duration-700 shadow-xl
+      bg-gray-800 p-8 rounded-2xl w-80 shrink-0 opacity-0 transition duration-700 shadow-xl 
       hover:shadow-cyan-500/30 hover:scale-[1.03] cursor-pointer
     `;
 
     card.innerHTML = `
-      <img src="${photo}" class="w-14 h-14 rounded-full border border-cyan-400 object-cover mb-4" />
-      <div class="text-cyan-400 text-lg mb-2">${stars}</div>
+      <div class="flex justify-between items-center mb-3">
+        <div class="text-cyan-400 text-lg">${"★".repeat(rating)}${"☆".repeat(5 - rating)}</div>
+        <span class="text-xs px-2 py-1 rounded bg-gray-700 text-gray-300">
+          ${category}
+        </span>
+      </div>
 
       <p class="text-gray-300 text-base leading-relaxed max-h-40 overflow-auto custom-scroll">
         "${review}"
       </p>
 
-      <p class="mt-3 text-cyan-400 font-semibold">— ${name}</p>
-      <p class="text-gray-500 text-xs">${category}</p>
+      <p class="mt-4 text-cyan-400 font-semibold">— ${name}</p>
     `;
 
-    card.addEventListener("click", () => openModal(name, review, stars, category, photo));
+    card.addEventListener("click", () => {
+      openModal(name, review, "★".repeat(rating) + "☆".repeat(5 - rating), category);
+    });
 
     cards.push(card);
     carousel.appendChild(card);
   });
 
-  // Average rating
+  // Compute average rating
   if (reviewCount > 0) {
-    const avg = (totalRating / reviewCount).toFixed(1);
+    const average = (totalRating / reviewCount).toFixed(1);
     ratingSummary.innerHTML = `
-      <span class="text-cyan-400 text-3xl font-bold">${avg}</span>
-      <span class="text-white text-xl"> / 5 stars</span>
-      <br>
-      <span class="text-gray-400 text-sm">${reviewCount} verified customer reviews</span>
+      <span class="text-cyan-400 text-3xl font-bold">${average}</span>
+      <span class="text-white text-xl"> / 5 stars</span><br>
+      <span class="text-gray-400 text-sm">${reviewCount} verified reviews</span>
     `;
   }
 
-  setTimeout(() => cards.forEach(card => (card.style.opacity = 1)), 300);
+  // Fade-in effect
+  setTimeout(() => cards.forEach(c => c.style.opacity = 1), 250);
 }
 
 loadReviews();
 
+// Infinite Scroll
+const carousel = document.getElementById("review-carousel");
+let scrollAmount = 0;
+let scrolling = true;
 
-// ⭐ Infinite Scroll Loop
-let scrollX = 0;
-let autoScroll = true;
-const carouselEl = document.getElementById("review-carousel");
-
-function loopScroll() {
-  if (!autoScroll) return;
-  scrollX += 0.8;
-  carouselEl.style.transform = `translateX(-${scrollX}px)`;
-  if (scrollX >= carouselEl.scrollWidth / 2) scrollX = 0;
+function infiniteScroll() {
+  if (!scrolling || carousel.children.length === 0) return;
+  scrollAmount += 1;
+  carousel.style.transform = `translateX(-${scrollAmount}px)`;
+  if (scrollAmount >= carousel.scrollWidth / 2) scrollAmount = 0;
 }
 
-setInterval(loopScroll, 18);
+setInterval(infiniteScroll, 18);
 
-document.querySelector(".group").addEventListener("mouseenter", () => autoScroll = false);
-document.querySelector(".group").addEventListener("mouseleave", () => autoScroll = true);
+document.getElementById("next-review").addEventListener("click", () => {
+  scrollAmount += 200;
+});
+document.getElementById("prev-review").addEventListener("click", () => {
+  scrollAmount -= 200;
+});
 
+document.querySelector(".group").addEventListener("mouseenter", () => scrolling = false);
+document.querySelector(".group").addEventListener("mouseleave", () => scrolling = true);
 
-// ⭐ Modal handling
-function openModal(name, review, stars, category, photo) {
-  document.getElementById("modal-photo").src = photo;
+// Modal logic
+const modal = document.getElementById("review-modal");
+const modalContent = modal.querySelector("div");
+
+function openModal(name, review, stars, category) {
   document.getElementById("modal-name").innerText = "— " + name;
   document.getElementById("modal-review").innerText = '"' + review + '"';
   document.getElementById("modal-stars").innerHTML = stars;
   document.getElementById("modal-category").innerText = category;
 
-  const modal = document.getElementById("review-modal");
-  const box = modal.querySelector("div");
-
   modal.classList.remove("hidden");
 
   setTimeout(() => {
-    box.classList.remove("opacity-0", "scale-95");
-    box.classList.add("opacity-100", "scale-100");
+    modalContent.classList.remove("opacity-0", "scale-95");
+    modalContent.classList.add("opacity-100", "scale-100");
   }, 10);
 }
 
+document.getElementById("close-modal").addEventListener("click", closeModal);
+modal.addEventListener("click", e => { if (e.target === modal) closeModal(); });
+
 function closeModal() {
-  const modal = document.getElementById("review-modal");
-  const box = modal.querySelector("div");
-
-  box.classList.add("opacity-0", "scale-95");
-  box.classList.remove("opacity-100", "scale-100");
-
+  modalContent.classList.add("opacity-0", "scale-95");
+  modalContent.classList.remove("opacity-100", "scale-100");
   setTimeout(() => modal.classList.add("hidden"), 150);
 }
-
-document.getElementById("close-modal").addEventListener("click", closeModal);
-document.getElementById("review-modal").addEventListener("click", (e) => {
-  if (e.target === e.currentTarget) closeModal();
-});
 </script>
 
-<!-- Custom Scrollbar -->
 <style>
 .custom-scroll::-webkit-scrollbar { width: 6px; }
 .custom-scroll::-webkit-scrollbar-track { background: #1f2937; }
 .custom-scroll::-webkit-scrollbar-thumb { background: #06b6d4; border-radius: 10px; }
 .custom-scroll::-webkit-scrollbar-thumb:hover { background: #22d3ee; }
 </style>
+
 
 
 
