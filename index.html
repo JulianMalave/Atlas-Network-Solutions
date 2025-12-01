@@ -522,7 +522,7 @@
   </div>
 </section>
   
-<!-- ⭐⭐⭐ FULL LIVE REVIEWS SECTION ⭐⭐⭐ -->
+<!-- ⭐⭐⭐ REVIEWS SECTION ⭐⭐⭐ -->
 <section id="reviews" class="py-20 bg-gray-900">
   <div class="max-w-7xl mx-auto px-6">
 
@@ -530,10 +530,12 @@
       Customer Reviews
     </h2>
 
+    <!-- AVERAGE RATING -->
     <div id="rating-summary" class="text-center mb-10 text-gray-300 text-lg">
       Loading reviews...
     </div>
 
+    <!-- REVIEWS CAROUSEL -->
     <div class="overflow-hidden relative max-w-5xl mx-auto group">
       <div id="review-carousel" class="flex space-x-6 items-stretch"></div>
 
@@ -542,45 +544,41 @@
         <button id="next-review" class="text-cyan-400 hover:text-white text-3xl font-bold transition">›</button>
       </div>
     </div>
+
   </div>
 </section>
 
-<!-- ⭐⭐⭐ MODAL ⭐⭐⭐ -->
+<!-- ⭐⭐⭐ REVIEW MODAL ⭐⭐⭐ -->
 <div id="review-modal" class="fixed inset-0 bg-black bg-opacity-70 hidden items-center justify-center z-50">
   <div class="bg-gray-900 p-8 rounded-2xl max-w-xl w-full relative border border-cyan-400/20 shadow-xl scale-95 opacity-0 transition">
 
     <button id="close-modal" class="absolute top-3 right-3 text-gray-400 hover:text-white text-2xl">&times;</button>
 
     <div id="modal-stars" class="text-cyan-400 text-xl mb-3"></div>
-    <div id="modal-category" class="text-gray-400 text-sm mb-2"></div>
     <p id="modal-review" class="text-gray-300 text-lg leading-relaxed mb-6"></p>
     <p id="modal-name" class="text-cyan-400 font-semibold"></p>
 
   </div>
 </div>
 
-<!-- ⭐⭐⭐ SCRIPT ⭐⭐⭐ -->
+<!-- ⭐⭐⭐ JAVASCRIPT (TSV PARSING) ⭐⭐⭐ -->
 <script>
 async function loadReviews() {
-  const sheetURL =
-    "https://docs.google.com/spreadsheets/d/e/2PACX-1vQjovAbc-uBoZ2kiv5sknfZgfNXeeAUzs3c8cLXD6-I4UWW-4LUCsPjPTYBHylMPt-f-3HmQeHCcn8I/pub?output=tsv";
+  // Your published TSV sheet
+  const sheetURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRTklLa6PtR7tq4XnKYJcuF2bsEC6_695w5JcHsYCAtNjGIPK_MyfRylxQROR9OdYZmda7LwpdkvDF/pub?output=tsv";
 
   const response = await fetch(sheetURL);
   const text = await response.text();
-  const rows = text.split("\n").map(r => r.split("\t"));
 
+  const rows = text.split("\n").map(r => r.split("\t"));
   const header = rows[0].map(h => h.trim().toLowerCase());
 
-  const nameCol = header.indexOf("name");
-  const businessCol = header.indexOf("business name");
-  const locationCol = header.indexOf("location");
-  const ratingCol = header.indexOf("rating");
-  const testimonialCol = header.indexOf("testimonial");
-
-  if (nameCol === -1 || testimonialCol === -1 || ratingCol === -1) {
-    console.error("Missing required headers in sheet.");
-    return;
-  }
+  // Match your EXACT column names
+  const nameCol       = header.indexOf("name");
+  const businessCol   = header.indexOf("business name");
+  const locationCol   = header.indexOf("location");
+  const ratingCol     = header.indexOf("rating");
+  const testimonialCol= header.indexOf("testimonial");
 
   const carousel = document.getElementById("review-carousel");
   const ratingSummary = document.getElementById("rating-summary");
@@ -590,8 +588,6 @@ async function loadReviews() {
 
   rows.slice(1).forEach(row => {
     const name = row[nameCol]?.trim();
-    const business = row[businessCol]?.trim();
-    const location = row[locationCol]?.trim();
     const rating = parseInt(row[ratingCol]);
     const testimonial = row[testimonialCol]?.trim();
 
@@ -600,33 +596,30 @@ async function loadReviews() {
     reviewCount++;
     totalRating += rating;
 
+    // Build star string
     const stars = "★".repeat(rating) + "☆".repeat(5 - rating);
 
+    // Build card
     const card = document.createElement("div");
-    card.className =
-      "bg-gray-800 p-8 rounded-2xl w-96 shrink-0 opacity-0 transition duration-700 shadow-xl hover:shadow-cyan-500/30 hover:scale-[1.03] cursor-pointer";
+    card.className = 
+      "bg-gray-800 p-8 rounded-2xl w-80 shrink-0 opacity-0 transition duration-700 shadow-xl hover:shadow-cyan-500/30 hover:scale-[1.03] cursor-pointer";
 
     card.innerHTML = `
-      <div class="flex justify-between items-center mb-3">
-        <div class="text-cyan-400 text-xl">${stars}</div>
-        <span class="text-xs px-2 py-1 rounded bg-gray-700 text-gray-300">
-          ${business || "Customer"}
-        </span>
-      </div>
-
-      <p class="text-gray-300 text-lg leading-relaxed max-h-48 overflow-auto custom-scroll">
-        "${testimonial}"
-      </p>
-
+      <div class="text-cyan-400 text-lg mb-2">${stars}</div>
+      <p class="text-gray-300 text-base leading-relaxed max-h-40 overflow-auto custom-scroll">"${testimonial}"</p>
       <p class="mt-4 text-cyan-400 font-semibold">— ${name}</p>
-      ${location ? `<p class="text-gray-500 text-sm">${location}</p>` : ""}
     `;
 
-    card.addEventListener("click", () => openModal(name, testimonial, stars, business));
+    card.addEventListener("click", () => {
+      openModal(name, testimonial, stars);
+    });
 
     carousel.appendChild(card);
+
+    setTimeout(() => card.style.opacity = 1, 200);
   });
 
+  // Display avg rating
   if (reviewCount > 0) {
     const avg = (totalRating / reviewCount).toFixed(1);
     ratingSummary.innerHTML = `
@@ -635,59 +628,51 @@ async function loadReviews() {
       <span class="text-gray-400 text-sm">${reviewCount} verified reviews</span>
     `;
   }
-
-  setTimeout(() => {
-    document.querySelectorAll("#review-carousel > div").forEach(c => c.style.opacity = 1);
-  }, 250);
 }
 
-loadReviews();
-
-// Infinite Scroll
-let scrollAmount = 0;
-let scrolling = true;
-const carousel = document.getElementById("review-carousel");
-
-setInterval(() => {
-  if (scrolling && carousel.children.length > 0) {
-    scrollAmount += 1;
-    carousel.style.transform = `translateX(-${scrollAmount}px)`;
-    if (scrollAmount >= carousel.scrollWidth / 2) scrollAmount = 0;
-  }
-}, 18);
-
-document.querySelector(".group").addEventListener("mouseenter", () => (scrolling = false));
-document.querySelector(".group").addEventListener("mouseleave", () => (scrolling = true));
-
-document.getElementById("next-review").addEventListener("click", () => (scrollAmount += 200));
-document.getElementById("prev-review").addEventListener("click", () => (scrollAmount -= 200));
-
 // Modal
-const modal = document.getElementById("review-modal");
-const modalContent = modal.querySelector("div");
-
-function openModal(name, review, stars, category) {
-  document.getElementById("modal-stars").innerHTML = stars;
-  document.getElementById("modal-review").innerText = `"${review}"`;
+function openModal(name, review, stars) {
   document.getElementById("modal-name").innerText = "— " + name;
-  document.getElementById("modal-category").innerText = category || "";
+  document.getElementById("modal-review").innerText = '"' + review + '"';
+  document.getElementById("modal-stars").innerHTML = stars;
+
+  const modal = document.getElementById("review-modal");
+  const content = modal.querySelector("div");
 
   modal.classList.remove("hidden");
   setTimeout(() => {
-    modalContent.classList.remove("opacity-0", "scale-95");
-    modalContent.classList.add("opacity-100", "scale-100");
+    content.classList.remove("opacity-0", "scale-95");
+    content.classList.add("opacity-100", "scale-100");
   }, 10);
 }
 
-document.getElementById("close-modal").addEventListener("click", closeModal);
-modal.addEventListener("click", e => e.target === modal && closeModal());
-
 function closeModal() {
-  modalContent.classList.add("opacity-0", "scale-95");
-  modalContent.classList.remove("opacity-100", "scale-100");
+  const modal = document.getElementById("review-modal");
+  const content = modal.querySelector("div");
+
+  content.classList.add("opacity-0", "scale-95");
+  content.classList.remove("opacity-100", "scale-100");
+
   setTimeout(() => modal.classList.add("hidden"), 150);
 }
+
+document.getElementById("close-modal").addEventListener("click", closeModal);
+document.getElementById("review-modal").addEventListener("click", e => {
+  if (e.target.id === "review-modal") closeModal();
+});
+
+// Start
+loadReviews();
 </script>
+
+<style>
+/* Scrollbar for lengthy reviews */
+.custom-scroll::-webkit-scrollbar { width: 6px; }
+.custom-scroll::-webkit-scrollbar-track { background: #1f2937; }
+.custom-scroll::-webkit-scrollbar-thumb { background: #06b6d4; border-radius: 10px; }
+.custom-scroll::-webkit-scrollbar-thumb:hover { background: #22d3ee; }
+</style>
+
   
 <!-- INDUSTRIES WE SERVE -->
 <section id="industries" class="py-20 bg-gray-950 text-white">
