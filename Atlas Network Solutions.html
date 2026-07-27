@@ -410,7 +410,7 @@
     <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 py-4">
         <div class="container mx-auto px-6 flex justify-between items-center">
             <div class="flex items-center space-x-3">
-                <img src="https://i.ibb.co/m5kw20mR/new-logo.png" alt="Atlas Network Solutions" class="h-28 w-auto">
+                <img src="https://i.ibb.co/m5kw20mR/new-logo.png" alt="Atlas Network Solutions" class="h-16 w-auto"
                 <span class="orbitron text-xl font-bold">Atlas Network</span>
             </div>
             <div class="hidden md:flex space-x-8">
@@ -489,7 +489,11 @@
 </section>
 
 
-
+<section id="services" class="py-20 bg-gray-800">
+    <div class="container mx-auto px-6">
+        <h2 class="orbitron text-4xl font-bold text-center mb-16 text-cyan-400 scroll-animate slide-up">
+            Our Services
+        </h2>
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div class="enhanced-card p-6 rounded-xl cursor-pointer fiber-glow scroll-animate slide-left service-card-1" onclick="showServiceDetail('fiber')">
                     <div class="mb-4">
@@ -501,7 +505,7 @@
                 
                 <div class="enhanced-card p-6 rounded-xl cursor-pointer fiber-glow scroll-animate slide-right service-card-2" onclick="showServiceDetail('voip')">
                     <div class="mb-4">
-                        <img src="https://ibb.co/Y76MKwfK" alt="VoIP Phone" class="w-16 h-16 rounded-lg object-cover mx-auto">
+                       <img src="https://i.ibb.co/B5zDX9XT/voip-phone.jpg" alt="VoIP Phone" class="w-16 h-16 rounded-lg object-cover mx-auto"> alt="VoIP Phone" class="w-16 h-16 rounded-lg object-cover mx-auto">
                     </div>
                     <h3 class="text-xl font-bold mb-3 text-cyan-400">VoIP</h3>
                     <p class="text-gray-300">Modern cloud phone systems</p>
@@ -818,7 +822,9 @@ Hotspot & high-speed data options
 Business support and account management
 
 Your business, your devices, your network — optimized
-                    <p class="text-lg text-cyan-400 font-semibold mb-8">
+</p>
+
+<p class="text-lg text-cyan-400 font-semibold mb-8">
                         We customize mobile solutions that work with your workflow—saving you the headache, while saving you money.
                     </p>
                     <div class="mt-8">
@@ -1056,12 +1062,6 @@ Your business, your devices, your network — optimized
             });
         });
 
-        // Form submission
-        document.querySelector('form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for your interest! We\'ll contact you within 24 hours to discuss your custom quote.');
-        });
-
         // Chat button tooltip
         const chatButton = document.querySelector('.chat-pulse').parentElement;
         const tooltip = chatButton.querySelector('div:last-child');
@@ -1074,5 +1074,5 @@ Your business, your devices, your network — optimized
             tooltip.style.opacity = '0';
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'969b92ddf09fc97b',t:'MTc1NDI4NDQ5Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</body>
 </html>
