@@ -1,0 +1,2207 @@
+Pasted text(9).txt
+Document
+just tell me which line to add it on
+ dont like how that looks
+Worked for 21s
+
+I built the full residential page as a second homepage:
+
+residential.html
+
+It includes:
+
+A full residential hero designed for ad traffic
+Home internet and Wi-Fi
+Wireless plans and devices
+TV and streaming
+Security and smart home
+A dedicated moving section
+Four-step consultation flow
+Why Atlas positioning
+Expandable FAQ section
+Multiple conversion points
+Business-page link back to the main site
+Mobile navigation and sticky CTA
+Crisp chat integration
+
+Before publishing, change this line near the top:
+
+const residentialFormURL = 'https://tally.so/r/REPLACE_ME';
+
+You’ll also need these image files in your assets folder:
+
+residential-hero.png
+residential-consultation.png
+home-internet.png
+home-wireless.png
+home-entertainment.png
+home-security.png
+moving-home.png
+residential-final-cta.png
+residential-og-image.png
+
+I used Atlas Home Solutions as the residential-facing name, with:
+
+A residential division of Atlas Network Solutions
+
+That lets you test the branding now without formally committing to a DBA yet. It gives the page its own identity while keeping Atlas Network Solutions as the umbrella. 
+
+residential.html
+HTML
+give me the code to copy and paste
+
+Here is the full code in a plain-text file so you can open it, press Ctrl+A, copy, and paste it directly into GitHub:
+
+residential-code.txt
+
+You can also use the ready-made HTML file directly:
+
+residential.html
+
+Before publishing, search for:
+
+https://tally.so/r/REPLACE_ME
+
+Replace it with the link to your residential lead form. 
+
+residential-code.txt
+Document
+residential.html
+HTML
+now how do i add this on github
+
+Since you're hosting on GitHub Pages, it's straightforward.
+
+1. Open your GitHub repository
+
+Go to the repository that hosts your website.
+
+2. Create a new file
+
+Click Add file → Create new file
+
+Name it:
+
+residential.html
+3. Paste the code
+
+Delete anything that's there and paste the entire code from the file I generated.
+
+Scroll down and click:
+
+Commit changes
+
+4. Add it to your navigation
+
+In your existing index.html, find your navigation.
+
+Add:
+
+<a href="residential.html" class="hover:text-cyan-300">
+    Residential
+</a>
+
+For the mobile menu, also add:
+
+<a href="residential.html">
+    Residential
+</a>
+5. Upload the images
+
+Open your repository's assets folder.
+
+Upload the residential images:
+
+residential-hero.png
+residential-consultation.png
+home-internet.png
+home-wireless.png
+home-entertainment.png
+home-security.png
+moving-home.png
+residential-final-cta.png
+residential-og-image.png
+6. Update the CTA
+
+Replace
+
+https://tally.so/r/REPLACE_ME
+
+with your residential Tally form.
+
+7. Test it
+
+Visit
+
+https://atlasnetworksolutions.net/residential.html
+
+It should load like any other page.
+
+One thing I'd actually do differently...
+
+I wouldn't call the file residential.html.
+
+I'd make it
+
+home
+
+or
+
+home-solutions
+
+so the URL becomes
+
+https://atlasnetworksolutions.net/home
+
+or
+
+https://atlasnetworksolutions.net/home-solutions
+
+Those URLs look cleaner in ads and are easier to remember than /residential.html.
+
+Even better...
+
+If you think you may eventually brand this as Atlas Home Solutions, I'd use:
+
+home-solutions.html
+
+Then your ads can point to:
+
+atlasnetworksolutions.net/home-solutions
+
+If you later register Atlas Home Solutions as a DBA, you can simply redirect or move the page to its own domain without changing the overall design. That gives you flexibility while keeping everything under the Atlas umbrella today.
+
+where should i add that in navigation section
+
+In your current index.html, find this section:
+
+<div class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-300">
+    <a href="#why" class="hover:text-cyan-300">Why Atlas</a>
+    <a href="#services" class="hover:text-cyan-300">Solutions</a>
+    <a href="#industries" class="hover:text-cyan-300">Industries</a>
+    <a href="#process" class="hover:text-cyan-300">How It Works</a>
+    <a href="#reviews" class="hover:text-cyan-300">Reviews</a>
+</div>
+
+I would change it to:
+
+<div class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-300">
+    <a href="#why" class="hover:text-cyan-300">Why Atlas</a>
+    <a href="#services" class="hover:text-cyan-300">Solutions</a>
+
+    <a href="home-solutions.html" class="hover:text-cyan-300">
+        Residential
+    </a>
+
+    <a href="#industries" class="hover:text-cyan-300">Industries</a>
+    <a href="#process" class="hover:text-cyan-300">How It Works</a>
+    <a href="#reviews" class="hover:text-cyan-300">Reviews</a>
+</div>
+
+Then, in your mobile menu, find:
+
+<div class="flex flex-col gap-4 font-semibold text-slate-200">
+    <a href="#why">Why Atlas</a>
+    <a href="#services">Solutions</a>
+    <a href="#industries">Industries</a>
+    <a href="#process">How It Works</a>
+    <a href="#reviews">Reviews</a>
+
+and change it to:
+
+<div class="flex flex-col gap-4 font-semibold text-slate-200">
+    <a href="#why">Why Atlas</a>
+    <a href="#services">Solutions</a>
+
+    <a href="home-solutions.html">
+        Residential
+    </a>
+
+    <a href="#industries">Industries</a>
+    <a href="#process">How It Works</a>
+    <a href="#reviews">Reviews</a>
+One suggestion
+
+I think "Residential" is perfectly clear, but if you're eventually leaning toward Atlas Home Solutions, you could label the navigation:
+
+Business | Home
+
+or
+
+Business | Home Solutions
+
+That feels a little more premium than "Residential," especially if you expand into smart home, security, and other homeowner services later. My favorite would be:
+
+Why Atlas | Solutions | Home Solutions | Industries | How It Works | Reviews
+
+It sounds like a service offering rather than just a customer category.
+
+okay give me updated navi code
+
+I'd make one small change while you're at it.
+
+Since your homepage is already the Business homepage, I'd make that obvious in the navigation.
+
+Desktop Navigation
+
+Replace your current navigation with this:
+
+<div class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-300">
+
+    <a href="index.html" class="hover:text-cyan-300">
+        Business
+    </a>
+
+    <a href="home-solutions.html" class="hover:text-cyan-300">
+        Home Solutions
+    </a>
+
+    <a href="#why" class="hover:text-cyan-300">
+        Why Atlas
+    </a>
+
+    <a href="#services" class="hover:text-cyan-300">
+        Solutions
+    </a>
+
+    <a href="#industries" class="hover:text-cyan-300">
+        Industries
+    </a>
+
+    <a href="#process" class="hover:text-cyan-300">
+        How It Works
+    </a>
+
+    <a href="#reviews" class="hover:text-cyan-300">
+        Reviews
+    </a>
+
+</div>
+Mobile Navigation
+
+Replace it with:
+
+<div class="flex flex-col gap-4 font-semibold text-slate-200">
+
+    <a href="index.html">
+        Business
+    </a>
+
+    <a href="home-solutions.html">
+        Home Solutions
+    </a>
+
+    <a href="#why">
+        Why Atlas
+    </a>
+
+    <a href="#services">
+        Solutions
+    </a>
+
+    <a href="#industries">
+        Industries
+    </a>
+
+    <a href="#process">
+        How It Works
+    </a>
+
+    <a href="#reviews">
+        Reviews
+    </a>
+
+    <a href="https://tally.so/r/wL2zej"
+       target="_blank"
+       rel="noopener"
+       class="text-cyan-300">
+        Schedule a Free Review
+    </a>
+
+</div>
+One thing I would change from my earlier suggestion
+
+I actually think Home Solutions is a stronger label than Residential.
+
+It sounds like a service offering rather than a customer category:
+
+Business
+Home Solutions
+
+That also gives you room to grow into internet, wireless, TV, security, smart home, energy, and other homeowner services under one brand without feeling limited. It pairs nicely with the Atlas name and feels more polished than "Residential."
+
+Library
+/
+residential-code.txt
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Atlas Home Solutions | Internet, Wireless, TV & Smart Home</title>
+  <meta name="description" content="Atlas Home Solutions helps homeowners compare internet, wireless, TV, streaming, home security, and smart home options with clear guidance and no-pressure support.">
+  <meta name="author" content="Atlas Network Solutions">
+  <meta name="robots" content="index,follow">
+
+  <meta property="og:title" content="Atlas Home Solutions | Smarter Technology for Your Home">
+  <meta property="og:description" content="Compare home internet, wireless, TV, streaming, security, and smart home solutions with professional guidance from Atlas.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://atlasnetworksolutions.net/residential.html">
+  <meta property="og:image" content="https://atlasnetworksolutions.net/assets/residential-og-image.png">
+  <meta property="og:image:alt" content="Atlas Home Solutions residential technology consultation">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Atlas Home Solutions">
+  <meta name="twitter:description" content="Professional guidance for home internet, wireless, TV, streaming, security, and smart home technology.">
+  <meta name="twitter:image" content="https://atlasnetworksolutions.net/assets/residential-og-image.png">
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"ProfessionalService",
+    "name":"Atlas Home Solutions",
+    "url":"https://atlasnetworksolutions.net/residential.html",
+    "logo":"https://atlasnetworksolutions.net/assets/atlas-logo.png",
+    "image":"https://atlasnetworksolutions.net/assets/residential-og-image.png",
+    "description":"Atlas Home Solutions helps homeowners evaluate and compare internet, wireless, television, streaming, home security, and smart home solutions.",
+    "address":{
+      "@type":"PostalAddress",
+      "addressLocality":"Lancaster",
+      "addressRegion":"PA",
+      "addressCountry":"US"
+    },
+    "areaServed":{
+      "@type":"State",
+      "name":"Pennsylvania"
+    },
+    "parentOrganization":{
+      "@type":"Organization",
+      "name":"Atlas Network Solutions"
+    },
+    "priceRange":"$"
+  }
+  </script>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --navy:#070b16;
+      --navy-2:#0d1426;
+      --panel:#111a2d;
+      --cyan:#22d3ee;
+      --cyan-2:#0891b2;
+      --purple:#8b5cf6;
+      --text:#f8fafc;
+      --muted:#a8b3c7;
+    }
+
+    html{scroll-behavior:smooth}
+    body{font-family:'Inter',sans-serif;background:var(--navy);color:var(--text)}
+    .orbitron{font-family:'Orbitron',sans-serif}
+    .container-shell{max-width:1200px;margin:0 auto;padding-left:1.5rem;padding-right:1.5rem}
+
+    .site-bg{
+      background:
+        radial-gradient(circle at 15% 0%,rgba(34,211,238,.12),transparent 28%),
+        radial-gradient(circle at 88% 12%,rgba(139,92,246,.12),transparent 30%),
+        linear-gradient(180deg,#080c18 0%,#0b1221 55%,#080c18 100%);
+    }
+
+    .glass-nav{
+      background:rgba(7,11,22,.86);
+      border-bottom:1px solid rgba(255,255,255,.07);
+      backdrop-filter:blur(16px);
+    }
+
+    .hero-image{
+      background-image:
+        linear-gradient(90deg,rgba(4,8,18,.97) 0%,rgba(4,8,18,.88) 42%,rgba(4,8,18,.42) 72%,rgba(4,8,18,.65) 100%),
+        url('assets/residential-hero.png');
+      background-position:center;
+      background-size:cover;
+      background-repeat:no-repeat;
+    }
+
+    .eyebrow{
+      color:#67e8f9;
+      text-transform:uppercase;
+      letter-spacing:.16em;
+      font-weight:700;
+      font-size:.78rem;
+    }
+
+    .gradient-text{
+      background:linear-gradient(90deg,#67e8f9 0%,#22d3ee 45%,#a78bfa 100%);
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+    }
+
+    .primary-btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:.5rem;
+      background:linear-gradient(135deg,#22d3ee,#0891b2);
+      color:#041019;
+      font-weight:800;
+      border-radius:999px;
+      padding:.95rem 1.5rem;
+      transition:.25s ease;
+      box-shadow:0 12px 35px rgba(34,211,238,.18);
+    }
+
+    .primary-btn:hover{
+      transform:translateY(-2px);
+      box-shadow:0 18px 42px rgba(34,211,238,.30);
+    }
+
+    .secondary-btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      border:1px solid rgba(255,255,255,.16);
+      background:rgba(255,255,255,.05);
+      color:white;
+      font-weight:700;
+      border-radius:999px;
+      padding:.95rem 1.5rem;
+      transition:.25s ease;
+    }
+
+    .secondary-btn:hover{
+      border-color:rgba(34,211,238,.7);
+      background:rgba(34,211,238,.07);
+    }
+
+    .soft-panel{
+      background:linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,.025));
+      border:1px solid rgba(255,255,255,.09);
+      box-shadow:0 20px 70px rgba(0,0,0,.18);
+    }
+
+    .service-card{
+      background:rgba(17,26,45,.82);
+      border:1px solid rgba(255,255,255,.08);
+      overflow:hidden;
+      transition:.25s ease;
+    }
+
+    .service-card:hover{
+      transform:translateY(-5px);
+      border-color:rgba(34,211,238,.35);
+      box-shadow:0 18px 50px rgba(0,0,0,.28);
+    }
+
+    .service-card img{
+      transition:transform .45s ease;
+    }
+
+    .service-card:hover img{
+      transform:scale(1.04);
+    }
+
+    .number-badge{
+      width:2.4rem;
+      height:2.4rem;
+      border-radius:999px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:rgba(34,211,238,.12);
+      border:1px solid rgba(34,211,238,.28);
+      color:#67e8f9;
+      font-weight:800;
+    }
+
+    .check-item{
+      display:flex;
+      align-items:flex-start;
+      gap:.8rem;
+    }
+
+    .check-icon{
+      width:1.7rem;
+      height:1.7rem;
+      border-radius:999px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex:0 0 auto;
+      margin-top:.1rem;
+      background:rgba(34,211,238,.12);
+      border:1px solid rgba(34,211,238,.25);
+      color:#67e8f9;
+      font-weight:800;
+      font-size:.8rem;
+    }
+
+    .faq-item{
+      border-bottom:1px solid rgba(255,255,255,.09);
+    }
+
+    .faq-answer{
+      display:none;
+    }
+
+    .faq-item.open .faq-answer{
+      display:block;
+    }
+
+    .faq-item.open .faq-plus{
+      transform:rotate(45deg);
+    }
+
+    .sticky-cta{
+      position:fixed;
+      right:20px;
+      top:18px;
+      z-index:60;
+      opacity:0;
+      transform:translateY(-15px);
+      pointer-events:none;
+      transition:.3s ease;
+    }
+
+    .sticky-cta.show{
+      opacity:1;
+      transform:none;
+      pointer-events:auto;
+    }
+
+    @media (max-width:900px){
+      .hero-image{
+        background-image:
+          linear-gradient(90deg,rgba(4,8,18,.96),rgba(4,8,18,.80)),
+          url('assets/residential-hero.png');
+        background-position:65% center;
+      }
+    }
+
+    @media (max-width:767px){
+      .sticky-cta{display:none}
+      .hero-image{background-position:70% center}
+    }
+  </style>
+</head>
+
+<body class="overflow-x-hidden site-bg">
+
+  <!-- Replace this URL with the final residential Tally or GHL form -->
+  <script>
+    const residentialFormURL = 'https://tally.so/r/REPLACE_ME';
+  </script>
+
+  <!-- NAVIGATION -->
+  <nav class="fixed inset-x-0 top-0 z-50 glass-nav">
+    <div class="container-shell h-20 flex items-center justify-between">
+
+      <a href="index.html" class="flex items-center gap-3">
+        <img src="assets/atlas-logo.png"
+             class="h-12 w-12 rounded-full object-contain"
+             alt="Atlas Network Solutions logo">
+        <div>
+          <span class="orbitron block text-sm sm:text-base font-bold tracking-wide">
+            Atlas Home Solutions
+          </span>
+          <span class="hidden sm:block text-[11px] text-slate-500">
+            A residential division of Atlas Network Solutions
+          </span>
+        </div>
+      </a>
+
+      <div class="hidden lg:flex items-center gap-7 text-sm font-semibold text-slate-300">
+        <a href="#services" class="hover:text-cyan-300">Solutions</a>
+        <a href="#why" class="hover:text-cyan-300">Why Atlas</a>
+        <a href="#process" class="hover:text-cyan-300">How It Works</a>
+        <a href="#moving" class="hover:text-cyan-300">Moving</a>
+        <a href="#faq" class="hover:text-cyan-300">FAQ</a>
+        <a href="index.html" class="hover:text-cyan-300">Business</a>
+      </div>
+
+      <a href="https://tally.so/r/REPLACE_ME"
+         class="hidden md:inline-flex primary-btn py-3 px-5 residential-form-link">
+        Check My Options
+      </a>
+
+      <button id="menu-btn"
+              class="lg:hidden text-cyan-300 text-2xl"
+              aria-label="Open navigation menu">
+        ☰
+      </button>
+    </div>
+
+    <div id="mobile-menu"
+         class="hidden lg:hidden border-t border-white/10 bg-slate-950/95 px-6 py-5">
+      <div class="flex flex-col gap-4 font-semibold text-slate-200">
+        <a href="#services">Solutions</a>
+        <a href="#why">Why Atlas</a>
+        <a href="#process">How It Works</a>
+        <a href="#moving">Moving</a>
+        <a href="#faq">FAQ</a>
+        <a href="index.html">Business Solutions</a>
+        <a href="https://tally.so/r/REPLACE_ME"
+           class="text-cyan-300 residential-form-link">
+          Check My Options
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <div id="sticky-cta" class="sticky-cta">
+    <a href="https://tally.so/r/REPLACE_ME"
+       class="primary-btn py-3 px-5 residential-form-link">
+      Check My Home Options
+    </a>
+  </div>
+
+  <main id="top">
+
+    <!-- HERO -->
+    <section class="hero-image min-h-screen flex items-center pt-28 pb-20">
+      <div class="container-shell w-full">
+        <div class="max-w-3xl">
+
+          <p class="eyebrow mb-5">
+            Internet, Wireless, TV & Smart Home
+          </p>
+
+          <h1 class="orbitron text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.1] mb-6">
+            Better Technology Starts With
+            <span class="gradient-text">Better Options.</span>
+          </h1>
+
+          <p class="text-lg sm:text-xl text-slate-200 leading-relaxed max-w-3xl mb-8">
+            Atlas helps homeowners compare internet, wireless, television, streaming,
+            security, and smart home solutions without calling multiple providers or
+            sorting through confusing promotions on their own.
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-4 mb-7">
+            <a href="https://tally.so/r/REPLACE_ME"
+               class="primary-btn residential-form-link">
+              Check Available Options
+            </a>
+
+            <a href="#process" class="secondary-btn">
+              See How It Works
+            </a>
+          </div>
+
+          <p class="text-sm text-slate-300">
+            No-cost guidance. No obligation. Clear recommendations based on your address, needs, and budget.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRUST STRIP -->
+    <section class="border-y border-white/10 bg-slate-950/55">
+      <div class="container-shell py-6 grid grid-cols-2 lg:grid-cols-4 gap-5 text-center">
+        <div>
+          <p class="font-bold">Multiple Providers</p>
+          <p class="text-sm text-slate-400">Compare more than one option</p>
+        </div>
+        <div>
+          <p class="font-bold">No-Cost Guidance</p>
+          <p class="text-sm text-slate-400">No consulting fee</p>
+        </div>
+        <div>
+          <p class="font-bold">Address-Based Review</p>
+          <p class="text-sm text-slate-400">Options available where you live</p>
+        </div>
+        <div>
+          <p class="font-bold">One Point of Contact</p>
+          <p class="text-sm text-slate-400">From comparison through activation</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTRO -->
+    <section id="why" class="py-24">
+      <div class="container-shell grid lg:grid-cols-2 gap-14 items-center">
+
+        <div>
+          <p class="eyebrow mb-4">A Smarter Way to Shop</p>
+
+          <h2 class="orbitron text-3xl sm:text-4xl font-bold leading-tight mb-6">
+            Home technology should make life easier, not create another project.
+          </h2>
+
+          <p class="text-lg text-slate-300 leading-relaxed mb-6">
+            Comparing providers often means juggling different websites, promotional pricing,
+            equipment charges, installation terms, and coverage claims. The lowest advertised
+            price is not always the best fit for your home.
+          </p>
+
+          <p class="text-lg text-slate-300 leading-relaxed">
+            Atlas brings the options into one conversation. We help you understand what is
+            available, what each solution includes, and which setup makes the most sense for
+            the way your household actually lives.
+          </p>
+        </div>
+
+        <div class="relative">
+          <img src="assets/residential-consultation.png"
+               alt="Homeowners reviewing internet and smart home options"
+               class="w-full h-[520px] object-cover rounded-3xl border border-white/10 shadow-2xl">
+
+          <div class="absolute -bottom-6 right-5 sm:right-8 soft-panel rounded-2xl p-5 max-w-xs">
+            <p class="text-cyan-300 font-bold mb-1">One complete conversation</p>
+            <p class="text-sm text-slate-300">
+              Internet, wireless, entertainment, security, and smart home technology.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAIN POINTS -->
+    <section class="pb-24">
+      <div class="container-shell">
+        <div class="soft-panel rounded-3xl p-8 sm:p-10">
+
+          <p class="eyebrow mb-4">Does This Sound Familiar?</p>
+
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 text-slate-300">
+            <p>✓ Your internet bill keeps increasing.</p>
+            <p>✓ Wi-Fi is unreliable in parts of your home.</p>
+            <p>✓ Your family wireless plan feels overpriced.</p>
+            <p>✓ You are unsure which streaming services replace cable.</p>
+            <p>✓ You are moving and need everything set up.</p>
+            <p>✓ You want security or smart home features without guesswork.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="py-24 bg-slate-950/40 border-y border-white/5">
+      <div class="container-shell">
+
+        <div class="max-w-3xl mb-14">
+          <p class="eyebrow mb-4">Solutions for the Whole Home</p>
+
+          <h2 class="orbitron text-3xl sm:text-4xl font-bold mb-5">
+            One place to evaluate the technology your household relies on.
+          </h2>
+
+          <p class="text-lg text-slate-300">
+            Whether you need one service or a complete home setup, Atlas helps you compare
+            the available options and build a solution around your priorities.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-7">
+
+          <article class="service-card rounded-3xl">
+            <img src="assets/home-internet.png"
+                 alt="Modern home using fast internet and whole-home Wi-Fi"
+                 class="w-full h-72 object-cover">
+            <div class="p-7">
+              <p class="eyebrow mb-3">Connectivity</p>
+              <h3 class="text-2xl font-bold text-cyan-300 mb-3">Home Internet & Wi-Fi</h3>
+              <p class="text-slate-400 leading-relaxed mb-5">
+                Compare fiber, cable, fixed wireless, and other available options based on
+                speed, reliability, household usage, equipment, and monthly cost.
+              </p>
+              <div class="grid sm:grid-cols-2 gap-3 text-sm text-slate-300">
+                <p>✓ Address availability</p>
+                <p>✓ Speed recommendations</p>
+                <p>✓ Whole-home Wi-Fi</p>
+                <p>✓ Work-from-home needs</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="service-card rounded-3xl">
+            <img src="assets/home-wireless.png"
+                 alt="Family comparing wireless phone plans and devices"
+                 class="w-full h-72 object-cover">
+            <div class="p-7">
+              <p class="eyebrow mb-3">Mobile</p>
+              <h3 class="text-2xl font-bold text-cyan-300 mb-3">Wireless Phone Plans</h3>
+              <p class="text-slate-400 leading-relaxed mb-5">
+                Review family plans, coverage, device promotions, bring-your-own-device options,
+                and opportunities to simplify or reduce your monthly wireless cost.
+              </p>
+              <div class="grid sm:grid-cols-2 gap-3 text-sm text-slate-300">
+                <p>✓ Family plans</p>
+                <p>✓ New devices</p>
+                <p>✓ BYOD options</p>
+                <p>✓ Number transfers</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="service-card rounded-3xl">
+            <img src="assets/home-entertainment.png"
+                 alt="Family watching television and streaming entertainment at home"
+                 class="w-full h-72 object-cover">
+            <div class="p-7">
+              <p class="eyebrow mb-3">Entertainment</p>
+              <h3 class="text-2xl font-bold text-cyan-300 mb-3">TV & Streaming</h3>
+              <p class="text-slate-400 leading-relaxed mb-5">
+                Compare live television, sports, streaming platforms, and device options
+                without paying for channels or services your household rarely uses.
+              </p>
+              <div class="grid sm:grid-cols-2 gap-3 text-sm text-slate-300">
+                <p>✓ Live TV options</p>
+                <p>✓ Sports packages</p>
+                <p>✓ Streaming reviews</p>
+                <p>✓ Device guidance</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="service-card rounded-3xl">
+            <img src="assets/home-security.png"
+                 alt="Smart home security camera, video doorbell, and connected devices"
+                 class="w-full h-72 object-cover">
+            <div class="p-7">
+              <p class="eyebrow mb-3">Protection & Convenience</p>
+              <h3 class="text-2xl font-bold text-cyan-300 mb-3">Security & Smart Home</h3>
+              <p class="text-slate-400 leading-relaxed mb-5">
+                Explore cameras, video doorbells, alarms, smart locks, thermostats, lighting,
+                and connected home features that fit your comfort level and budget.
+              </p>
+              <div class="grid sm:grid-cols-2 gap-3 text-sm text-slate-300">
+                <p>✓ Cameras & doorbells</p>
+                <p>✓ Smart locks</p>
+                <p>✓ Alarm systems</p>
+                <p>✓ Home automation</p>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="mt-12 text-center">
+          <a href="https://tally.so/r/REPLACE_ME"
+             class="primary-btn residential-form-link">
+            Compare My Home Options
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- MOVING -->
+    <section id="moving" class="py-24">
+      <div class="container-shell grid lg:grid-cols-2 gap-14 items-center">
+
+        <div class="relative">
+          <img src="assets/moving-home.png"
+               alt="Family moving into a new home"
+               class="w-full h-[500px] object-cover rounded-3xl border border-white/10 shadow-2xl">
+        </div>
+
+        <div>
+          <p class="eyebrow mb-4">Moving?</p>
+
+          <h2 class="orbitron text-3xl sm:text-4xl font-bold leading-tight mb-6">
+            Set up the technology before the boxes take over.
+          </h2>
+
+          <p class="text-lg text-slate-300 leading-relaxed mb-7">
+            Atlas can help you review what is available at your new address and organize
+            internet, wireless, entertainment, and smart home services around your move.
+            That means fewer calls, fewer surprises, and a smoother first week in your new home.
+          </p>
+
+          <div class="space-y-5 mb-8">
+            <div class="check-item">
+              <span class="check-icon">✓</span>
+              <div>
+                <p class="font-bold">Address availability review</p>
+                <p class="text-sm text-slate-400">See which services and speeds are available before move-in.</p>
+              </div>
+            </div>
+
+            <div class="check-item">
+              <span class="check-icon">✓</span>
+              <div>
+                <p class="font-bold">Installation planning</p>
+                <p class="text-sm text-slate-400">Coordinate timing around closing, possession, or move-in day.</p>
+              </div>
+            </div>
+
+            <div class="check-item">
+              <span class="check-icon">✓</span>
+              <div>
+                <p class="font-bold">A complete home setup</p>
+                <p class="text-sm text-slate-400">Review internet, wireless, TV, security, and smart home needs together.</p>
+              </div>
+            </div>
+          </div>
+
+          <a href="https://tally.so/r/REPLACE_ME"
+             class="primary-btn residential-form-link">
+            Plan My New Home Setup
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section id="process" class="py-24 bg-slate-950/40 border-y border-white/5">
+      <div class="container-shell">
+
+        <div class="text-center max-w-3xl mx-auto mb-14">
+          <p class="eyebrow mb-4">How It Works</p>
+
+          <h2 class="orbitron text-3xl sm:text-4xl font-bold mb-5">
+            Clear guidance from the first question through activation.
+          </h2>
+
+          <p class="text-lg text-slate-300">
+            You tell us what you need. Atlas helps you understand the options and coordinate the next steps.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+          <div class="soft-panel rounded-2xl p-6">
+            <div class="number-badge mb-5">1</div>
+            <h3 class="text-xl font-bold mb-3">Tell Us About Your Home</h3>
+            <p class="text-slate-400">
+              Share your address, household needs, current services, and priorities.
+            </p>
+          </div>
+
+          <div class="soft-panel rounded-2xl p-6">
+            <div class="number-badge mb-5">2</div>
+            <h3 class="text-xl font-bold mb-3">We Review the Options</h3>
+            <p class="text-slate-400">
+              Atlas evaluates availability, plans, pricing, equipment, and promotions.
+            </p>
+          </div>
+
+          <div class="soft-panel rounded-2xl p-6">
+            <div class="number-badge mb-5">3</div>
+            <h3 class="text-xl font-bold mb-3">Choose With Confidence</h3>
+            <p class="text-slate-400">
+              We explain the differences so you can choose what best fits your household.
+            </p>
+          </div>
+
+          <div class="soft-panel rounded-2xl p-6">
+            <div class="number-badge mb-5">4</div>
+            <h3 class="text-xl font-bold mb-3">Atlas Helps Coordinate</h3>
+            <p class="text-slate-400">
+              We assist with ordering, scheduling, number transfers, and activation.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY ATLAS -->
+    <section class="py-24">
+      <div class="container-shell">
+
+        <div class="text-center max-w-3xl mx-auto mb-14">
+          <p class="eyebrow mb-4">Why Atlas</p>
+
+          <h2 class="orbitron text-3xl sm:text-4xl font-bold mb-5">
+            A professional guide in a marketplace full of fine print.
+          </h2>
+
+          <p class="text-lg text-slate-300">
+            Atlas is built around clear explanations, practical recommendations, and a smoother customer experience.
+          </p>
+        </div>
+
+        <div class="grid lg:grid-cols-3 gap-6">
+
+          <div class="soft-panel rounded-2xl p-7">
+            <h3 class="text-xl font-bold text-cyan-300 mb-3">
+              More Than One Provider
+            </h3>
+            <p class="text-slate-400">
+              We help you evaluate multiple available options instead of treating one provider as the answer for every home.
+            </p>
+          </div>
+
+          <div class="soft-panel rounded-2xl p-7">
+            <h3 class="text-xl font-bold text-cyan-300 mb-3">
+              Recommendations Built Around You
+            </h3>
+            <p class="text-slate-400">
+              Your address, household size, devices, entertainment preferences, and budget shape the recommendation.
+            </p>
+          </div>
+
+          <div class="soft-panel rounded-2xl p-7">
+            <h3 class="text-xl font-bold text-cyan-300 mb-3">
+              Support Beyond the Sale
+            </h3>
+            <p class="text-slate-400">
+              Atlas remains a point of contact as services are ordered, installed, activated, or transferred.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="py-24 bg-slate-950/40 border-y border-white/5">
+      <div class="container-shell">
+
+        <div class="max-w-3xl mx-auto">
+          <div class="text-center mb-12">
+            <p class="eyebrow mb-4">Frequently Asked Questions</p>
+            <h2 class="orbitron text-3xl sm:text-4xl font-bold">
+              A few things homeowners usually ask.
+            </h2>
+          </div>
+
+          <div class="soft-panel rounded-3xl px-7 sm:px-10">
+
+            <div class="faq-item py-6">
+              <button class="faq-button w-full flex items-center justify-between text-left gap-5">
+                <span class="text-lg font-bold">Does Atlas charge homeowners a consulting fee?</span>
+                <span class="faq-plus text-3xl text-cyan-300 transition-transform">+</span>
+              </button>
+              <div class="faq-answer pt-4 text-slate-400 leading-relaxed">
+                No. Atlas does not charge a separate consulting fee for helping you review available residential services.
+                Atlas may receive compensation from participating providers when a customer chooses an eligible service.
+              </div>
+            </div>
+
+            <div class="faq-item py-6">
+              <button class="faq-button w-full flex items-center justify-between text-left gap-5">
+                <span class="text-lg font-bold">Can Atlas tell me what internet is available at my address?</span>
+                <span class="faq-plus text-3xl text-cyan-300 transition-transform">+</span>
+              </button>
+              <div class="faq-answer pt-4 text-slate-400 leading-relaxed">
+                Yes. Availability depends on your exact address, so the review begins by identifying which providers,
+                connection types, and speeds may be available at your home.
+              </div>
+            </div>
+
+            <div class="faq-item py-6">
+              <button class="faq-button w-full flex items-center justify-between text-left gap-5">
+                <span class="text-lg font-bold">Can I keep my current wireless phone numbers?</span>
+                <span class="faq-plus text-3xl text-cyan-300 transition-transform">+</span>
+              </button>
+              <div class="faq-answer pt-4 text-slate-400 leading-relaxed">
+                In most cases, yes. Existing numbers can usually be transferred as long as the current account remains
+                active and the required transfer information is available.
+              </div>
+            </div>
+
+            <div class="faq-item py-6">
+              <button class="faq-button w-full flex items-center justify-between text-left gap-5">
+                <span class="text-lg font-bold">Can Atlas help if I am moving?</span>
+                <span class="faq-plus text-3xl text-cyan-300 transition-transform">+</span>
+              </button>
+              <div class="faq-answer pt-4 text-slate-400 leading-relaxed">
+                Yes. Atlas can review the new address, help you compare available services, and assist with planning
+                installation or activation around your move.
+              </div>
+            </div>
+
+            <div class="faq-item py-6 border-b-0">
+              <button class="faq-button w-full flex items-center justify-between text-left gap-5">
+                <span class="text-lg font-bold">Does Atlas install smart home or security equipment?</span>
+                <span class="faq-plus text-3xl text-cyan-300 transition-transform">+</span>
+              </button>
+              <div class="faq-answer pt-4 text-slate-400 leading-relaxed">
+                Installation depends on the selected provider and product. Atlas can help identify the right solution
+                and coordinate the appropriate provider or installation path.
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section id="quote" class="py-24">
+      <div class="container-shell">
+
+        <div class="relative overflow-hidden rounded-3xl border border-white/10">
+          <img src="assets/residential-final-cta.png"
+               alt="Comfortable connected home with modern technology"
+               class="absolute inset-0 w-full h-full object-cover">
+
+          <div class="absolute inset-0 bg-slate-950/82"></div>
+
+          <div class="relative p-8 sm:p-14 text-center max-w-4xl mx-auto">
+            <p class="eyebrow mb-4">A Better Place to Start</p>
+
+            <h2 class="orbitron text-3xl sm:text-5xl font-bold mb-6">
+              One conversation can simplify your entire home setup.
+            </h2>
+
+            <p class="text-lg text-slate-200 max-w-2xl mx-auto mb-8">
+              Tell Atlas what you need, and we will help you compare the available options,
+              understand the differences, and choose your next step with confidence.
+            </p>
+
+            <a href="https://tally.so/r/REPLACE_ME"
+               class="primary-btn residential-form-link">
+              Check My Available Options
+            </a>
+
+            <p class="text-sm text-slate-300 mt-5">
+              No obligation. No consulting fee. Clear guidance based on your home and priorities.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-white/10 bg-black/45 py-12">
+    <div class="container-shell text-center">
+
+      <img src="assets/atlas-logo.png"
+           class="h-14 w-14 rounded-full mx-auto mb-4"
+           alt="Atlas Network Solutions logo">
+
+      <p class="orbitron font-bold mb-2">
+        Atlas Home Solutions
+      </p>
+
+      <p class="text-sm text-slate-500 mb-4">
+        A residential division of Atlas Network Solutions
+      </p>
+
+      <p class="text-slate-400 max-w-xl mx-auto mb-7">
+        Helping homeowners compare internet, wireless, entertainment, security,
+        and smart home technology with clarity and confidence.
+      </p>
+
+      <div class="flex flex-wrap justify-center gap-7 mb-8">
+        <a href="index.html"
+           class="text-slate-400 hover:text-cyan-300">
+          Business Solutions
+        </a>
+
+        <a href="https://www.facebook.com/share/17d7csu4L2/?mibextid=wwXIfr"
+           target="_blank"
+           rel="noopener"
+           class="text-slate-400 hover:text-cyan-300">
+          Facebook
+        </a>
+
+        <a href="https://www.instagram.com/atlasnetworksolutions?igsh=MTc5cWR4MXBpaG40dg%3D%3D&utm_source=qr"
+           target="_blank"
+           rel="noopener"
+           class="text-slate-400 hover:text-cyan-300">
+          Instagram
+        </a>
+
+        <a href="privacy.html"
+           class="text-slate-400 hover:text-cyan-300">
+          Privacy Policy
+        </a>
+      </div>
+
+      <p class="text-sm text-slate-600">
+        © <span id="year"></span> Atlas Network Solutions. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.residential-form-link').forEach(link=>{
+      link.href = residentialFormURL;
+      link.target = '_blank';
+      link.rel = 'noopener';
+    });
+
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuBtn.addEventListener('click',()=>{
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    mobileMenu.querySelectorAll('a').forEach(link=>{
+      link.addEventListener('click',()=>{
+        mobileMenu.classList.add('hidden');
+      });
+    });
+
+    window.addEventListener('scroll',()=>{
+      document.getElementById('sticky-cta')
+        .classList.toggle('show',window.scrollY>420);
+    });
+
+    document.getElementById('year').textContent =
+      new Date().getFullYear();
+
+    document.querySelectorAll('.faq-button').forEach(button=>{
+      button.addEventListener('click',()=>{
+        const item = button.closest('.faq-item');
+        item.classList.toggle('open');
+      });
+    });
+  </script>
+
+  <!-- CRISP LIVE CHAT -->
+  <script>
+    window.$crisp=[];
+    window.CRISP_WEBSITE_ID=
+      '4540a535-caa6-43c6-8188-b68afa3f3729';
+
+    (function(){
+      var d=document;
+      var s=d.createElement('script');
+
+      s.src='https://client.crisp.chat/l.js';
+      s.async=1;
+
+      d.getElementsByTagName('head')[0].appendChild(s);
+    })();
+  </script>
+</body>
+</html>
+
+Library
+/
+residential-code.txt
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Atlas Home Solutions | Internet, Wireless, TV & Smart Home</title>
+  <meta name="description" content="Atlas Home Solutions helps homeowners compare internet, wireless, TV, streaming, home security, and smart home options with clear guidance and no-pressure support.">
+  <meta name="author" content="Atlas Network Solutions">
+  <meta name="robots" content="index,follow">
+
+  <meta property="og:title" content="Atlas Home Solutions | Smarter Technology for Your Home">
+  <meta property="og:description" content="Compare home internet, wireless, TV, streaming, security, and smart home solutions with professional guidance from Atlas.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://atlasnetworksolutions.net/residential.html">
+  <meta property="og:image" content="https://atlasnetworksolutions.net/assets/residential-og-image.png">
+  <meta property="og:image:alt" content="Atlas Home Solutions residential technology consultation">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Atlas Home Solutions">
+  <meta name="twitter:description" content="Professional guidance for home internet, wireless, TV, streaming, security, and smart home technology.">
+  <meta name="twitter:image" content="https://atlasnetworksolutions.net/assets/residential-og-image.png">
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"ProfessionalService",
+    "name":"Atlas Home Solutions",
+    "url":"https://atlasnetworksolutions.net/residential.html",
+    "logo":"https://atlasnetworksolutions.net/assets/atlas-logo.png",
+    "image":"https://atlasnetworksolutions.net/assets/residential-og-image.png",
+    "description":"Atlas Home Solutions helps homeowners evaluate and compare internet, wireless, television, streaming, home security, and smart home solutions.",
+    "address":{
+      "@type":"PostalAddress",
+      "addressLocality":"Lancaster",
+      "addressRegion":"PA",
+      "addressCountry":"US"
+    },
+    "areaServed":{
+      "@type":"State",
+      "name":"Pennsylvania"
+    },
+    "parentOrganization":{
+      "@type":"Organization",
+      "name":"Atlas Network Solutions"
+    },
+    "priceRange":"$"
+  }
+  </script>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --navy:#070b16;
+      --navy-2:#0d1426;
+      --panel:#111a2d;
+      --cyan:#22d3ee;
+      --cyan-2:#0891b2;
+      --purple:#8b5cf6;
+      --text:#f8fafc;
+      --muted:#a8b3c7;
+    }
+
+    html{scroll-behavior:smooth}
+    body{font-family:'Inter',sans-serif;background:var(--navy);color:var(--text)}
+    .orbitron{font-family:'Orbitron',sans-serif}
+    .container-shell{max-width:1200px;margin:0 auto;padding-left:1.5rem;padding-right:1.5rem}
+
+    .site-bg{
+      background:
+        radial-gradient(circle at 15% 0%,rgba(34,211,238,.12),transparent 28%),
+        radial-gradient(circle at 88% 12%,rgba(139,92,246,.12),transparent 30%),
+        linear-gradient(180deg,#080c18 0%,#0b1221 55%,#080c18 100%);
+    }
+
+    .glass-nav{
+      background:rgba(7,11,22,.86);
+      border-bottom:1px solid rgba(255,255,255,.07);
+      backdrop-filter:blur(16px);
+    }
+
+    .hero-image{
+      background-image:
+        linear-gradient(90deg,rgba(4,8,18,.97) 0%,rgba(4,8,18,.88) 42%,rgba(4,8,18,.42) 72%,rgba(4,8,18,.65) 100%),
+        url('assets/residential-hero.png');
+      background-position:center;
+      background-size:cover;
+      background-repeat:no-repeat;
+    }
+
+    .eyebrow{
+      color:#67e8f9;
+      text-transform:uppercase;
+      letter-spacing:.16em;
+      font-weight:700;
+      font-size:.78rem;
+    }
+
+    .gradient-text{
+      background:linear-gradient(90deg,#67e8f9 0%,#22d3ee 45%,#a78bfa 100%);
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+    }
+
+    .primary-btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:.5rem;
+      background:linear-gradient(135deg,#22d3ee,#0891b2);
+      color:#041019;
+      font-weight:800;
+      border-radius:999px;
+      padding:.95rem 1.5rem;
+      transition:.25s ease;
+      box-shadow:0 12px 35px rgba(34,211,238,.18);
+    }
+
+    .primary-btn:hover{
+      transform:translateY(-2px);
+      box-shadow:0 18px 42px rgba(34,211,238,.30);
+    }
+
+    .secondary-btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      border:1px solid rgba(255,255,255,.16);
+      background:rgba(255,255,255,.05);
+      color:white;
+      font-weight:700;
+      border-radius:999px;
+      padding:.95rem 1.5rem;
+      transition:.25s ease;
+    }
+
+    .secondary-btn:hover{
+      border-color:rgba(34,211,238,.7);
+      background:rgba(34,211,238,.07);
+    }
+
+    .soft-panel{
+      background:linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,.025));
+      border:1px solid rgba(255,255,255,.09);
+      box-shadow:0 20px 70px rgba(0,0,0,.18);
+    }
+
+    .service-card{
+      background:rgba(17,26,45,.82);
+      border:1px solid rgba(255,255,255,.08);
+      overflow:hidden;
+      transition:.25s ease;
+    }
+
+    .service-card:hover{
+      transform:translateY(-5px);
+      border-color:rgba(34,211,238,.35);
+      box-shadow:0 18px 50px rgba(0,0,0,.28);
+    }
+
+    .service-card img{
+      transition:transform .45s ease;
+    }
+
+    .service-card:hover img{
+      transform:scale(1.04);
+    }
+
+    .number-badge{
+      width:2.4rem;
+      height:2.4rem;
+      border-radius:999px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:rgba(34,211,238,.12);
+      border:1px solid rgba(34,211,238,.28);
+      color:#67e8f9;
+      font-weight:800;
+    }
+
+    .check-item{
+      display:flex;
+      align-items:flex-start;
+      gap:.8rem;
+    }
+
+    .check-icon{
+      width:1.7rem;
+      height:1.7rem;
+      border-radius:999px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex:0 0 auto;
+      margin-top:.1rem;
+      background:rgba(34,211,238,.12);
+      border:1px solid rgba(34,211,238,.25);
+      color:#67e8f9;
+      font-weight:800;
+      font-size:.8rem;
+    }
+
+    .faq-item{
+      border-bottom:1px solid rgba(255,255,255,.09);
+    }
+
+    .faq-answer{
+      display:none;
+    }
+
+    .faq-item.open .faq-answer{
+      display:block;
+    }
+
+    .faq-item.open .faq-plus{
+      transform:rotate(45deg);
+    }
+
+    .sticky-cta{
+      position:fixed;
+      right:20px;
+      top:18px;
+      z-index:60;
+      opacity:0;
+      transform:translateY(-15px);
+      pointer-events:none;
+      transition:.3s ease;
+    }
+
+    .sticky-cta.show{
+      opacity:1;
+      transform:none;
+      pointer-events:auto;
+    }
+
+    @media (max-width:900px){
+      .hero-image{
+        background-image:
+          linear-gradient(90deg,rgba(4,8,18,.96),rgba(4,8,18,.80)),
+          url('assets/residential-hero.png');
+        background-position:65% center;
+      }
+    }
+
+    @media (max-width:767px){
+      .sticky-cta{display:none}
+      .hero-image{background-position:70% center}
+    }
+  </style>
+</head>
+
+<body class="overflow-x-hidden site-bg">
+
+  <!-- Replace this URL with the final residential Tally or GHL form -->
+  <script>
+    const residentialFormURL = 'https://tally.so/r/REPLACE_ME';
+  </script>
+
+  <!-- NAVIGATION -->
+  <nav class="fixed inset-x-0 top-0 z-50 glass-nav">
+    <div class="container-shell h-20 flex items-center justify-between">
+
+      <a href="index.html" class="flex items-center gap-3">
+        <img src="assets/atlas-logo.png"
+             class="h-12 w-12 rounded-full object-contain"
+             alt="Atlas Network Solutions logo">
+        <div>
+          <span class="orbitron block text-sm sm:text-base font-bold tracking-wide">
+            Atlas Home Solutions
+          </span>
+          <span class="hidden sm:block text-[11px] text-slate-500">
+            A residential division of Atlas Network Solutions
+          </span>
+        </div>
+      </a>
+
+      <div class="hidden lg:flex items-center gap-7 text-sm font-semibold text-slate-300">
+        <a href="#services" class="hover:text-cyan-300">Solutions</a>
+        <a href="#why" class="hover:text-cyan-300">Why Atlas</a>
+        <a href="#process" class="hover:text-cyan-300">How It Works</a>
+        <a href="#moving" class="hover:text-cyan-300">Moving</a>
+        <a href="#faq" class="hover:text-cyan-300">FAQ</a>
+        <a href="index.html" class="hover:text-cyan-300">Business</a>
+      </div>
+
+      <a href="https://tally.so/r/REPLACE_ME"
+         class="hidden md:inline-flex primary-btn py-3 px-5 residential-form-link">
+        Check My Options
+      </a>
+
+      <button id="menu-btn"
+              class="lg:hidden text-cyan-300 text-2xl"
+              aria-label="Open navigation menu">
+        ☰
+      </button>
+    </div>
+
+    <div id="mobile-menu"
+         class="hidden lg:hidden border-t border-white/10 bg-slate-950/95 px-6 py-5">
+      <div class="flex flex-col gap-4 font-semibold text-slate-200">
+        <a href="#services">Solutions</a>
+        <a href="#why">Why Atlas</a>
+        <a href="#process">How It Works</a>
+        <a href="#moving">Moving</a>
+        <a href="#faq">FAQ</a>
+        <a href="index.html">Business Solutions</a>
+        <a href="https://tally.so/r/REPLACE_ME"
+           class="text-cyan-300 residential-form-link">
+          Check My Options
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <div id="sticky-cta" class="sticky-cta">
+    <a href="https://tally.so/r/REPLACE_ME"
+       class="primary-btn py-3 px-5 residential-form-link">
+      Check My Home Options
+    </a>
+  </div>
+
+  <main id="top">
+
+    <!-- HERO -->
+    <section class="hero-image min-h-screen flex items-center pt-28 pb-20">
+      <div class="container-shell w-full">
+        <div class="max-w-3xl">
+
+          <p class="eyebrow mb-5">
+            Internet, Wireless, TV & Smart Home
+          </p>
+
+          <h1 class="orbitron text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.1] mb-6">
+            Better Technology Starts With
+            <span class="gradient-text">Better Options.</span>
+          </h1>
+
+          <p class="text-lg sm:text-xl text-slate-200 leading-relaxed max-w-3xl mb-8">
+            Atlas helps homeowners compare internet, wireless, television, streaming,
+            security, and smart home solutions without calling multiple providers or
+            sorting through confusing promotions on their own.
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-4 mb-7">
+            <a href="https://tally.so/r/REPLACE_ME"
+               class="primary-btn residential-form-link">
+              Check Available Options
+            </a>
+
+            <a href="#process" class="secondary-btn">
+              See How It Works
+            </a>
+          </div>
+
+          <p class="text-sm text-slate-300">
+            No-cost guidance. No obligation. Clear recommendations based on your address, needs, and budget.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRUST STRIP -->
+    <section class="border-y border-white/10 bg-slate-950/55">
+      <div class="container-shell py-6 grid grid-cols-2 lg:grid-cols-4 gap-5 text-center">
+        <div>
+          <p class="font-bold">Multiple Providers</p>
+          <p class="text-sm text-slate-400">Compare more than one option</p>
+        </div>
+        <div>
+          <p class="font-bold">No-Cost Guidance</p>
+          <p class="text-sm text-slate-400">No consulting fee</p>
+        </div>
+        <div>
+          <p class="font-bold">Address-Based Review</p>
+          <p class="text-sm text-slate-400">Options available where you live</p>
+        </div>
+        <div>
+          <p class="font-bold">One Point of Contact</p>
+          <p class="text-sm text-slate-400">From comparison through activation</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTRO -->
+    <section id="why" class="py-24">
+      <div class="container-shell grid lg:grid-cols-2 gap-14 items-center">
+
+        <div>
+          <p class="eyebrow mb-4">A Smarter Way to Shop</p>
+
+          <h2 class="orbitron text-3xl sm:text-4xl font-bold leading-tight mb-6">
+            Home technology should make life easier, not create another project.
+          </h2>
+
+          <p class="text-lg text-slate-300 leading-relaxed mb-6">
+            Comparing providers often means juggling different websites, promotional pricing,
+            equipment charges, installation terms, and coverage claims. The lowest advertised
+            price is not always the best fit for your home.
+          </p>
+
+          <p class="text-lg text-slate-300 leading-relaxed">
+            Atlas brings the options into one conversation. We help you understand what is
+            available, what each solution includes, and which setup makes the most sense for
+            the way your household actually lives.
+          </p>
+        </div>
+
+        <div class="relative">
+          <img src="assets/residential-consultation.png"
+               alt="Homeowners reviewing internet and smart home options"
+               class="w-full h-[520px] object-cover rounded-3xl border border-white/10 shadow-2xl">
+
+          <div class="absolute -bottom-6 right-5 sm:right-8 soft-panel rounded-2xl p-5 max-w-xs">
+            <p class="text-cyan-300 font-bold mb-1">One complete conversation</p>
+            <p class="text-sm text-slate-300">
+              Internet, wireless, entertainment, security, and smart home technology.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAIN POINTS -->
+    <section class="pb-24">
+      <div class="container-shell">
+        <div class="soft-panel rounded-3xl p-8 sm:p-10">
+
+          <p class="eyebrow mb-4">Does This Sound Familiar?</p>
+
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 text-slate-300">
+            <p>✓ Your internet bill keeps increasing.</p>
+            <p>✓ Wi-Fi is unreliable in parts of your home.</p>
+            <p>✓ Your family wireless plan feels overpriced.</p>
+            <p>✓ You are unsure which streaming services replace cable.</p>
+            <p>✓ You are moving and need everything set up.</p>
+            <p>✓ You want security or smart home features without guesswork.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="py-24 bg-slate-950/40 border-y border-white/5">
+      <div class="container-shell">
+
+        <div class="max-w-3xl mb-14">
+          <p class="eyebrow mb-4">Solutions for the Whole Home</p>
+
+          <h2 class="orbitron text-3xl sm:text-4xl font-bold mb-5">
+            One place to evaluate the technology your household relies on.
+          </h2>
+
+          <p class="text-lg text-slate-300">
+            Whether you need one service or a complete home setup, Atlas helps you compare
+            the available options and build a solution around your priorities.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-7">
+
+          <article class="service-card rounded-3xl">
+            <img src="assets/home-internet.png"
+                 alt="Modern home using fast internet and whole-home Wi-Fi"
+                 class="w-full h-72 object-cover">
+            <div class="p-7">
+              <p class="eyebrow mb-3">Connectivity</p>
+              <h3 class="text-2xl font-bold text-cyan-300 mb-3">Home Internet & Wi-Fi</h3>
+              <p class="text-slate-400 leading-relaxed mb-5">
+                Compare fiber, cable, fixed wireless, and other available options based on
+                speed, reliability, household usage, equipment, and monthly cost.
+              </p>
+              <div class="grid sm:grid-cols-2 gap-3 text-sm text-slate-300">
+                <p>✓ Address availability</p>
+                <p>✓ Speed recommendations</p>
+                <p>✓ Whole-home Wi-Fi</p>
+                <p>✓ Work-from-home needs</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="service-card rounded-3xl">
+            <img src="assets/home-wireless.png"
+                 alt="Family comparing wireless phone plans and devices"
+                 class="w-full h-72 object-cover">
+            <div class="p-7">
+              <p class="eyebrow mb-3">Mobile</p>
+              <h3 class="text-2xl font-bold text-cyan-300 mb-3">Wireless Phone Plans</h3>
+              <p class="text-slate-400 leading-relaxed mb-5">
+                Review family plans, coverage, device promotions, bring-your-own-device options,
+                and opportunities to simplify or reduce your monthly wireless cost.
+              </p>
+              <div class="grid sm:grid-cols-2 gap-3 text-sm text-slate-300">
+                <p>✓ Family plans</p>
+                <p>✓ New devices</p>
+                <p>✓ BYOD options</p>
+                <p>✓ Number transfers</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="service-card rounded-3xl">
+            <img src="assets/home-entertainment.png"
+                 alt="Family watching television and streaming entertainment at home"
+                 class="w-full h-72 object-cover">
+            <div class="p-7">
+              <p class="eyebrow mb-3">Entertainment</p>
+              <h3 class="text-2xl font-bold text-cyan-300 mb-3">TV & Streaming</h3>
+              <p class="text-slate-400 leading-relaxed mb-5">
+                Compare live television, sports, streaming platforms, and device options
+                without paying for channels or services your household rarely uses.
+              </p>
+              <div class="grid sm:grid-cols-2 gap-3 text-sm text-slate-300">
+                <p>✓ Live TV options</p>
+                <p>✓ Sports packages</p>
+                <p>✓ Streaming reviews</p>
+                <p>✓ Device guidance</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="service-card rounded-3xl">
+            <img src="assets/home-security.png"
+                 alt="Smart home security camera, video doorbell, and connected devices"
+                 class="w-full h-72 object-cover">
+            <div class="p-7">
+              <p class="eyebrow mb-3">Protection & Convenience</p>
+              <h3 class="text-2xl font-bold text-cyan-300 mb-3">Security & Smart Home</h3>
+              <p class="text-slate-400 leading-relaxed mb-5">
+                Explore cameras, video doorbells, alarms, smart locks, thermostats, lighting,
+                and connected home features that fit your comfort level and budget.
+              </p>
+              <div class="grid sm:grid-cols-2 gap-3 text-sm text-slate-300">
+                <p>✓ Cameras & doorbells</p>
+                <p>✓ Smart locks</p>
+                <p>✓ Alarm systems</p>
+                <p>✓ Home automation</p>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="mt-12 text-center">
+          <a href="https://tally.so/r/REPLACE_ME"
+             class="primary-btn residential-form-link">
+            Compare My Home Options
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- MOVING -->
+    <section id="moving" class="py-24">
+      <div class="container-shell grid lg:grid-cols-2 gap-14 items-center">
+
+        <div class="relative">
+          <img src="assets/moving-home.png"
+               alt="Family moving into a new home"
+               class="w-full h-[500px] object-cover rounded-3xl border border-white/10 shadow-2xl">
+        </div>
+
+        <div>
+          <p class="eyebrow mb-4">Moving?</p>
+
+          <h2 class="orbitron text-3xl sm:text-4xl font-bold leading-tight mb-6">
+            Set up the technology before the boxes take over.
+          </h2>
+
+          <p class="text-lg text-slate-300 leading-relaxed mb-7">
+            Atlas can help you review what is available at your new address and organize
+            internet, wireless, entertainment, and smart home services around your move.
+            That means fewer calls, fewer surprises, and a smoother first week in your new home.
+          </p>
+
+          <div class="space-y-5 mb-8">
+            <div class="check-item">
+              <span class="check-icon">✓</span>
+              <div>
+                <p class="font-bold">Address availability review</p>
+                <p class="text-sm text-slate-400">See which services and speeds are available before move-in.</p>
+              </div>
+            </div>
+
+            <div class="check-item">
+              <span class="check-icon">✓</span>
+              <div>
+                <p class="font-bold">Installation planning</p>
+                <p class="text-sm text-slate-400">Coordinate timing around closing, possession, or move-in day.</p>
+              </div>
+            </div>
+
+            <div class="check-item">
+              <span class="check-icon">✓</span>
+              <div>
+                <p class="font-bold">A complete home setup</p>
+                <p class="text-sm text-slate-400">Review internet, wireless, TV, security, and smart home needs together.</p>
+              </div>
+            </div>
+          </div>
+
+          <a href="https://tally.so/r/REPLACE_ME"
+             class="primary-btn residential-form-link">
+            Plan My New Home Setup
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section id="process" class="py-24 bg-slate-950/40 border-y border-white/5">
+      <div class="container-shell">
+
+        <div class="text-center max-w-3xl mx-auto mb-14">
+          <p class="eyebrow mb-4">How It Works</p>
+
+          <h2 class="orbitron text-3xl sm:text-4xl font-bold mb-5">
+            Clear guidance from the first question through activation.
+          </h2>
+
+          <p class="text-lg text-slate-300">
+            You tell us what you need. Atlas helps you understand the options and coordinate the next steps.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+          <div class="soft-panel rounded-2xl p-6">
+            <div class="number-badge mb-5">1</div>
+            <h3 class="text-xl font-bold mb-3">Tell Us About Your Home</h3>
+            <p class="text-slate-400">
+              Share your address, household needs, current services, and priorities.
+            </p>
+          </div>
+
+          <div class="soft-panel rounded-2xl p-6">
+            <div class="number-badge mb-5">2</div>
+            <h3 class="text-xl font-bold mb-3">We Review the Options</h3>
+            <p class="text-slate-400">
+              Atlas evaluates availability, plans, pricing, equipment, and promotions.
+            </p>
+          </div>
+
+          <div class="soft-panel rounded-2xl p-6">
+            <div class="number-badge mb-5">3</div>
+            <h3 class="text-xl font-bold mb-3">Choose With Confidence</h3>
+            <p class="text-slate-400">
+              We explain the differences so you can choose what best fits your household.
+            </p>
+          </div>
+
+          <div class="soft-panel rounded-2xl p-6">
+            <div class="number-badge mb-5">4</div>
+            <h3 class="text-xl font-bold mb-3">Atlas Helps Coordinate</h3>
+            <p class="text-slate-400">
+              We assist with ordering, scheduling, number transfers, and activation.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY ATLAS -->
+    <section class="py-24">
+      <div class="container-shell">
+
+        <div class="text-center max-w-3xl mx-auto mb-14">
+          <p class="eyebrow mb-4">Why Atlas</p>
+
+          <h2 class="orbitron text-3xl sm:text-4xl font-bold mb-5">
+            A professional guide in a marketplace full of fine print.
+          </h2>
+
+          <p class="text-lg text-slate-300">
+            Atlas is built around clear explanations, practical recommendations, and a smoother customer experience.
+          </p>
+        </div>
+
+        <div class="grid lg:grid-cols-3 gap-6">
+
+          <div class="soft-panel rounded-2xl p-7">
+            <h3 class="text-xl font-bold text-cyan-300 mb-3">
+              More Than One Provider
+            </h3>
+            <p class="text-slate-400">
+              We help you evaluate multiple available options instead of treating one provider as the answer for every home.
+            </p>
+          </div>
+
+          <div class="soft-panel rounded-2xl p-7">
+            <h3 class="text-xl font-bold text-cyan-300 mb-3">
+              Recommendations Built Around You
+            </h3>
+            <p class="text-slate-400">
+              Your address, household size, devices, entertainment preferences, and budget shape the recommendation.
+            </p>
+          </div>
+
+          <div class="soft-panel rounded-2xl p-7">
+            <h3 class="text-xl font-bold text-cyan-300 mb-3">
+              Support Beyond the Sale
+            </h3>
+            <p class="text-slate-400">
+              Atlas remains a point of contact as services are ordered, installed, activated, or transferred.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="py-24 bg-slate-950/40 border-y border-white/5">
+      <div class="container-shell">
+
+        <div class="max-w-3xl mx-auto">
+          <div class="text-center mb-12">
+            <p class="eyebrow mb-4">Frequently Asked Questions</p>
+            <h2 class="orbitron text-3xl sm:text-4xl font-bold">
+              A few things homeowners usually ask.
+            </h2>
+          </div>
+
+          <div class="soft-panel rounded-3xl px-7 sm:px-10">
+
+            <div class="faq-item py-6">
+              <button class="faq-button w-full flex items-center justify-between text-left gap-5">
+                <span class="text-lg font-bold">Does Atlas charge homeowners a consulting fee?</span>
+                <span class="faq-plus text-3xl text-cyan-300 transition-transform">+</span>
+              </button>
+              <div class="faq-answer pt-4 text-slate-400 leading-relaxed">
+                No. Atlas does not charge a separate consulting fee for helping you review available residential services.
+                Atlas may receive compensation from participating providers when a customer chooses an eligible service.
+              </div>
+            </div>
+
+            <div class="faq-item py-6">
+              <button class="faq-button w-full flex items-center justify-between text-left gap-5">
+                <span class="text-lg font-bold">Can Atlas tell me what internet is available at my address?</span>
+                <span class="faq-plus text-3xl text-cyan-300 transition-transform">+</span>
+              </button>
+              <div class="faq-answer pt-4 text-slate-400 leading-relaxed">
+                Yes. Availability depends on your exact address, so the review begins by identifying which providers,
+                connection types, and speeds may be available at your home.
+              </div>
+            </div>
+
+            <div class="faq-item py-6">
+              <button class="faq-button w-full flex items-center justify-between text-left gap-5">
+                <span class="text-lg font-bold">Can I keep my current wireless phone numbers?</span>
+                <span class="faq-plus text-3xl text-cyan-300 transition-transform">+</span>
+              </button>
+              <div class="faq-answer pt-4 text-slate-400 leading-relaxed">
+                In most cases, yes. Existing numbers can usually be transferred as long as the current account remains
+                active and the required transfer information is available.
+              </div>
+            </div>
+
+            <div class="faq-item py-6">
+              <button class="faq-button w-full flex items-center justify-between text-left gap-5">
+                <span class="text-lg font-bold">Can Atlas help if I am moving?</span>
+                <span class="faq-plus text-3xl text-cyan-300 transition-transform">+</span>
+              </button>
+              <div class="faq-answer pt-4 text-slate-400 leading-relaxed">
+                Yes. Atlas can review the new address, help you compare available services, and assist with planning
+                installation or activation around your move.
+              </div>
+            </div>
+
+            <div class="faq-item py-6 border-b-0">
+              <button class="faq-button w-full flex items-center justify-between text-left gap-5">
+                <span class="text-lg font-bold">Does Atlas install smart home or security equipment?</span>
+                <span class="faq-plus text-3xl text-cyan-300 transition-transform">+</span>
+              </button>
+              <div class="faq-answer pt-4 text-slate-400 leading-relaxed">
+                Installation depends on the selected provider and product. Atlas can help identify the right solution
+                and coordinate the appropriate provider or installation path.
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section id="quote" class="py-24">
+      <div class="container-shell">
+
+        <div class="relative overflow-hidden rounded-3xl border border-white/10">
+          <img src="assets/residential-final-cta.png"
+               alt="Comfortable connected home with modern technology"
+               class="absolute inset-0 w-full h-full object-cover">
+
+          <div class="absolute inset-0 bg-slate-950/82"></div>
+
+          <div class="relative p-8 sm:p-14 text-center max-w-4xl mx-auto">
+            <p class="eyebrow mb-4">A Better Place to Start</p>
+
+            <h2 class="orbitron text-3xl sm:text-5xl font-bold mb-6">
+              One conversation can simplify your entire home setup.
+            </h2>
+
+            <p class="text-lg text-slate-200 max-w-2xl mx-auto mb-8">
+              Tell Atlas what you need, and we will help you compare the available options,
+              understand the differences, and choose your next step with confidence.
+            </p>
+
+            <a href="https://tally.so/r/REPLACE_ME"
+               class="primary-btn residential-form-link">
+              Check My Available Options
+            </a>
+
+            <p class="text-sm text-slate-300 mt-5">
+              No obligation. No consulting fee. Clear guidance based on your home and priorities.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-white/10 bg-black/45 py-12">
+    <div class="container-shell text-center">
+
+      <img src="assets/atlas-logo.png"
+           class="h-14 w-14 rounded-full mx-auto mb-4"
+           alt="Atlas Network Solutions logo">
+
+      <p class="orbitron font-bold mb-2">
+        Atlas Home Solutions
+      </p>
+
+      <p class="text-sm text-slate-500 mb-4">
+        A residential division of Atlas Network Solutions
+      </p>
+
+      <p class="text-slate-400 max-w-xl mx-auto mb-7">
+        Helping homeowners compare internet, wireless, entertainment, security,
+        and smart home technology with clarity and confidence.
+      </p>
+
+      <div class="flex flex-wrap justify-center gap-7 mb-8">
+        <a href="index.html"
+           class="text-slate-400 hover:text-cyan-300">
+          Business Solutions
+        </a>
+
+        <a href="https://www.facebook.com/share/17d7csu4L2/?mibextid=wwXIfr"
+           target="_blank"
+           rel="noopener"
+           class="text-slate-400 hover:text-cyan-300">
+          Facebook
+        </a>
+
+        <a href="https://www.instagram.com/atlasnetworksolutions?igsh=MTc5cWR4MXBpaG40dg%3D%3D&utm_source=qr"
+           target="_blank"
+           rel="noopener"
+           class="text-slate-400 hover:text-cyan-300">
+          Instagram
+        </a>
+
+        <a href="privacy.html"
+           class="text-slate-400 hover:text-cyan-300">
+          Privacy Policy
+        </a>
+      </div>
+
+      <p class="text-sm text-slate-600">
+        © <span id="year"></span> Atlas Network Solutions. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.residential-form-link').forEach(link=>{
+      link.href = residentialFormURL;
+      link.target = '_blank';
+      link.rel = 'noopener';
+    });
+
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuBtn.addEventListener('click',()=>{
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    mobileMenu.querySelectorAll('a').forEach(link=>{
+      link.addEventListener('click',()=>{
+        mobileMenu.classList.add('hidden');
+      });
+    });
+
+    window.addEventListener('scroll',()=>{
+      document.getElementById('sticky-cta')
+        .classList.toggle('show',window.scrollY>420);
+    });
+
+    document.getElementById('year').textContent =
+      new Date().getFullYear();
+
+    document.querySelectorAll('.faq-button').forEach(button=>{
+      button.addEventListener('click',()=>{
+        const item = button.closest('.faq-item');
+        item.classList.toggle('open');
+      });
+    });
+  </script>
+
+  <!-- CRISP LIVE CHAT -->
+  <script>
+    window.$crisp=[];
+    window.CRISP_WEBSITE_ID=
+      '4540a535-caa6-43c6-8188-b68afa3f3729';
+
+    (function(){
+      var d=document;
+      var s=d.createElement('script');
+
+      s.src='https://client.crisp.chat/l.js';
+      s.async=1;
+
+      d.getElementsByTagName('head')[0].appendChild(s);
+    })();
+  </script>
+</body>
+</html>
