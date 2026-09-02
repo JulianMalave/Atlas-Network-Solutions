@@ -190,27 +190,92 @@
     }
 
     .hero-trust{
+      position:relative;
       display:flex;
       flex-wrap:wrap;
       align-items:center;
-      gap:.65rem 1rem;
+      gap:.65rem;
       color:#cbd5e1;
       font-size:.86rem;
       font-weight:650;
+      z-index:9;
     }
 
-    .hero-trust span{display:inline-flex;align-items:center;gap:.45rem}
-    .hero-trust span::before{
-      content:'✓';
+    .trust-item{position:relative}
+
+    .trust-trigger{
+      display:inline-flex;
+      align-items:center;
+      gap:.48rem;
+      padding:.42rem .68rem;
+      border:1px solid transparent;
+      border-radius:999px;
+      color:#cbd5e1;
+      background:rgba(7,11,22,.22);
+      cursor:pointer;
+      transition:color .2s ease,border-color .2s ease,background .2s ease,transform .2s ease;
+    }
+
+    .trust-check{
       display:grid;
       place-items:center;
+      flex:0 0 auto;
       width:1.15rem;
       height:1.15rem;
-      border:1px solid rgba(103,232,249,.42);
+      border:1px solid rgba(103,232,249,.48);
       border-radius:50%;
       color:#67e8f9;
       font-size:.68rem;
-      box-shadow:0 0 12px rgba(34,211,238,.12);
+      box-shadow:0 0 12px rgba(34,211,238,.14);
+    }
+
+    .trust-chevron{color:#67e8f9;font-size:.76rem;transition:transform .2s ease}
+
+    .trust-item:hover .trust-trigger,
+    .trust-item:focus-within .trust-trigger,
+    .trust-item.is-open .trust-trigger{
+      color:white;
+      border-color:rgba(103,232,249,.34);
+      background:rgba(34,211,238,.08);
+      transform:translateY(-1px);
+    }
+
+    .trust-item:hover .trust-chevron,
+    .trust-item:focus-within .trust-chevron,
+    .trust-item.is-open .trust-chevron{transform:rotate(180deg)}
+
+    .trust-popover{
+      position:absolute;
+      top:calc(100% + .65rem);
+      left:0;
+      width:min(360px,calc(100vw - 3rem));
+      padding:1rem 1.05rem;
+      border:1px solid rgba(103,232,249,.25);
+      border-radius:1rem;
+      background:rgba(7,11,22,.97);
+      color:#aebbd0;
+      font-size:.82rem;
+      font-weight:500;
+      line-height:1.55;
+      box-shadow:0 22px 55px rgba(0,0,0,.48),0 0 28px rgba(34,211,238,.08);
+      backdrop-filter:blur(18px);
+      opacity:0;
+      visibility:hidden;
+      pointer-events:none;
+      transform:translateY(8px);
+      transition:opacity .2s ease,transform .2s ease,visibility .2s ease;
+    }
+
+    .trust-item:nth-child(3) .trust-popover,
+    .trust-item:nth-child(4) .trust-popover{left:auto;right:0}
+
+    .trust-item:hover .trust-popover,
+    .trust-item:focus-within .trust-popover,
+    .trust-item.is-open .trust-popover{
+      opacity:1;
+      visibility:visible;
+      pointer-events:auto;
+      transform:none;
     }
 
     .service-ticker{
@@ -766,6 +831,8 @@
       .hero-title{font-size:clamp(2.45rem,12vw,3.4rem);line-height:1.02}
       .hero-title .gradient-text{white-space:normal}
       .hero-summary{font-size:1rem;line-height:1.58}
+      .trust-item{position:static}
+      .trust-popover{left:0!important;right:0!important;width:auto}
       .atlas-system{min-height:620px}
       .atlas-system::before{width:360px;height:360px}
       .ecosystem-center{width:122px;height:122px}
@@ -995,32 +1062,50 @@
           </div>
 
           <div class="hero-trust" aria-label="Review benefits">
-            <span>No consulting fee</span>
-            <span>No pressure</span>
-            <span>One point of contact</span>
-          </div>
-        </div>
-      </div>
-    </section>
+            <div class="trust-item">
+              <button type="button" class="trust-trigger" aria-expanded="false" aria-controls="providers-trust-details">
+                <span class="trust-check" aria-hidden="true">✓</span>
+                <span>Multiple Providers</span>
+                <span class="trust-chevron" aria-hidden="true">⌄</span>
+              </button>
+              <div id="providers-trust-details" class="trust-popover">
+                Atlas works with a broad network of major service providers through contracted partnerships. Because we aren’t tied to one provider, we can compare provider-direct rates, promotions, and discounts—including offers that may not be advertised online or in stores—to find the right fit for your business.
+              </div>
+            </div>
 
-    <!-- TRUST STRIP -->
-    <section class="border-y border-white/10 bg-slate-950/55">
-      <div class="container-shell py-6 grid grid-cols-2 lg:grid-cols-4 gap-5 text-center">
-        <div>
-          <p class="font-bold">Multiple Providers</p>
-          <p class="text-sm text-slate-400">More than one path forward</p>
-        </div>
-        <div>
-          <p class="font-bold">No-Cost Review</p>
-          <p class="text-sm text-slate-400">No consulting fee</p>
-        </div>
-        <div>
-          <p class="font-bold">No Pressure</p>
-          <p class="text-sm text-slate-400">Clear advice first</p>
-        </div>
-        <div>
-          <p class="font-bold">One Point of Contact</p>
-          <p class="text-sm text-slate-400">Before and after installation</p>
+            <div class="trust-item">
+              <button type="button" class="trust-trigger" aria-expanded="false" aria-controls="cost-trust-details">
+                <span class="trust-check" aria-hidden="true">✓</span>
+                <span>No Consulting Fee</span>
+                <span class="trust-chevron" aria-hidden="true">⌄</span>
+              </button>
+              <div id="cost-trust-details" class="trust-popover">
+                You never pay Atlas a consulting fee. Our compensation comes from the providers when we help implement a solution.
+              </div>
+            </div>
+
+            <div class="trust-item">
+              <button type="button" class="trust-trigger" aria-expanded="false" aria-controls="pressure-trust-details">
+                <span class="trust-check" aria-hidden="true">✓</span>
+                <span>No Pressure</span>
+                <span class="trust-chevron" aria-hidden="true">⌄</span>
+              </button>
+              <div id="pressure-trust-details" class="trust-popover">
+                We’re not driven by quotas, minimums, or loyalty to one provider. We recommend what genuinely makes sense for your business.
+              </div>
+            </div>
+
+            <div class="trust-item">
+              <button type="button" class="trust-trigger" aria-expanded="false" aria-controls="contact-trust-details">
+                <span class="trust-check" aria-hidden="true">✓</span>
+                <span>One Point of Contact</span>
+                <span class="trust-chevron" aria-hidden="true">⌄</span>
+              </button>
+              <div id="contact-trust-details" class="trust-popover">
+                Use the best provider for each need while maintaining one relationship. Atlas coordinates the process and remains your point of contact for guidance.
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -1651,6 +1736,7 @@
 
       trigger.addEventListener('click',()=>{
         const wasOpen = category.classList.contains('is-open');
+        closeTrustItems();
         closeHeroCategories(category);
         category.classList.toggle('is-open',!wasOpen);
         trigger.setAttribute('aria-expanded',String(!wasOpen));
@@ -1668,6 +1754,43 @@
 
     document.addEventListener('click',event=>{
       if(!event.target.closest('.hero-category')) closeHeroCategories();
+    });
+
+    // Trust details use the same hover, keyboard, and tap behavior as service categories.
+    const trustItems = document.querySelectorAll('.trust-item');
+
+    function closeTrustItems(except){
+      trustItems.forEach(item=>{
+        if(item===except) return;
+        item.classList.remove('is-open');
+        const trigger = item.querySelector('.trust-trigger');
+        if(trigger) trigger.setAttribute('aria-expanded','false');
+      });
+    }
+
+    trustItems.forEach(item=>{
+      const trigger = item.querySelector('.trust-trigger');
+
+      trigger.addEventListener('click',()=>{
+        const wasOpen = item.classList.contains('is-open');
+        closeHeroCategories();
+        closeTrustItems(item);
+        item.classList.toggle('is-open',!wasOpen);
+        trigger.setAttribute('aria-expanded',String(!wasOpen));
+        if(wasOpen) trigger.blur();
+      });
+
+      item.addEventListener('keydown',event=>{
+        if(event.key==='Escape'){
+          item.classList.remove('is-open');
+          trigger.setAttribute('aria-expanded','false');
+          trigger.focus();
+        }
+      });
+    });
+
+    document.addEventListener('click',event=>{
+      if(!event.target.closest('.trust-item')) closeTrustItems();
     });
 
     // Desktop cards respond to the cursor; mobile cards open with a tap.
