@@ -32,21 +32,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Atlas Network Solutions | Business Connectivity Review</title>
-  <meta name="description" content="Atlas Network Solutions reviews your business internet, phones, wireless service, backup connectivity, security, and entertainment to uncover savings and build a more reliable setup.">
+  <title>Atlas Network Solutions | Business Technology Review</title>
+  <meta name="description" content="Atlas Network Solutions reviews your internet, wireless, voice, security, merchant services, and other business technology as one connected system.">
   <meta name="author" content="Atlas Network Solutions">
   <meta name="robots" content="index,follow">
 
-  <meta property="og:title" content="Atlas Network Solutions | Business Connectivity Review">
-  <meta property="og:description" content="A no-cost professional review of your business connectivity, costs, and technology.">
+  <meta property="og:title" content="Atlas Network Solutions | Business Technology Review">
+  <meta property="og:description" content="One no-cost review of the technology your business depends on.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://connectwithatlas.com/">
   <meta property="og:image" content="https://connectwithatlas.com/assets/atlas-og-image.png">
-  <meta property="og:image:alt" content="Atlas Network Solutions business connectivity consultation">
+  <meta property="og:image:alt" content="Atlas Network Solutions business technology consultation">
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Atlas Network Solutions | Business Connectivity Review">
-  <meta name="twitter:description" content="Review your connectivity, reduce unnecessary costs, and build a more reliable business setup.">
+  <meta name="twitter:title" content="Atlas Network Solutions | Business Technology Review">
+  <meta name="twitter:description" content="Review your business technology, reduce unnecessary costs, and build a more reliable setup.">
   <meta name="twitter:image" content="https://connectwithatlas.com/assets/atlas-og-image.png">
 
   <script type="application/ld+json">
@@ -57,7 +57,7 @@
     "url":"https://connectwithatlas.com/",
     "logo":"https://connectwithatlas.com/assets/atlas-logo.png",
     "image":"https://connectwithatlas.com/assets/atlas-og-image.png",
-    "description":"Atlas Network Solutions provides no-cost business connectivity reviews and helps businesses compare internet, VoIP, wireless, backup connectivity, security, and commercial entertainment options.",
+    "description":"Atlas Network Solutions provides no-cost business technology reviews and helps businesses compare internet, VoIP, wireless, backup connectivity, security, merchant services, and commercial entertainment options.",
     "address":{
       "@type":"PostalAddress",
       "addressLocality":"Lancaster",
@@ -155,9 +155,62 @@
     .hero-copy > :nth-child(3){animation-delay:.38s}
     .hero-copy > :nth-child(4){animation-delay:.5s}
     .hero-copy > :nth-child(5){animation-delay:.62s}
+    .hero-copy > :nth-child(6){animation-delay:.74s}
 
     @keyframes heroEnter{
       to{opacity:1;transform:none}
+    }
+
+    .hero-title{
+      max-width:820px;
+      font-size:clamp(2.75rem,5.1vw,4.65rem);
+      line-height:1.01;
+      letter-spacing:-.035em;
+      text-wrap:balance;
+      text-shadow:0 5px 28px rgba(0,0,0,.48);
+    }
+
+    .hero-title .gradient-text{white-space:nowrap}
+
+    .hero-summary{
+      max-width:700px;
+      color:#d7e0ee;
+      font-size:clamp(1.05rem,1.45vw,1.22rem);
+      line-height:1.65;
+      text-shadow:0 2px 18px rgba(0,0,0,.72);
+    }
+
+    .hero-solutions-label{
+      margin-bottom:.7rem;
+      color:#93a4ba;
+      font-size:.72rem;
+      font-weight:800;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+    }
+
+    .hero-trust{
+      display:flex;
+      flex-wrap:wrap;
+      align-items:center;
+      gap:.65rem 1rem;
+      color:#cbd5e1;
+      font-size:.86rem;
+      font-weight:650;
+    }
+
+    .hero-trust span{display:inline-flex;align-items:center;gap:.45rem}
+    .hero-trust span::before{
+      content:'✓';
+      display:grid;
+      place-items:center;
+      width:1.15rem;
+      height:1.15rem;
+      border:1px solid rgba(103,232,249,.42);
+      border-radius:50%;
+      color:#67e8f9;
+      font-size:.68rem;
+      box-shadow:0 0 12px rgba(34,211,238,.12);
     }
 
     .service-ticker{
@@ -710,6 +763,9 @@
     @media (max-width:767px){
       .sticky-cta{display:none}
       .hero-image{background-position:68% center}
+      .hero-title{font-size:clamp(2.45rem,12vw,3.4rem);line-height:1.02}
+      .hero-title .gradient-text{white-space:normal}
+      .hero-summary{font-size:1rem;line-height:1.58}
       .atlas-system{min-height:620px}
       .atlas-system::before{width:360px;height:360px}
       .ecosystem-center{width:122px;height:122px}
@@ -837,26 +893,39 @@
   <main id="top">
 
     <!-- HERO -->
-    <section class="hero-image min-h-[720px] flex items-center pt-28 pb-16">
+    <section class="hero-image min-h-[680px] flex items-center pt-28 pb-14">
       <canvas id="network-canvas" class="network-canvas" aria-hidden="true"></canvas>
       <div class="container-shell w-full">
-        <div class="hero-copy max-w-3xl">
+        <div class="hero-copy max-w-[850px]">
 
-          <p class="eyebrow mb-5">
-            Business Connectivity, Reviewed Differently
+          <p class="eyebrow mb-4">
+            One Review. Every Essential Business System.
           </p>
 
-          <h1 class="orbitron text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.1] mb-6">
-            Your Business May Be
-            <span class="gradient-text">Paying Too Much</span>
-            for Connectivity.
+          <h1 class="hero-title orbitron font-extrabold mb-5">
+            Is Your Business
+            <span class="gradient-text block">Paying Too Much</span>
+            for Technology?
           </h1>
 
-          <p class="text-lg sm:text-xl text-slate-200 leading-relaxed max-w-3xl mb-8">
-            Atlas reviews your internet, phone systems, wireless service, backup connectivity,
-            security, merchant services, and entertainment as one complete setup. We identify unnecessary costs,
-            outdated services, and better options built around how your business actually operates.
+          <p class="hero-summary mb-7">
+            Atlas reviews your internet, wireless, voice, security, merchant services, and more as one connected system—then compares better-fit options and coordinates the change.
           </p>
+
+          <div class="flex flex-col sm:flex-row gap-4 mb-7">
+            <a href="https://tally.so/r/wL2zej"
+               target="_blank"
+               rel="noopener"
+               class="primary-btn">
+              Schedule Your Free Technology Review
+            </a>
+
+            <a href="#ecosystem" class="secondary-btn">
+              See the Atlas Strategy
+            </a>
+          </div>
+
+          <p class="hero-solutions-label">Explore what Atlas reviews</p>
 
           <div class="service-ticker" aria-label="Technology categories reviewed by Atlas">
             <div class="hero-category">
@@ -925,22 +994,11 @@
             </div>
           </div>
 
-          <div class="flex flex-col sm:flex-row gap-4 mb-7">
-            <a href="https://tally.so/r/wL2zej"
-               target="_blank"
-               rel="noopener"
-               class="primary-btn">
-              Schedule a Free Connectivity Review
-            </a>
-
-            <a href="#process" class="secondary-btn">
-              See How It Works
-            </a>
+          <div class="hero-trust" aria-label="Review benefits">
+            <span>No consulting fee</span>
+            <span>No pressure</span>
+            <span>One point of contact</span>
           </div>
-
-          <p class="text-sm text-slate-300">
-            No obligation. No high-pressure sales tactics. Just a professional review and clear recommendations.
-          </p>
         </div>
       </div>
     </section>
@@ -1047,7 +1105,7 @@
 
     <div class="relative reveal reveal-left">
       <img src="assets/bill-review-meeting.png"
-           alt="Business owner and consultant reviewing connectivity bills"
+           alt="Business owner and consultant reviewing technology bills"
            class="w-full h-[420px] object-cover rounded-3xl border border-white/10 shadow-2xl">
 
      
@@ -1453,7 +1511,7 @@
            target="_blank"
            rel="noopener"
            class="primary-btn">
-          Schedule Your Free Connectivity Review
+          Schedule Your Free Technology Review
         </a>
 
         <p class="text-sm text-slate-300 mt-5">
@@ -1479,7 +1537,7 @@
       </p>
 
       <p class="text-slate-400 max-w-xl mx-auto mb-7">
-        Helping businesses reduce unnecessary costs, modernize connectivity,
+        Helping businesses reduce unnecessary costs, modernize technology,
         and manage technology with greater confidence.
       </p>
 
