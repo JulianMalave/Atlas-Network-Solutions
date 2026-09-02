@@ -808,6 +808,207 @@
       pointer-events:auto;
     }
 
+    /* ATLAS FLIGHT-DECK VISUAL SYSTEM */
+    .site-bg{
+      position:relative;
+      background-image:
+        radial-gradient(circle at 50% -10%,rgba(34,211,238,.12),transparent 32%),
+        radial-gradient(circle at 88% 24%,rgba(139,92,246,.11),transparent 26%),
+        linear-gradient(rgba(103,232,249,.022) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(103,232,249,.022) 1px,transparent 1px),
+        linear-gradient(180deg,#070b16 0%,#0b1324 52%,#060a14 100%);
+      background-size:auto,auto,64px 64px,64px 64px,auto;
+    }
+
+    .glass-nav{
+      box-shadow:0 12px 45px rgba(0,0,0,.32),inset 0 -1px rgba(34,211,238,.05);
+    }
+
+    .glass-nav::after{
+      content:'';
+      position:absolute;
+      left:0;
+      bottom:-1px;
+      width:18%;
+      height:1px;
+      background:linear-gradient(90deg,transparent,#22d3ee 50%,#8b5cf6 82%,transparent);
+      filter:drop-shadow(0 0 5px rgba(34,211,238,.9));
+      animation:navSignal 8s linear infinite;
+    }
+
+    @keyframes navSignal{from{transform:translateX(-120%)}to{transform:translateX(660%)}}
+
+    .hero-image{
+      border-bottom:1px solid rgba(103,232,249,.14);
+      box-shadow:inset 0 -55px 80px rgba(3,7,18,.48);
+    }
+
+    .hero-image > .container-shell{position:relative;z-index:2}
+
+    .hero-hud{
+      position:absolute;
+      inset:6.6rem max(1.4rem,calc((100vw - 1200px)/2)) 2.1rem;
+      z-index:0;
+      pointer-events:none;
+      opacity:.62;
+      border-top:1px solid rgba(103,232,249,.12);
+      border-bottom:1px solid rgba(103,232,249,.08);
+      background:
+        linear-gradient(#22d3ee,#22d3ee) left top/64px 1px no-repeat,
+        linear-gradient(#22d3ee,#22d3ee) left top/1px 64px no-repeat,
+        linear-gradient(#8b5cf6,#8b5cf6) right top/64px 1px no-repeat,
+        linear-gradient(#8b5cf6,#8b5cf6) right top/1px 64px no-repeat,
+        linear-gradient(#22d3ee,#22d3ee) left bottom/44px 1px no-repeat,
+        linear-gradient(#22d3ee,#22d3ee) left bottom/1px 44px no-repeat,
+        linear-gradient(#8b5cf6,#8b5cf6) right bottom/44px 1px no-repeat,
+        linear-gradient(#8b5cf6,#8b5cf6) right bottom/1px 44px no-repeat;
+      filter:drop-shadow(0 0 10px rgba(34,211,238,.12));
+    }
+
+    .hero-hud::before{
+      content:'';
+      position:absolute;
+      top:0;
+      bottom:0;
+      width:18%;
+      background:linear-gradient(90deg,transparent,rgba(34,211,238,.055),rgba(103,232,249,.14),rgba(34,211,238,.055),transparent);
+      transform:skewX(-11deg);
+      animation:heroScan 8.5s ease-in-out infinite;
+    }
+
+    .hero-hud::after{
+      content:'';
+      position:absolute;
+      left:0;right:0;top:52%;
+      height:1px;
+      background:linear-gradient(90deg,rgba(34,211,238,.28),transparent 24%,transparent 75%,rgba(139,92,246,.24));
+    }
+
+    @keyframes heroScan{0%,12%{left:-24%;opacity:0}25%{opacity:.75}68%{opacity:.45}88%,100%{left:106%;opacity:0}}
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:.72rem;
+      text-shadow:0 0 18px rgba(34,211,238,.26);
+    }
+
+    .eyebrow::before{
+      content:'';
+      width:1.7rem;
+      height:.42rem;
+      border-left:2px solid #67e8f9;
+      border-right:7px solid #67e8f9;
+      background:linear-gradient(90deg,rgba(34,211,238,.14),rgba(34,211,238,.65));
+      box-shadow:0 0 12px rgba(34,211,238,.26);
+      transform:skewX(-24deg);
+    }
+
+    .hero-title{
+      filter:drop-shadow(0 0 22px rgba(34,211,238,.055));
+    }
+
+    .primary-btn,.secondary-btn{
+      border-radius:0;
+      clip-path:polygon(12px 0,calc(100% - 12px) 0,100% 12px,100% calc(100% - 12px),calc(100% - 12px) 100%,12px 100%,0 calc(100% - 12px),0 12px);
+      letter-spacing:.01em;
+    }
+
+    .primary-btn{
+      background:linear-gradient(110deg,#67e8f9 0%,#22d3ee 48%,#0ea5c6 100%);
+      box-shadow:0 0 0 1px rgba(103,232,249,.16),0 12px 35px rgba(34,211,238,.22),inset 0 1px rgba(255,255,255,.38);
+    }
+
+    .secondary-btn{
+      background:linear-gradient(135deg,rgba(7,11,22,.88),rgba(20,28,50,.72));
+      box-shadow:inset 0 0 18px rgba(34,211,238,.035);
+    }
+
+    .category-trigger,.trust-trigger{
+      border-radius:.5rem 1rem .5rem 1rem;
+      border-color:rgba(103,232,249,.16);
+      background:linear-gradient(135deg,rgba(7,11,22,.82),rgba(17,26,45,.66));
+      box-shadow:inset 0 1px rgba(255,255,255,.035);
+    }
+
+    .category-popover,.trust-popover{
+      border-radius:.55rem 1.3rem .55rem 1.3rem;
+      background:
+        linear-gradient(90deg,#22d3ee,#8b5cf6) top left/42% 1px no-repeat,
+        linear-gradient(145deg,rgba(9,16,31,.985),rgba(5,10,21,.985));
+      box-shadow:0 24px 65px rgba(0,0,0,.55),0 0 34px rgba(34,211,238,.10),inset 0 0 32px rgba(34,211,238,.025);
+    }
+
+    .soft-panel,.service-card,.process-card,.industry-card{
+      border-radius:.55rem 1.65rem .55rem 1.65rem;
+      border-color:rgba(103,232,249,.11);
+      box-shadow:0 22px 65px rgba(0,0,0,.18),inset 0 1px rgba(255,255,255,.035);
+    }
+
+    .service-card::after{
+      content:'';
+      position:absolute;
+      z-index:4;
+      top:0;left:0;
+      width:36%;height:1px;
+      background:linear-gradient(90deg,#22d3ee,#8b5cf6,transparent);
+      box-shadow:0 0 12px rgba(34,211,238,.36);
+      opacity:.42;
+      transition:width .4s ease,opacity .3s ease;
+    }
+
+    .service-card:hover::after,.service-card.is-open::after{width:78%;opacity:1}
+
+    .number-badge{
+      border-radius:.35rem .85rem .35rem .85rem;
+      box-shadow:0 0 22px rgba(34,211,238,.10),inset 0 0 12px rgba(34,211,238,.08);
+    }
+
+    .atlas-system{
+      border-radius:.65rem 2.4rem .65rem 2.4rem;
+      border-color:rgba(103,232,249,.18);
+      background:
+        linear-gradient(rgba(103,232,249,.028) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(103,232,249,.028) 1px,transparent 1px),
+        radial-gradient(circle at center,rgba(34,211,238,.17),transparent 35%),
+        radial-gradient(circle at 72% 18%,rgba(139,92,246,.13),transparent 27%),
+        rgba(5,10,21,.88);
+      background-size:38px 38px,38px 38px,auto,auto,auto;
+      box-shadow:inset 0 0 105px rgba(0,0,0,.5),inset 0 0 35px rgba(34,211,238,.035),0 34px 90px rgba(0,0,0,.32),0 0 42px rgba(34,211,238,.045);
+    }
+
+    .system-sweep{
+      position:absolute;
+      z-index:1;
+      width:470px;
+      height:470px;
+      border-radius:50%;
+      background:conic-gradient(from 0deg,transparent 0deg,transparent 322deg,rgba(34,211,238,.025) 334deg,rgba(103,232,249,.18) 359deg,transparent 360deg);
+      -webkit-mask:radial-gradient(circle,transparent 0 27%,#000 28% 74%,transparent 75%);
+      mask:radial-gradient(circle,transparent 0 27%,#000 28% 74%,transparent 75%);
+      animation:systemSweep 9s linear infinite;
+      pointer-events:none;
+    }
+
+    @keyframes systemSweep{to{transform:rotate(360deg)}}
+
+    .system-corners{position:absolute;inset:18px;z-index:5;pointer-events:none}
+    .system-corners span{position:absolute;width:48px;height:48px;opacity:.78;filter:drop-shadow(0 0 7px rgba(34,211,238,.2))}
+    .system-corners span:nth-child(1){left:0;top:0;border-left:2px solid #22d3ee;border-top:2px solid #22d3ee}
+    .system-corners span:nth-child(2){right:0;top:0;border-right:2px solid #8b5cf6;border-top:2px solid #8b5cf6}
+    .system-corners span:nth-child(3){left:0;bottom:0;border-left:2px solid #22d3ee;border-bottom:2px solid #22d3ee}
+    .system-corners span:nth-child(4){right:0;bottom:0;border-right:2px solid #8b5cf6;border-bottom:2px solid #8b5cf6}
+
+    .ecosystem-icon{
+      border-radius:.45rem 1rem .45rem 1rem;
+      transform:rotate(0deg);
+      background:linear-gradient(145deg,rgba(34,211,238,.17),rgba(7,13,27,.96) 68%);
+    }
+
+    .process-line{
+      background:repeating-linear-gradient(90deg,rgba(103,232,249,.13) 0 16px,transparent 16px 25px);
+    }
+
     @media (max-width:900px){
       .hero-image{
         background-image:
@@ -818,6 +1019,7 @@
 
       .service-toggle{display:inline-flex}
       .atlas-system{min-height:500px}
+      .hero-hud{inset:6.3rem 1rem 1.4rem;opacity:.42}
       .ecosystem-node{width:120px;font-size:.74rem}
     }
 
@@ -835,6 +1037,9 @@
       .trust-popover{left:0!important;right:0!important;width:auto}
       .atlas-system{min-height:620px}
       .atlas-system::before{width:360px;height:360px}
+      .system-sweep{width:390px;height:390px}
+      .system-corners{inset:11px}
+      .system-corners span{width:30px;height:30px}
       .ecosystem-center{width:122px;height:122px}
       .ecosystem-logo-frame{width:76px;height:76px}
       .ecosystem-node{width:108px;font-size:.7rem;gap:.5rem}
@@ -962,6 +1167,7 @@
     <!-- HERO -->
     <section class="hero-image min-h-[680px] flex items-center pt-28 pb-14">
       <canvas id="network-canvas" class="network-canvas" aria-hidden="true"></canvas>
+      <div class="hero-hud" aria-hidden="true"></div>
       <div class="container-shell w-full">
         <div class="hero-copy max-w-[850px]">
 
@@ -1117,17 +1323,19 @@
           <div class="reveal reveal-left">
             <p class="eyebrow mb-4">One Connected Strategy</p>
             <h2 class="orbitron text-3xl sm:text-4xl font-bold leading-tight mb-6">
-              Your technology works better when someone sees the whole system.
+              One partner for the technology that keeps your business running.
             </h2>
             <p class="text-lg text-slate-300 leading-relaxed mb-5">
-              Internet, wireless, voice, security, merchant services, and commercial TV are not separate decisions. Each one affects how your people communicate, how customers reach you, and how your business keeps moving.
+              Your internet, wireless, phones, security, payments, and other essential technology may come from different providers—but they all support the same business.
             </p>
             <p class="text-lg text-slate-300 leading-relaxed">
-              Atlas connects the pieces, compares the right options, and gives you one point of contact from review through implementation.
+              <strong class="text-white">Atlas brings those pieces together.</strong> We help you compare providers, identify better options, coordinate implementation, and give you one point of contact across your technology needs.
             </p>
           </div>
 
           <div class="atlas-system reveal reveal-right" aria-label="Atlas connects six business technology categories">
+            <div class="system-sweep" aria-hidden="true"></div>
+            <div class="system-corners" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
             <svg class="ecosystem-svg" viewBox="0 0 1000 560" preserveAspectRatio="none" aria-hidden="true">
               <line class="ecosystem-line" x1="500" y1="280" x2="160" y2="120"></line>
               <line class="ecosystem-line" x1="500" y1="280" x2="840" y2="120"></line>
