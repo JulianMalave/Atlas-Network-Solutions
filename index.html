@@ -317,7 +317,7 @@
     }
 
     .category-trigger::after{
-      content:'⌄';
+      content:'↘';
       color:#67e8f9;
       font-size:.82rem;
       line-height:1;
@@ -340,7 +340,7 @@
 
     .hero-category:hover .category-trigger::after,
     .hero-category:focus-within .category-trigger::after,
-    .hero-category.is-open .category-trigger::after{transform:rotate(180deg)}
+    .hero-category.is-open .category-trigger::after{transform:translate(2px,2px)}
 
     .category-popover{
       position:absolute;
@@ -528,6 +528,66 @@
       font-size:.72rem;
       font-weight:700;
     }
+
+    .service-option-list{
+      display:grid;
+      gap:.68rem;
+      color:#c7d2e2;
+      font-size:.9rem;
+      line-height:1.4;
+    }
+
+    .service-option-list li{
+      position:relative;
+      padding-left:1.15rem;
+    }
+
+    .service-option-list li::before{
+      content:'›';
+      position:absolute;
+      left:0;
+      color:#67e8f9;
+      font-weight:900;
+      text-shadow:0 0 10px rgba(34,211,238,.5);
+    }
+
+    .merchant-visual{
+      position:relative;
+      display:grid;
+      place-items:center;
+      overflow:hidden;
+      color:#67e8f9;
+      background:
+        radial-gradient(circle at 50% 48%,rgba(34,211,238,.22),transparent 24%),
+        linear-gradient(rgba(103,232,249,.055) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(103,232,249,.055) 1px,transparent 1px),
+        linear-gradient(145deg,#0d1a2c,#060b16 72%);
+      background-size:auto,28px 28px,28px 28px,auto;
+    }
+
+    .merchant-visual::after{
+      content:'';
+      position:absolute;
+      width:230px;height:230px;
+      border:1px solid rgba(103,232,249,.13);
+      border-radius:50%;
+      box-shadow:0 0 42px rgba(34,211,238,.08),inset 0 0 34px rgba(34,211,238,.04);
+    }
+
+    .merchant-terminal{
+      position:relative;
+      z-index:2;
+      display:grid;
+      place-items:center;
+      width:86px;height:86px;
+      border:1px solid rgba(103,232,249,.32);
+      border-radius:.55rem 1.35rem .55rem 1.35rem;
+      background:rgba(7,15,29,.82);
+      box-shadow:0 0 34px rgba(34,211,238,.2),inset 0 0 22px rgba(34,211,238,.06);
+    }
+
+    .merchant-terminal svg{width:52px;height:52px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+    .merchant-visual > span{position:absolute;z-index:2;bottom:1rem;font-family:'Orbitron',sans-serif;font-size:.63rem;font-weight:800;letter-spacing:.16em;color:#8aa2bb}
 
     .service-toggle{
       display:none;
@@ -946,6 +1006,16 @@
 
     .service-card:hover::after,.service-card.is-open::after{width:78%;opacity:1}
 
+    .service-card[id]{scroll-margin-top:6.5rem}
+
+    .service-card.service-target-flash{
+      border-color:rgba(103,232,249,.72);
+      box-shadow:0 22px 65px rgba(0,0,0,.26),0 0 0 1px rgba(34,211,238,.18),0 0 44px rgba(34,211,238,.22),inset 0 0 30px rgba(34,211,238,.055);
+      animation:serviceTargetFlash 1.4s ease both;
+    }
+
+    @keyframes serviceTargetFlash{0%{transform:translateY(0)}35%{transform:translateY(-5px)}100%{transform:translateY(0)}}
+
     .number-badge{
       border-radius:.35rem .85rem .35rem .85rem;
       box-shadow:0 0 22px rgba(34,211,238,.10),inset 0 0 12px rgba(34,211,238,.08);
@@ -1038,10 +1108,7 @@
       .process-line{display:none}
       .reveal.reveal-left,.reveal.reveal-right{transform:translateY(26px)}
       .hero-category{position:static}
-      .category-popover{left:0;right:0;width:auto;transform:translateY(8px)}
-      .hero-category:hover .category-popover,
-      .hero-category:focus-within .category-popover,
-      .hero-category.is-open .category-popover{transform:none}
+      .category-popover{display:none}
     }
 
     @media (prefers-reduced-motion:reduce){
@@ -1189,68 +1256,23 @@
 
           <div class="service-ticker" aria-label="Technology categories reviewed by Atlas">
             <div class="hero-category">
-              <button type="button" class="category-trigger" aria-expanded="false" aria-controls="internet-options">Internet</button>
-              <div id="internet-options" class="category-popover">
-                <p class="category-popover-title">Business Internet</p>
-                <ul>
-                  <li>Fiber-optic internet</li>
-                  <li>Dedicated internet access</li>
-                  <li>Cable and broadband options</li>
-                  <li>Fixed wireless and 5G backup</li>
-                </ul>
-              </div>
+              <a href="#service-internet" class="category-trigger" data-service-target="service-internet">Internet</a>
             </div>
 
             <div class="hero-category">
-              <button type="button" class="category-trigger" aria-expanded="false" aria-controls="wireless-options">Wireless</button>
-              <div id="wireless-options" class="category-popover">
-                <p class="category-popover-title">Business Wireless</p>
-                <ul>
-                  <li>Major-carrier plan comparisons</li>
-                  <li>Bring-your-own-device options</li>
-                  <li>New devices and upgrades</li>
-                  <li>Coverage and cost reviews</li>
-                </ul>
-              </div>
+              <a href="#service-wireless" class="category-trigger" data-service-target="service-wireless">Wireless</a>
             </div>
 
             <div class="hero-category">
-              <button type="button" class="category-trigger" aria-expanded="false" aria-controls="voice-options">Voice</button>
-              <div id="voice-options" class="category-popover">
-                <p class="category-popover-title">Modern Voice Solutions</p>
-                <ul>
-                  <li>Cloud-based VoIP systems</li>
-                  <li>Auto attendants and call routing</li>
-                  <li>Desktop and mobile calling apps</li>
-                  <li>AI voice agents and automation</li>
-                </ul>
-              </div>
+              <a href="#service-voice" class="category-trigger" data-service-target="service-voice">Voice</a>
             </div>
 
             <div class="hero-category">
-              <button type="button" class="category-trigger" aria-expanded="false" aria-controls="security-options">Security</button>
-              <div id="security-options" class="category-popover">
-                <p class="category-popover-title">Security & Surveillance</p>
-                <ul>
-                  <li>Video surveillance systems</li>
-                  <li>Access control</li>
-                  <li>Intrusion alarms</li>
-                  <li>Professional monitoring</li>
-                </ul>
-              </div>
+              <a href="#service-security" class="category-trigger" data-service-target="service-security">Security</a>
             </div>
 
             <div class="hero-category">
-              <button type="button" class="category-trigger" aria-expanded="false" aria-controls="merchant-options">Merchant Services</button>
-              <div id="merchant-options" class="category-popover">
-                <p class="category-popover-title">Payments & Processing</p>
-                <ul>
-                  <li>Payment processing</li>
-                  <li>Point-of-sale solutions</li>
-                  <li>Mobile and online payments</li>
-                  <li>Processing-rate reviews</li>
-                </ul>
-              </div>
+              <a href="#service-merchant" class="category-trigger" data-service-target="service-merchant">Merchant Services</a>
             </div>
           </div>
 
@@ -1451,7 +1473,7 @@
 
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 stagger">
 
-      <article class="service-card rounded-2xl reveal">
+      <article id="service-internet" class="service-card rounded-2xl reveal">
         <div class="overflow-hidden">
           <img src="assets/business-internet.png"
                alt="Clean business network rack and fiber internet infrastructure"
@@ -1459,37 +1481,35 @@
         </div>
         <div class="service-card-body p-6">
           <h3 class="text-xl font-bold text-cyan-300 mb-2">Business Internet</h3>
-          <p class="text-slate-400">
-            Compare available fiber, cable, and wireless options to improve performance,
-            reliability, and cost.
-          </p>
-          <div class="service-details"><div class="service-tags" aria-label="Business Internet options">
-            <span>Fiber</span><span>Cable</span><span>Dedicated</span><span>Fixed Wireless</span>
-          </div></div>
-          <button type="button" class="service-toggle" aria-expanded="false">Explore options +</button>
+          <p class="text-slate-400 mb-4">Solutions we can review and compare:</p>
+          <ul class="service-option-list">
+            <li>Fiber-optic internet</li>
+            <li>Dedicated internet access</li>
+            <li>Cable and broadband options</li>
+            <li>Fixed wireless and 5G backup</li>
+          </ul>
         </div>
       </article>
 
-      <article class="service-card rounded-2xl reveal">
+      <article id="service-voice" class="service-card rounded-2xl reveal">
         <div class="overflow-hidden">
           <img src="assets/voip-office.png"
                alt="Office employee using a modern VoIP phone system"
                class="w-full h-56 object-cover">
         </div>
         <div class="service-card-body p-6">
-          <h3 class="text-xl font-bold text-cyan-300 mb-2">VoIP & Phone Systems</h3>
-          <p class="text-slate-400">
-            Modernize aging phone systems with flexible calling solutions built around
-            how your team communicates.
-          </p>
-          <div class="service-details"><div class="service-tags" aria-label="Voice system options">
-            <span>Cloud VoIP</span><span>Auto Attendant</span><span>Mobile App</span><span>Call Routing</span>
-          </div></div>
-          <button type="button" class="service-toggle" aria-expanded="false">Explore options +</button>
+          <h3 class="text-xl font-bold text-cyan-300 mb-2">Modern Voice Solutions</h3>
+          <p class="text-slate-400 mb-4">Solutions we can review and compare:</p>
+          <ul class="service-option-list">
+            <li>Cloud-based VoIP systems</li>
+            <li>Auto attendants and call routing</li>
+            <li>Desktop and mobile calling apps</li>
+            <li>AI voice agents and automation</li>
+          </ul>
         </div>
       </article>
 
-      <article class="service-card rounded-2xl reveal">
+      <article id="service-wireless" class="service-card rounded-2xl reveal">
         <div class="overflow-hidden">
           <img src="assets/business-wireless.png"
                alt="Business manager using a smartphone and tablet"
@@ -1497,37 +1517,36 @@
         </div>
         <div class="service-card-body p-6">
           <h3 class="text-xl font-bold text-cyan-300 mb-2">Business Wireless</h3>
-          <p class="text-slate-400">
-            Review plans, devices, coverage, and costs to make sure your wireless setup
-            still fits your business.
-          </p>
-          <div class="service-details"><div class="service-tags" aria-label="Business Wireless options">
-            <span>Plans</span><span>Devices</span><span>BYOD</span><span>Coverage</span>
-          </div></div>
-          <button type="button" class="service-toggle" aria-expanded="false">Explore options +</button>
+          <p class="text-slate-400 mb-4">Solutions we can review and compare:</p>
+          <ul class="service-option-list">
+            <li>Major-carrier plan comparisons</li>
+            <li>Bring-your-own-device options</li>
+            <li>New devices and upgrades</li>
+            <li>Coverage and cost reviews</li>
+          </ul>
         </div>
       </article>
 
-      <article class="service-card rounded-2xl reveal">
-        <div class="overflow-hidden">
-          <img src="assets/backup-internet.png"
-               alt="Business network equipment supporting backup internet"
-               class="w-full h-56 object-cover">
+      <article id="service-merchant" class="service-card rounded-2xl reveal">
+        <div class="merchant-visual h-56" aria-hidden="true">
+          <div class="merchant-terminal">
+            <svg viewBox="0 0 64 64"><rect x="12" y="8" width="40" height="48" rx="7"></rect><path d="M19 17h26v20H19zM22 46h4m5 0h4m5 0h4"></path><path d="M32 24c-4.8 0-7 1.9-7 4.2 0 2.6 2.5 3.7 7 3.7s7 1.1 7 3.7c0 2.3-2.2 4.2-7 4.2m0-15.8v-3m0 21.8v-3"></path></svg>
+          </div>
+          <span>PAYMENTS // CONNECTED</span>
         </div>
         <div class="service-card-body p-6">
-          <h3 class="text-xl font-bold text-cyan-300 mb-2">5G Backup Internet</h3>
-          <p class="text-slate-400">
-            Protect critical operations with backup connectivity designed to keep your
-            business moving when the primary connection goes down.
-          </p>
-          <div class="service-details"><div class="service-tags" aria-label="Backup Internet options">
-            <span>5G Failover</span><span>Automatic Switch</span><span>Continuity</span>
-          </div></div>
-          <button type="button" class="service-toggle" aria-expanded="false">Explore options +</button>
+          <h3 class="text-xl font-bold text-cyan-300 mb-2">Payments &amp; Processing</h3>
+          <p class="text-slate-400 mb-4">Solutions we can review and compare:</p>
+          <ul class="service-option-list">
+            <li>Payment processing</li>
+            <li>Point-of-sale solutions</li>
+            <li>Mobile and online payments</li>
+            <li>Processing-rate reviews</li>
+          </ul>
         </div>
       </article>
 
-      <article class="service-card rounded-2xl reveal">
+      <article id="service-security" class="service-card rounded-2xl reveal">
         <div class="overflow-hidden">
           <img src="assets/business-security.png"
                alt="Commercial security cameras and surveillance monitoring"
@@ -1535,18 +1554,17 @@
         </div>
         <div class="service-card-body p-6">
           <h3 class="text-xl font-bold text-cyan-300 mb-2">Security & Surveillance</h3>
-          <p class="text-slate-400">
-            Evaluate cameras, monitoring, alarms, and access solutions to improve visibility
-            and protect your property.
-          </p>
-          <div class="service-details"><div class="service-tags" aria-label="Security options">
-            <span>Cameras</span><span>Access Control</span><span>Alarms</span><span>Monitoring</span>
-          </div></div>
-          <button type="button" class="service-toggle" aria-expanded="false">Explore options +</button>
+          <p class="text-slate-400 mb-4">Solutions we can review and compare:</p>
+          <ul class="service-option-list">
+            <li>Video surveillance systems</li>
+            <li>Access control</li>
+            <li>Intrusion alarms</li>
+            <li>Professional monitoring</li>
+          </ul>
         </div>
       </article>
 
-      <article class="service-card rounded-2xl reveal">
+      <article id="service-tv" class="service-card rounded-2xl reveal">
         <div class="overflow-hidden">
           <img src="assets/commercial-tv.png"
                alt="Modern sports bar with multiple commercial televisions"
@@ -1914,44 +1932,22 @@
       }
     }
 
-    // Hero categories open on hover/focus and also support tap interaction.
-    const heroCategories = document.querySelectorAll('.hero-category');
+    // Hero service shortcuts jump to and identify the matching card on every screen size.
+    document.querySelectorAll('[data-service-target]').forEach(shortcut=>{
+      shortcut.addEventListener('click',event=>{
+        const target = document.getElementById(shortcut.dataset.serviceTarget);
+        if(!target) return;
 
-    function closeHeroCategories(except){
-      heroCategories.forEach(category=>{
-        if(category===except) return;
-        category.classList.remove('is-open');
-        const trigger = category.querySelector('.category-trigger');
-        if(trigger) trigger.setAttribute('aria-expanded','false');
-      });
-    }
-
-    heroCategories.forEach(category=>{
-      const trigger = category.querySelector('.category-trigger');
-
-      trigger.addEventListener('click',()=>{
-        const wasOpen = category.classList.contains('is-open');
+        event.preventDefault();
         closeTrustItems();
-        closeHeroCategories(category);
-        category.classList.toggle('is-open',!wasOpen);
-        trigger.setAttribute('aria-expanded',String(!wasOpen));
-        if(wasOpen) trigger.blur();
-      });
-
-      category.addEventListener('keydown',event=>{
-        if(event.key==='Escape'){
-          category.classList.remove('is-open');
-          trigger.setAttribute('aria-expanded','false');
-          trigger.focus();
-        }
+        target.classList.remove('service-target-flash');
+        target.scrollIntoView({behavior:reducedMotion ? 'auto' : 'smooth',block:'start'});
+        requestAnimationFrame(()=>target.classList.add('service-target-flash'));
+        window.setTimeout(()=>target.classList.remove('service-target-flash'),1500);
       });
     });
 
-    document.addEventListener('click',event=>{
-      if(!event.target.closest('.hero-category')) closeHeroCategories();
-    });
-
-    // Trust details use the same hover, keyboard, and tap behavior as service categories.
+    // Trust details retain hover, keyboard, and tap behavior.
     const trustItems = document.querySelectorAll('.trust-item');
 
     function closeTrustItems(except){
@@ -1968,7 +1964,6 @@
 
       trigger.addEventListener('click',()=>{
         const wasOpen = item.classList.contains('is-open');
-        closeHeroCategories();
         closeTrustItems(item);
         item.classList.toggle('is-open',!wasOpen);
         trigger.setAttribute('aria-expanded',String(!wasOpen));
