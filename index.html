@@ -839,7 +839,7 @@
     @keyframes navSignal{from{transform:translateX(-120%)}to{transform:translateX(660%)}}
 
     .hero-image{
-      border-bottom:1px solid rgba(103,232,249,.14);
+      border-bottom:0;
       box-shadow:inset 0 -55px 80px rgba(3,7,18,.48);
     }
 
@@ -850,19 +850,10 @@
       inset:6.6rem max(1.4rem,calc((100vw - 1200px)/2)) 2.1rem;
       z-index:0;
       pointer-events:none;
-      opacity:.62;
-      border-top:1px solid rgba(103,232,249,.12);
-      border-bottom:1px solid rgba(103,232,249,.08);
-      background:
-        linear-gradient(#22d3ee,#22d3ee) left top/64px 1px no-repeat,
-        linear-gradient(#22d3ee,#22d3ee) left top/1px 64px no-repeat,
-        linear-gradient(#8b5cf6,#8b5cf6) right top/64px 1px no-repeat,
-        linear-gradient(#8b5cf6,#8b5cf6) right top/1px 64px no-repeat,
-        linear-gradient(#22d3ee,#22d3ee) left bottom/44px 1px no-repeat,
-        linear-gradient(#22d3ee,#22d3ee) left bottom/1px 44px no-repeat,
-        linear-gradient(#8b5cf6,#8b5cf6) right bottom/44px 1px no-repeat,
-        linear-gradient(#8b5cf6,#8b5cf6) right bottom/1px 44px no-repeat;
-      filter:drop-shadow(0 0 10px rgba(34,211,238,.12));
+      opacity:.52;
+      border:0;
+      background:none;
+      filter:none;
     }
 
     .hero-hud::before{
@@ -877,11 +868,7 @@
     }
 
     .hero-hud::after{
-      content:'';
-      position:absolute;
-      left:0;right:0;top:52%;
-      height:1px;
-      background:linear-gradient(90deg,rgba(34,211,238,.28),transparent 24%,transparent 75%,rgba(139,92,246,.24));
+      content:none;
     }
 
     @keyframes heroScan{0%,12%{left:-24%;opacity:0}25%{opacity:.75}68%{opacity:.45}88%,100%{left:106%;opacity:0}}
