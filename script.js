@@ -21,3 +21,6 @@ const interest = new URLSearchParams(window.location.search).get('interest');
 if (interest === 'residential' || interest === 'business') {
   document.querySelector('#' + interest + '-choice')?.classList.add('selected');
 }
+
+/* Direct residential/business CTAs to their matching embedded form. */
+(function(){if(!document.querySelector('.atlas-intake-section'))return;const params=new URLSearchParams(location.search);const interest=params.get('interest');if(interest==='business'||interest==='residential'){const target=document.getElementById(interest+'-form');if(target){requestAnimationFrame(()=>target.scrollIntoView({behavior:'auto',block:'start'}));}}})();
